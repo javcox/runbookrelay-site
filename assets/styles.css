@@ -76,11 +76,57 @@ a {
   color: #dfe8f6;
 }
 
-.brand-logo {
+.brand-glyph {
+  position: relative;
+  display: inline-flex;
+  width: 50px;
+  height: 28px;
+}
+
+.brand-glyph-track {
+  position: absolute;
+  inset: 0;
+  margin: auto 0;
+  height: 8px;
+  border-radius: 999px;
+}
+
+.brand-glyph-track-light {
+  width: 30px;
+  left: 0;
+  background: linear-gradient(90deg, #c7cfdd, #eef3fa);
+  clip-path: polygon(0 0, 74% 0, 100% 50%, 74% 100%, 0 100%, 18% 50%);
+}
+
+.brand-glyph-track-accent {
+  width: 34px;
+  right: 0;
+  background: linear-gradient(90deg, #0e8494, #47dcc9);
+  clip-path: polygon(0 50%, 20% 0, 78% 0, 100% 50%, 78% 100%, 20% 100%);
+}
+
+.brand-wordmark {
+  display: grid;
+  gap: 2px;
+  line-height: 1;
+}
+
+.brand-wordmark strong,
+.brand-wordmark small {
   display: block;
-  width: 170px;
-  height: auto;
-  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.22));
+}
+
+.brand-wordmark strong {
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.brand-wordmark small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .topnav {
@@ -334,67 +380,70 @@ p {
   text-transform: uppercase;
 }
 
-.cover-system {
+.cover-title {
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+  font-size: 1.6rem;
+  line-height: 1.12;
+}
+
+.cover-routes {
   position: relative;
   z-index: 1;
   display: grid;
   gap: 12px;
-  margin: 22px 0 18px;
+  margin: 20px 0 18px;
 }
 
-.cover-system-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.cover-system-row-offset {
-  padding-left: 24px;
-}
-
-.cover-node {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60px;
-  padding: 12px 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(137, 156, 198, 0.16);
-  background: rgba(255, 255, 255, 0.04);
-  color: #eef5ff;
-  font-family: "Space Grotesk", "Manrope", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-align: center;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.cover-node-primary {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-}
-
-.cover-node-accent {
-  border-color: rgba(71, 220, 201, 0.26);
-  background: linear-gradient(135deg, rgba(71, 220, 201, 0.18), rgba(71, 220, 201, 0.06));
-  color: #ebfffb;
-}
-
-.cover-system-path {
-  display: flex;
-  justify-content: center;
-}
-
-.cover-system-path span {
-  width: 72%;
-  height: 8px;
+.cover-route {
+  display: block;
+  width: 100%;
+  height: 10px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.5));
+  opacity: 0.95;
   transform-origin: left center;
   animation: flowPulse 2.8s ease-in-out infinite;
 }
 
-.cover-system-path-accent span {
-  background: linear-gradient(90deg, rgba(71, 220, 201, 0.2), rgba(71, 220, 201, 0.95));
+.cover-route-light {
+  width: 78%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(221, 228, 240, 0.6));
+}
+
+.cover-route-accent {
+  width: 88%;
+  margin-left: auto;
+  background: linear-gradient(90deg, rgba(71, 220, 201, 0.16), rgba(71, 220, 201, 0.95));
+  animation-delay: 0.34s;
+}
+
+.cover-strip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-top: 4px;
+}
+
+.cover-strip-item {
+  display: grid;
+  gap: 6px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(137, 156, 198, 0.2);
+}
+
+.cover-strip-item strong {
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  font-size: 0.98rem;
+  color: #eef5ff;
+}
+
+.cover-strip-item span {
+  color: var(--muted);
+  font-size: 0.84rem;
 }
 
 .cover-copy {
@@ -771,16 +820,12 @@ details p {
     grid-template-columns: 1fr;
   }
 
-  .cover-system-row {
+  .cover-strip {
     grid-template-columns: 1fr;
   }
 
-  .cover-system-row-offset {
-    padding-left: 0;
-  }
-
-  .brand-logo {
-    width: 150px;
+  .brand-wordmark small {
+    display: none;
   }
 
   .hero-card,
