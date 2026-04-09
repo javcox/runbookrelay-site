@@ -3,7 +3,7 @@ window.RUNBOOK_RELAY_CONFIG = {
   businessName: "Runbook Relay",
   calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
   analytics: {
-    ga4MeasurementId: "G-XXXXXXXXXX",
+    ga4MeasurementId: "G-ZFQPBPZYZ7",
     posthogApiKey: "",
     posthogApiHost: "https://us.i.posthog.com",
     clarityProjectId: "",
