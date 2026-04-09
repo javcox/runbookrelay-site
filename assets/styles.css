@@ -5,6 +5,7 @@
   --panel-strong: rgba(16, 25, 41, 0.96);
   --panel-soft: rgba(255, 255, 255, 0.04);
   --text: #f4f7fb;
+  --text-soft: #dce8f7;
   --muted: #afbdd4;
   --line: rgba(137, 156, 198, 0.18);
   --line-strong: rgba(137, 156, 198, 0.3);
@@ -484,7 +485,6 @@ details {
 
 .mini-card p,
 .panel p,
-.panel li,
 details p,
 .section-head p,
 .footer {
@@ -652,12 +652,16 @@ ul.clean {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 
 ul.clean li {
   position: relative;
   padding-left: 24px;
+  color: var(--text-soft);
+  font-size: 1.04rem;
+  font-weight: 560;
+  line-height: 1.72;
 }
 
 ul.clean li::before {
