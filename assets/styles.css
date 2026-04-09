@@ -234,8 +234,9 @@ p {
 .hero-lead {
   margin-top: 20px;
   max-width: 58ch;
-  font-size: 1.09rem;
-  color: var(--text-soft);
+  font-size: 1.16rem;
+  line-height: 1.78;
+  color: #dfeaf8;
 }
 
 .hero-copy {
@@ -321,8 +322,10 @@ p {
 
 .hero-note {
   margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.96rem;
+  color: #d8e5f6;
+  font-size: 1rem;
+  line-height: 1.72;
+  max-width: 56ch;
 }
 
 .trust-inline {
@@ -462,8 +465,10 @@ p {
 .cover-copy {
   position: relative;
   z-index: 1;
-  color: var(--muted);
+  color: #d7e5f6;
   margin-top: 14px;
+  font-size: 1.02rem;
+  line-height: 1.74;
 }
 
 .mini-card,
