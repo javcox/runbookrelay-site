@@ -424,7 +424,7 @@ p {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-bottom: 18px;
+  margin: 18px 0 24px;
   padding-top: 4px;
 }
 
@@ -450,6 +450,7 @@ p {
   position: relative;
   z-index: 1;
   color: var(--muted);
+  margin-top: 8px;
 }
 
 .mini-card,
@@ -466,6 +467,14 @@ details {
 .panel,
 details {
   padding: 24px;
+}
+
+.mini-card h3 {
+  margin-bottom: 16px;
+}
+
+.mini-card ul.clean {
+  margin-top: 4px;
 }
 
 .mini-card p,
