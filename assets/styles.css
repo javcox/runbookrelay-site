@@ -334,39 +334,67 @@ p {
   text-transform: uppercase;
 }
 
-.cover-logo {
+.cover-system {
   position: relative;
   z-index: 1;
-  display: block;
-  width: min(100%, 300px);
-  margin: 22px auto 18px;
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 18px;
+}
+
+.cover-system-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cover-system-row-offset {
+  padding-left: 24px;
+}
+
+.cover-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 12px 16px;
   border-radius: 18px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(137, 156, 198, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #eef5ff;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
-.cover-flow {
-  position: relative;
-  z-index: 1;
+.cover-node-primary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.cover-node-accent {
+  border-color: rgba(71, 220, 201, 0.26);
+  background: linear-gradient(135deg, rgba(71, 220, 201, 0.18), rgba(71, 220, 201, 0.06));
+  color: #ebfffb;
+}
+
+.cover-system-path {
   display: flex;
-  gap: 10px;
-  margin: 4px 0 18px;
+  justify-content: center;
 }
 
-.cover-flow span {
-  height: 6px;
-  flex: 1;
+.cover-system-path span {
+  width: 72%;
+  height: 8px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(71, 220, 201, 0.18), rgba(71, 220, 201, 0.9));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.5));
   transform-origin: left center;
   animation: flowPulse 2.8s ease-in-out infinite;
 }
 
-.cover-flow span:nth-child(2) {
-  animation-delay: 0.24s;
-}
-
-.cover-flow span:nth-child(3) {
-  animation-delay: 0.48s;
+.cover-system-path-accent span {
+  background: linear-gradient(90deg, rgba(71, 220, 201, 0.2), rgba(71, 220, 201, 0.95));
 }
 
 .cover-copy {
@@ -741,6 +769,14 @@ details p {
 
   .signal-row {
     grid-template-columns: 1fr;
+  }
+
+  .cover-system-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cover-system-row-offset {
+    padding-left: 0;
   }
 
   .brand-logo {
