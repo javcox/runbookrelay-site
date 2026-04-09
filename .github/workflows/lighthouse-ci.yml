@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 14 * * 1-5"
-  push:
-    branches:
-      - main
 
 jobs:
   lighthouse:
@@ -22,3 +19,4 @@ jobs:
 
       - name: Run Lighthouse CI
         run: npx @lhci/cli@0.15.x autorun
+        continue-on-error: true

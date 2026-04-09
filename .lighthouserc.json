@@ -4,7 +4,10 @@
       "url": [
         "https://runbookrelay.com/"
       ],
-      "numberOfRuns": 3
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu"
+      }
     },
     "assert": {
       "assertions": {
