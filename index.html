@@ -22,20 +22,41 @@
       name="twitter:description"
       content="Runbook Relay helps 3PLs and ops-heavy SMBs fix SOP drift, handoff misses, and reporting drag."
     />
-    <link rel="icon" type="image/png" href="./assets/runbook-relay-logo.png?v=20260409g" />
-    <link rel="apple-touch-icon" href="./assets/runbook-relay-logo.png?v=20260409g" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="./assets/runbook-relay-logo.png?v=20260409h" />
+    <link rel="apple-touch-icon" href="./assets/runbook-relay-logo.png?v=20260409h" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="./assets/fonts/manrope-latin.woff2?v=20260409h"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/space-grotesk-latin.woff2?v=20260409h"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <!-- Optional: paste the Search Console HTML verification tag here if you use URL-prefix verification. -->
     <link rel="canonical" href="https://runbookrelay.com/" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260409g" />
-    <script src="./assets/config.js?v=20260409g"></script>
-    <script src="./assets/analytics.js?v=20260409g" defer></script>
-    <script src="./assets/app.js?v=20260409g" defer></script>
+    <link rel="stylesheet" href="./assets/styles.css?v=20260409h" />
+    <script>
+      window.RUNBOOK_RELAY_CONFIG = {
+        siteUrl: "https://runbookrelay.com",
+        businessName: "Runbook Relay",
+        calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
+        analytics: {
+          ga4MeasurementId: "G-ZFQPBPZYZ7",
+          posthogApiKey: "phc_rrYJ2yyNMwe4WhzRrTYmtsVxXaX8k3vsYy4yq6fLLn9N",
+          posthogApiHost: "https://us.i.posthog.com",
+          clarityProjectId: "w8wxphs466",
+          debug: false
+        }
+      };
+    </script>
+    <script src="./assets/analytics.js?v=20260409h" defer></script>
+    <script src="./assets/app.js?v=20260409h" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",

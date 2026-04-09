@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("./fonts/manrope-latin.woff2?v=20260409h") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./fonts/space-grotesk-latin.woff2?v=20260409h") format("woff2");
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+}
+
 :root {
   --bg: #07101a;
   --bg-2: #0d1726;
@@ -31,6 +47,7 @@ html {
 body {
   margin: 0;
   font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  font-synthesis-weight: none;
   line-height: 1.68;
   color: var(--text);
   background:

@@ -5,7 +5,10 @@
     sentScrollMilestones: new Set(),
     sentTimeMilestones: new Set(),
     lcpValue: null,
-    clsValue: 0
+    clsValue: 0,
+    analyticsInitialized: false,
+    analyticsRequested: false,
+    pendingEvents: []
   };
 
   function debugLog() {
@@ -14,10 +17,18 @@
     }
   }
 
-  function loadScript(src, onload) {
+  function loadScript(src, attributeName, onload) {
+    if (document.querySelector("script[" + attributeName + "]")) {
+      if (onload) {
+        onload();
+      }
+      return;
+    }
+
     const script = document.createElement("script");
     script.async = true;
     script.src = src;
+    script.setAttribute(attributeName, "true");
     if (onload) {
       script.onload = onload;
     }
@@ -36,21 +47,23 @@
         window.dataLayer.push(arguments);
       };
 
+    window.gtag("js", new Date());
+    window.gtag("config", analytics.ga4MeasurementId, {
+      send_page_view: true,
+      link_attribution: true
+    });
+
     loadScript(
       "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(analytics.ga4MeasurementId),
+      "data-rr-ga4",
       function () {
-        window.gtag("js", new Date());
-        window.gtag("config", analytics.ga4MeasurementId, {
-          send_page_view: true,
-          link_attribution: true
-        });
         debugLog("GA4 ready");
       }
     );
   }
 
   function initClarity() {
-    if (!analytics.clarityProjectId) {
+    if (!analytics.clarityProjectId || document.querySelector("script[data-rr-clarity]")) {
       return;
     }
 
@@ -63,10 +76,11 @@
       t = l.createElement(r);
       t.async = 1;
       t.src = "https://www.clarity.ms/tag/" + i;
+      t.setAttribute("data-rr-clarity", "true");
       y = l.getElementsByTagName(r)[0];
       y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", analytics.clarityProjectId);
-    debugLog("Clarity ready");
+    debugLog("Clarity requested");
   }
 
   function initPosthog() {
@@ -78,7 +92,6 @@
 
     !(function (t, e) {
       let o;
-      let n;
       let p;
       let r;
       e.__SV ||
@@ -100,6 +113,7 @@
           p.crossOrigin = "anonymous";
           p.async = true;
           p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js";
+          p.setAttribute("data-rr-posthog", "true");
           r = t.getElementsByTagName("script")[0];
           r.parentNode.insertBefore(p, r);
 
@@ -135,34 +149,27 @@
 
     window.posthog.init(analytics.posthogApiKey, {
       api_host: apiHost,
-      autocapture: true,
-      capture_pageview: true,
-      capture_pageleave: true,
-      disable_session_recording: false,
+      autocapture: false,
+      capture_pageview: false,
+      capture_pageleave: false,
+      disable_session_recording: true,
+      disable_surveys: true,
       person_profiles: "identified_only",
       persistence: "localStorage+cookie"
     });
 
-    debugLog("PostHog ready");
+    debugLog("PostHog requested");
   }
 
   function sanitizeProps(props) {
     return Object.fromEntries(
-      Object.entries(props || {}).filter((entry) => entry[1] !== undefined && entry[1] !== null && entry[1] !== "")
+      Object.entries(props || {}).filter(function (entry) {
+        return entry[1] !== undefined && entry[1] !== null && entry[1] !== "";
+      })
     );
   }
 
-  function trackEvent(name, props) {
-    const payload = sanitizeProps(
-      Object.assign(
-        {
-          page_path: window.location.pathname,
-          page_title: document.title
-        },
-        props || {}
-      )
-    );
-
+  function dispatchEvent(name, payload) {
     if (window.gtag && analytics.ga4MeasurementId && analytics.ga4MeasurementId !== "G-XXXXXXXXXX") {
       window.gtag("event", name, payload);
     }
@@ -178,6 +185,66 @@
     });
 
     debugLog("tracked", name, payload);
+  }
+
+  function flushPendingEvents() {
+    if (!state.analyticsInitialized || !state.pendingEvents.length) {
+      return;
+    }
+
+    const queuedEvents = state.pendingEvents.splice(0, state.pendingEvents.length);
+    queuedEvents.forEach(function (entry) {
+      dispatchEvent(entry.name, entry.payload);
+    });
+  }
+
+  function initializeAnalytics(reason) {
+    if (state.analyticsInitialized) {
+      return;
+    }
+
+    state.analyticsInitialized = true;
+    initGa4();
+    initPosthog();
+    initClarity();
+    flushPendingEvents();
+    dispatchEvent("rr_analytics_initialized", { reason: reason || "unknown" });
+  }
+
+  function requestAnalyticsInit(reason) {
+    if (state.analyticsRequested) {
+      return;
+    }
+
+    state.analyticsRequested = true;
+    const init = function () {
+      initializeAnalytics(reason);
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(init, { timeout: 2200 });
+    } else {
+      window.setTimeout(init, 1200);
+    }
+  }
+
+  function trackEvent(name, props) {
+    const payload = sanitizeProps(
+      Object.assign(
+        {
+          page_path: window.location.pathname,
+          page_title: document.title
+        },
+        props || {}
+      )
+    );
+
+    if (!state.analyticsInitialized) {
+      state.pendingEvents.push({ name: name, payload: payload });
+      return;
+    }
+
+    dispatchEvent(name, payload);
   }
 
   function trackScrollDepth() {
@@ -252,8 +319,7 @@
       });
     }
 
-    const paintEntries = performance.getEntriesByType("paint");
-    paintEntries.forEach(function (entry) {
+    performance.getEntriesByType("paint").forEach(function (entry) {
       if (entry.name === "first-contentful-paint") {
         trackEvent("rr_first_contentful_paint", {
           value_ms: Math.round(entry.startTime)
@@ -298,11 +364,31 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    initGa4();
-    initPosthog();
-    initClarity();
+  function bindAnalyticsTriggers() {
+    const earlyInteractionHandler = function (event) {
+      requestAnalyticsInit("interaction:" + event.type);
+    };
 
+    ["pointerdown", "touchstart", "keydown", "scroll"].forEach(function (eventName) {
+      window.addEventListener(eventName, earlyInteractionHandler, {
+        capture: true,
+        passive: eventName !== "keydown",
+        once: true
+      });
+    });
+
+    const scheduleAfterLoad = function () {
+      requestAnalyticsInit("idle");
+    };
+
+    if (document.readyState === "complete") {
+      scheduleAfterLoad();
+    } else {
+      window.addEventListener("load", scheduleAfterLoad, { once: true });
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
     trackEvent("rr_page_loaded", {
       section_count: document.querySelectorAll("section").length,
       referrer_host: document.referrer ? new URL(document.referrer).hostname : ""
@@ -312,10 +398,12 @@
     trackFaq();
     scheduleTimeMilestones();
     trackPerformance();
+    bindAnalyticsTriggers();
     window.addEventListener("scroll", trackScrollDepth, { passive: true });
   });
 
   window.RunbookRelayAnalytics = {
-    trackEvent: trackEvent
+    trackEvent: trackEvent,
+    initializeAnalytics: initializeAnalytics
   };
 })();
