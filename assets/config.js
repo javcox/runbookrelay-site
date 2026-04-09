@@ -6,7 +6,7 @@ window.RUNBOOK_RELAY_CONFIG = {
     ga4MeasurementId: "G-ZFQPBPZYZ7",
     posthogApiKey: "",
     posthogApiHost: "https://us.i.posthog.com",
-    clarityProjectId: "",
+    clarityProjectId: "w8wxphs466",
     debug: false
   }
 };
