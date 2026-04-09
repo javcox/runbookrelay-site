@@ -20,10 +20,13 @@ try {
   }
 
   & $git add .
-  & $git commit -m "Initial Runbook Relay site" 2>$null
+  & $git diff --cached --quiet
+  if ($LASTEXITCODE -ne 0) {
+    & $git commit -m "Initial Runbook Relay site" 2>$null
+  }
 
-  $existingRemote = & $git remote get-url origin 2>$null
-  if (-not $existingRemote) {
+  $existingRemote = & $git remote 2>$null
+  if ($existingRemote -notcontains "origin") {
     & $git remote add origin $RemoteUrl
   }
 
