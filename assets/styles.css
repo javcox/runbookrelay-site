@@ -3087,8 +3087,27 @@ h4 {
   gap: 18px;
 }
 
+.route-home .home-founder-media {
+  align-content: start;
+  gap: 12px;
+}
+
+.route-home .home-founder-media .founder-visual {
+  margin: 0;
+  height: clamp(420px, 33vw, 560px);
+}
+
+.route-home .home-founder-media .founder-visual img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center 16%;
+}
+
 .route-home .home-founder-quote {
-  gap: 16px;
+  gap: 14px;
+  padding: 26px 30px;
 }
 
 .route-home .home-final-cta {
@@ -4692,6 +4711,10 @@ main li a:not(.button):hover,
     0 18px 44px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
     inset 0 0 0 1px rgba(255, 86, 86, 0.06);
+}
+
+.route-proof-card:first-child {
+  border-left-color: rgba(255, 86, 86, 0.24);
 }
 
 .route-proof-card.is-primary {
