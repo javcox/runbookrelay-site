@@ -275,13 +275,23 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
 
+    const urlEncoded = new URLSearchParams();
+    Object.keys(lead).forEach(function (key) {
+      urlEncoded.append(key, lead[key] == null ? "" : String(lead[key]));
+    });
+
     try {
+      if (window.navigator && typeof window.navigator.sendBeacon === "function") {
+        const queued = window.navigator.sendBeacon(config.leadCaptureWebhook, urlEncoded);
+        if (queued) {
+          return true;
+        }
+      }
+
       await fetch(config.leadCaptureWebhook, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(lead),
+        mode: "no-cors",
+        body: urlEncoded,
         keepalive: true
       });
       return true;
