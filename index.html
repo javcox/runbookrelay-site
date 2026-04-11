@@ -22,8 +22,10 @@
       name="twitter:description"
       content="Runbook Relay helps service businesses improve response speed, follow-up discipline, and operational execution without fluff."
     />
-    <link rel="icon" type="image/png" href="./assets/runbook-relay-logo.png?v=20260411a" />
-    <link rel="apple-touch-icon" href="./assets/runbook-relay-logo.png?v=20260411a" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260411b" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260411b" />
+    <link rel="shortcut icon" href="/favicon-32x32.png?v=20260411b" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260411b" />
     <link
       rel="preload"
       href="./assets/fonts/manrope-latin.woff2?v=20260409i"
@@ -39,7 +41,7 @@
       crossorigin
     />
     <link rel="canonical" href="https://runbookrelay.com/" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260411b" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260411e" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
@@ -47,7 +49,7 @@
         calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
         thankYouPath: "/thank-you/",
         leadStorageKey: "rr_audit_lead",
-        leadCaptureWebhook: "",
+        leadCaptureWebhook: "https://hooks.zapier.com/hooks/catch/27178698/u7gpaa4/",
         analytics: {
           ga4MeasurementId: "G-ZFQPBPZYZ7",
           posthogApiKey: "phc_rrYJ2yyNMwe4WhzRrTYmtsVxXaX8k3vsYy4yq6fLLn9N",
@@ -58,7 +60,7 @@
       };
     </script>
     <script src="./assets/analytics.js?v=20260409i" defer></script>
-    <script src="./assets/app.js?v=20260411b" defer></script>
+    <script src="./assets/app.js?v=20260411c" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -555,7 +557,17 @@
                 </label>
                 <label class="field">
                   <span class="field-label">Website</span>
-                  <input type="url" name="website" placeholder="https://yourwebsite.com" required />
+                  <input
+                    type="text"
+                    name="website"
+                    inputmode="url"
+                    autocomplete="url"
+                    autocapitalize="none"
+                    spellcheck="false"
+                    placeholder="https://yourwebsite.com"
+                    required
+                  />
+                  <span class="field-help">Type the domain only if you want. We'll add https:// automatically.</span>
                 </label>
                 <div class="field field-full choice-field">
                   <span class="field-label">Industry</span>

@@ -22,12 +22,14 @@
       name="twitter:description"
       content="Next step: pick a time and send any useful workflow context ahead of the audit."
     />
-    <link rel="icon" type="image/png" href="../assets/runbook-relay-logo.png?v=20260411a" />
-    <link rel="apple-touch-icon" href="../assets/runbook-relay-logo.png?v=20260411a" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260411b" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260411b" />
+    <link rel="shortcut icon" href="/favicon-32x32.png?v=20260411b" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260411b" />
     <link rel="preload" href="../assets/fonts/manrope-latin.woff2?v=20260409i" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="../assets/fonts/space-grotesk-latin.woff2?v=20260409i" as="font" type="font/woff2" crossorigin />
     <link rel="canonical" href="https://runbookrelay.com/thank-you/" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260411b" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260411e" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
@@ -35,7 +37,7 @@
         calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
         thankYouPath: "/thank-you/",
         leadStorageKey: "rr_audit_lead",
-        leadCaptureWebhook: "",
+        leadCaptureWebhook: "https://hooks.zapier.com/hooks/catch/27178698/u7gpaa4/",
         analytics: {
           ga4MeasurementId: "G-ZFQPBPZYZ7",
           posthogApiKey: "phc_rrYJ2yyNMwe4WhzRrTYmtsVxXaX8k3vsYy4yq6fLLn9N",
@@ -46,7 +48,7 @@
       };
     </script>
     <script src="../assets/analytics.js?v=20260409i" defer></script>
-    <script src="../assets/app.js?v=20260411b" defer></script>
+    <script src="../assets/app.js?v=20260411c" defer></script>
   </head>
   <body class="route-thank-you">
     <header class="site-header" data-site-header>
@@ -108,7 +110,30 @@
             </div>
           </div>
 
-          <aside class="surface-alt summary-panel" data-reveal>
+          <aside class="surface scheduler-panel anchor-offset" data-reveal id="scheduler">
+            <div class="section-header compact">
+              <p class="eyebrow">Scheduler</p>
+              <h2 class="section-title">Pick a time right here.</h2>
+              <p class="section-copy">
+                Choose the slot that works best and we will use the call to inspect
+                where leads or execution are leaking and what one fix is highest leverage first.
+              </p>
+            </div>
+            <iframe class="scheduler-frame" data-calendly-frame title="Runbook Relay audit scheduler"></iframe>
+            <p class="scheduler-note">
+              If the embedded scheduler has trouble loading, use the direct booking link below.
+            </p>
+            <div class="scheduler-actions">
+              <a class="button button-primary" href="https://calendly.com/javencin/20minopsaudit" data-direct-calendly-link data-track="cta" data-track-label="thank_you_direct_schedule">Open direct scheduler</a>
+              <a class="button button-secondary" href="../about/">About Runbook Relay</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell thank-you-grid">
+          <article class="surface-alt summary-panel" data-reveal>
             <div class="section-header compact">
               <p class="eyebrow">What we'll look at</p>
               <h2 class="section-title">The audit is focused on one leak, not abstract strategy.</h2>
@@ -131,28 +156,7 @@
               If nothing on the calendar fits, use the direct link below or reply to the confirmation
               email/text once the backend automation layer is wired.
             </p>
-            <div class="scheduler-actions">
-              <a class="button button-primary" href="https://calendly.com/javencin/20minopsaudit" data-direct-calendly-link data-track="cta" data-track-label="thank_you_direct_schedule">Book audit</a>
-              <a class="button button-secondary" href="../about/">About Runbook Relay</a>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section anchor-offset" id="scheduler">
-        <div class="shell thank-you-grid">
-          <article class="surface scheduler-panel" data-reveal>
-            <div class="section-header compact">
-              <p class="eyebrow">Scheduler</p>
-              <h2 class="section-title">Pick a time below.</h2>
-              <p class="section-copy">
-                We will use the call to inspect where leads or execution are leaking,
-                where response speed is too slow, and what one fix would be highest leverage first.
-              </p>
-            </div>
-            <iframe class="scheduler-frame" data-calendly-frame title="Runbook Relay audit scheduler"></iframe>
           </article>
-
           <article class="surface-alt surface-stack" data-reveal>
             <div class="section-header compact">
               <p class="eyebrow">Before the call</p>

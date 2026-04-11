@@ -81,6 +81,10 @@ a {
   text-decoration: none;
 }
 
+a[href] {
+  cursor: pointer;
+}
+
 button,
 input,
 textarea {
@@ -131,57 +135,21 @@ img {
 }
 
 .brand-mark {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  border: 1px solid rgba(21, 37, 51, 0.12);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(234, 228, 216, 0.86)),
-    rgba(255, 255, 255, 0.96);
-  overflow: hidden;
+  display: block;
+  width: 64px;
+  height: 34px;
+  flex: 0 0 auto;
+  background: url("./runbook-relay-brand-mark.png?v=20260411a") center / contain no-repeat;
 }
 
 .site-header.is-scrolled .brand-mark,
 .site-header.nav-open .brand-mark {
-  border: 1px solid rgba(21, 37, 51, 0.12);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(234, 228, 216, 0.86)),
-    rgba(255, 255, 255, 0.96);
+  background: url("./runbook-relay-brand-mark.png?v=20260411a") center / contain no-repeat;
 }
 
 .brand-mark::before,
 .brand-mark::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px;
-}
-
-.brand-mark::before {
-  width: 34px;
-  height: 7px;
-  background: linear-gradient(90deg, rgba(21, 37, 51, 0.92), rgba(44, 122, 106, 0.84));
-  transform: skewX(-18deg);
-}
-
-.site-header.is-scrolled .brand-mark::before,
-.site-header.nav-open .brand-mark::before {
-  background: linear-gradient(90deg, rgba(21, 37, 51, 0.92), rgba(44, 122, 106, 0.84));
-}
-
-.brand-mark::after {
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(47, 93, 134, 0.62);
-  right: 7px;
-  top: 7px;
-}
-
-.site-header.is-scrolled .brand-mark::after,
-.site-header.nav-open .brand-mark::after {
-  border: 2px solid rgba(47, 93, 134, 0.62);
+  content: none;
 }
 
 .brand-copy {
@@ -285,6 +253,7 @@ img {
 }
 
 .nav-links a {
+  cursor: pointer;
   padding: 10px 14px;
   color: var(--text-muted);
   font-size: 0.96rem;
@@ -327,6 +296,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   min-height: 52px;
   padding: 0 22px;
   border-radius: 999px;
@@ -340,6 +310,10 @@ img {
     color 140ms ease,
     box-shadow 140ms ease;
   box-shadow: var(--shadow-soft);
+}
+
+.button:disabled {
+  cursor: not-allowed;
 }
 
 .button:hover,
@@ -1492,6 +1466,14 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  .route-thank-you .scheduler-panel {
+    order: 1;
+  }
+
+  .route-thank-you .page-hero-copy {
+    order: 2;
+  }
+
   .hero-visual,
   .page-hero-visual {
     min-height: 420px;
@@ -1595,6 +1577,15 @@ h4 {
 }
 
 @media (max-width: 640px) {
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 56px;
+    height: 30px;
+  }
+
   .shell {
     width: min(calc(100% - 24px), var(--max-width));
   }

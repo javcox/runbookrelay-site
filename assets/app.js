@@ -148,6 +148,54 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
+  function normalizeWebsiteValue(rawValue) {
+    const raw = String(rawValue || "").trim();
+    if (!raw) {
+      return { valid: false, value: "" };
+    }
+
+    const candidate = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(raw) ? raw : "https://" + raw.replace(/^\/+/, "");
+
+    try {
+      const url = new URL(candidate);
+      if (!/^https?:$/.test(url.protocol) || !url.hostname || !url.hostname.includes(".")) {
+        return { valid: false, value: candidate };
+      }
+
+      const normalizedPath =
+        url.pathname === "/" && !url.search && !url.hash
+          ? ""
+          : url.pathname + url.search + url.hash;
+
+      return {
+        valid: true,
+        value: url.protocol + "//" + url.host + normalizedPath
+      };
+    } catch (_error) {
+      return { valid: false, value: candidate };
+    }
+  }
+
+  function prepareWebsiteField(form) {
+    const websiteInput = form.querySelector('input[name="website"]');
+    if (!websiteInput) return true;
+
+    websiteInput.setCustomValidity("");
+
+    if (!String(websiteInput.value || "").trim()) {
+      return true;
+    }
+
+    const normalized = normalizeWebsiteValue(websiteInput.value);
+    if (!normalized.valid) {
+      websiteInput.setCustomValidity("Enter a valid website URL.");
+      return false;
+    }
+
+    websiteInput.value = normalized.value;
+    return true;
+  }
+
   function parseChoiceValues(rawValue) {
     return String(rawValue || "")
       .split(",")
@@ -373,11 +421,32 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+    const websiteInput = form.querySelector('input[name="website"]');
+    if (websiteInput) {
+      websiteInput.addEventListener("input", function () {
+        websiteInput.setCustomValidity("");
+      });
+
+      websiteInput.addEventListener("blur", function () {
+        if (!String(websiteInput.value || "").trim()) {
+          websiteInput.setCustomValidity("");
+          return;
+        }
+
+        const normalized = normalizeWebsiteValue(websiteInput.value);
+        if (normalized.valid) {
+          websiteInput.value = normalized.value;
+          websiteInput.setCustomValidity("");
+        }
+      });
+    }
+
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       syncHiddenFields(form);
 
       preparePhoneField(form);
+      prepareWebsiteField(form);
       const nativeValid = form.reportValidity();
       const choiceValid = validateChoiceGroups(form);
 

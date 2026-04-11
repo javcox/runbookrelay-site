@@ -51,18 +51,19 @@ This gives you:
 
 ## Setup steps
 
-1. Replace the placeholder Calendly URL in `assets/config.js`
-2. Replace the GA4 measurement ID in `assets/config.js`
-3. Add your PostHog public project key and host to `assets/config.js`
-4. Add your Clarity project ID to `assets/config.js`
-5. Deploy this folder to GitHub Pages or Cloudflare Pages
-6. Point `runbookrelay.com` to the deployed site
-7. Verify the domain in Search Console
-8. Let the site run for a few days before making conversion changes
+1. Update the inline `window.RUNBOOK_RELAY_CONFIG` block in the site pages with the real Calendly URL if needed
+2. Update the GA4 measurement ID in the same config block if needed
+3. Update the PostHog public project key and host in the same config block if needed
+4. Update the Clarity project ID in the same config block if needed
+5. Keep `leadCaptureWebhook` blank in the public site unless it points to a safe server-side relay you control
+6. Deploy this folder to GitHub Pages or Cloudflare Pages
+7. Point `runbookrelay.com` to the deployed site
+8. Verify the domain in Search Console
+9. Let the site run for a few days before making conversion changes
 
 ## Files you will edit
 
-- `assets/config.js`
+- the page HTML files that define `window.RUNBOOK_RELAY_CONFIG`
 - `index.html`
 
 ## Suggested deployment
@@ -142,8 +143,16 @@ Captured fields:
 
 ## Next upgrades
 
-- connect `leadCaptureWebhook` to HubSpot / Zapier / Make
+- connect `leadCaptureWebhook` only through a server-side relay you control, not a raw public Zapier hook
 - add instant email + SMS confirmation after form submit
 - add no-booking and no-show follow-up sequences
 - add UTM-tagged outbound links in email/SMS follow-up
 - wire PostHog experiments to headline and CTA tests
+
+## Security note
+
+Do not place private intake endpoints such as raw Zapier hook URLs in public
+JavaScript or a public repository.
+
+If the browser needs to submit leads, route that traffic through a server-side
+endpoint you control, then forward it to Zapier or your CRM from there.

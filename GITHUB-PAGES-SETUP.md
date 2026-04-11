@@ -152,9 +152,8 @@ GitHub Pages records and Google Workspace records can coexist.
 
 ## 7. Analytics setup after deploy
 
-Before going live, update:
-
-- `assets/config.js`
+Before going live, update the inline `window.RUNBOOK_RELAY_CONFIG` block used
+by the site pages.
 
 Fill in:
 
@@ -162,6 +161,11 @@ Fill in:
 - your GA4 measurement ID
 - your PostHog public key
 - your Clarity project ID
+
+Do not put a raw Zapier hook URL in public client-side JavaScript.
+
+If you want browser form submissions to reach Zapier, use a server-side relay
+you control and point `leadCaptureWebhook` at that relay instead.
 
 ## 8. What should happen after setup
 
