@@ -4685,6 +4685,49 @@ main li a:not(.button):hover,
   box-shadow: 0 0 10px rgba(77, 184, 212, 0.14);
 }
 
+.route-home .hero-lead,
+.route-home .hero-fit,
+.route-home .section-copy,
+.route-home .systems-summary p,
+.route-home .systems-rail-item p,
+.route-home .systems-kpi p,
+.route-home .proof-sidecar-copy,
+.route-home .proof-sidecar-metric p,
+.route-home .proof-copy,
+.route-home .proof-caption,
+.route-home .home-diagnosis-card p,
+.route-home .home-step p,
+.route-home .home-founder-point p,
+.route-home .list li,
+.route-home .list-tight li,
+.route-home .micro-copy {
+  color: rgba(223, 232, 240, 0.9);
+}
+
+.route-home .systems-caption,
+.route-home .proof-sidecar-label,
+.route-home .proof-sidecar-metric span,
+.route-home .home-result-card span,
+.route-home .home-diagnosis-card .card-kicker,
+.route-home .home-founder-point .card-kicker {
+  color: rgba(192, 208, 223, 0.84);
+}
+
+.route-home .proof-caption-strong,
+.route-home .home-journey-panel .card-title,
+.route-home .home-diagnosis-card .card-title,
+.route-home .home-founder-point .card-title {
+  color: #f5fbff;
+}
+
+.route-home .systems-kpi span {
+  color: rgba(255, 191, 197, 0.82);
+}
+
+.route-home .systems-kpi:not(.is-alert) span {
+  color: rgba(192, 208, 223, 0.84);
+}
+
 .proof-source:hover,
 .route-inline-link:hover,
 .route-card .route-link:hover,
