@@ -832,6 +832,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hydrateThankYou();
 
+  function initializeMotionRhythm() {
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotionQuery.matches) {
+      return;
+    }
+
+    const staggerGroups = [
+      ".systems-rail",
+      ".systems-footer",
+      ".proof-grid",
+      ".route-home .proof-grid-home",
+      ".route-grid",
+      ".deliverables-grid",
+      ".outcomes-grid",
+      ".credibility-grid",
+      ".industry-grid",
+      ".service-grid",
+      ".comparison-grid",
+      ".process-grid",
+      ".about-founder-pillars",
+      ".about-proof-stack",
+      ".about-fit-strip",
+      ".about-process-flow",
+      ".decision-points",
+      ".home-step-list",
+      ".home-result-strip",
+      ".home-founder-points",
+      ".faq-list"
+    ];
+
+    staggerGroups.forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (group) {
+        Array.from(group.children).forEach(function (child, index) {
+          if (!child.hasAttribute("data-reveal")) {
+            child.setAttribute("data-reveal", "");
+          }
+
+          if (!child.style.getPropertyValue("--reveal-delay")) {
+            child.style.setProperty("--reveal-delay", Math.min(index, 5) * 65 + "ms");
+          }
+        });
+      });
+    });
+  }
+
+  initializeMotionRhythm();
+
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       function (entries) {
