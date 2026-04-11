@@ -4659,6 +4659,107 @@ main li a:not(.button):hover,
   color: #ffd8dc;
 }
 
+.route-proof-card {
+  position: relative;
+  overflow: visible;
+  border-color: rgba(255, 86, 86, 0.24);
+  background:
+    linear-gradient(180deg, rgba(18, 11, 15, 0.96), rgba(10, 7, 11, 1)),
+    linear-gradient(180deg, rgba(255, 82, 82, 0.08), rgba(255, 82, 82, 0.015));
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 0 1px rgba(255, 86, 86, 0.06);
+}
+
+.route-proof-card:hover,
+.route-proof-card:focus-within {
+  border-color: rgba(255, 104, 104, 0.34);
+  background:
+    linear-gradient(180deg, rgba(22, 12, 17, 0.98), rgba(10, 7, 11, 1)),
+    linear-gradient(180deg, rgba(255, 82, 82, 0.14), rgba(255, 82, 82, 0.02));
+  box-shadow:
+    0 28px 58px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 30px rgba(255, 66, 66, 0.12);
+}
+
+.route-proof-card .proof-label {
+  color: rgba(255, 204, 204, 0.72);
+}
+
+.route-proof-card .proof-stat-lockup {
+  position: relative;
+  display: inline-grid;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 18px 22px 16px;
+  isolation: isolate;
+}
+
+.route-proof-card .proof-stat-lockup::before,
+.route-proof-card .proof-stat-lockup::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.route-proof-card .proof-stat-lockup::before {
+  inset: 0;
+  border: 1px solid rgba(255, 96, 96, 0.3);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 88, 88, 0.16), transparent 68%),
+    linear-gradient(180deg, rgba(255, 87, 87, 0.1), rgba(255, 87, 87, 0));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 122, 122, 0.08),
+    0 0 24px rgba(255, 62, 62, 0.14);
+}
+
+.route-proof-card .proof-stat-lockup::after {
+  inset: -8px;
+  border: 1px solid rgba(255, 100, 100, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 70, 70, 0.06),
+    0 0 28px rgba(255, 58, 58, 0.18);
+  animation: proofAlarmPulse 2.3s ease-out infinite;
+}
+
+.route-proof-card .proof-stat,
+.route-proof-card .proof-emphasis {
+  position: relative;
+  z-index: 1;
+}
+
+.route-proof-card .proof-stat {
+  color: #ff646f;
+  text-shadow:
+    0 0 14px rgba(255, 70, 70, 0.22),
+    0 0 26px rgba(255, 70, 70, 0.14);
+}
+
+.route-proof-card .proof-emphasis {
+  color: #ffe1e1;
+}
+
+.route-proof-card .proof-copy {
+  color: rgba(233, 219, 223, 0.82);
+}
+
+.route-proof-card .proof-source {
+  color: #ffb1b7;
+  border-top-color: rgba(255, 118, 118, 0.18);
+}
+
+.route-proof-card .proof-source::after {
+  color: rgba(255, 165, 171, 0.72);
+}
+
+.route-proof-card .proof-source:hover {
+  color: #ffd8dc;
+}
+
 .proof-source,
 .route-inline-link,
 .route-card .route-link,
