@@ -91,6 +91,33 @@ document.addEventListener("DOMContentLoaded", function () {
     header.classList.toggle("is-scrolled", window.scrollY > 18);
   }
 
+  function scheduleGlobalBackground() {
+    const start = function () {
+      initializeGlobalBackground();
+    };
+
+    if (document.readyState === "complete") {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(start, { timeout: 1500 });
+      } else {
+        window.setTimeout(start, 900);
+      }
+      return;
+    }
+
+    window.addEventListener(
+      "load",
+      function () {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(start, { timeout: 1500 });
+        } else {
+          window.setTimeout(start, 900);
+        }
+      },
+      { once: true }
+    );
+  }
+
   function initializeGlobalBackground() {
     if (document.querySelector("[data-site-background]")) {
       return;
@@ -377,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   syncHeaderState();
-  initializeGlobalBackground();
+  scheduleGlobalBackground();
   window.addEventListener("scroll", syncHeaderState, { passive: true });
   window.addEventListener("resize", function () {
     if (window.innerWidth > 920) {
@@ -936,26 +963,12 @@ document.addEventListener("DOMContentLoaded", function () {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.01, rootMargin: "0px 0px -6% 0px" }
     );
-
-    const revealInViewport = function () {
-      document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach(function (node) {
-        const rect = node.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.94 && rect.bottom >= 0) {
-          node.classList.add("is-visible");
-          observer.unobserve(node);
-        }
-      });
-    };
 
     document.querySelectorAll("[data-reveal]").forEach(function (node) {
       observer.observe(node);
     });
-
-    revealInViewport();
-
-    window.addEventListener("load", revealInViewport, { once: true });
 
     if (window.location.hash) {
       window.requestAnimationFrame(function () {

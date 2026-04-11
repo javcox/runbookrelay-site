@@ -29,7 +29,7 @@
     <link rel="preload" href="../assets/fonts/manrope-latin.woff2?v=20260409i" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="../assets/fonts/space-grotesk-latin.woff2?v=20260409i" as="font" type="font/woff2" crossorigin />
     <link rel="canonical" href="https://runbookrelay.com/about/" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260411s" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260411t" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
@@ -48,7 +48,7 @@
       };
     </script>
     <script src="../assets/analytics.js?v=20260409i" defer></script>
-    <script src="../assets/app.js?v=20260411g" defer></script>
+    <script src="../assets/app.js?v=20260411h" defer></script>
   </head>
   <body class="route-about">
     <header class="site-header" data-site-header>
@@ -168,9 +168,13 @@
               <aside class="about-founder-media">
                 <figure class="founder-visual about-founder-portrait">
                   <img
-                    src="../assets/founder-javen-cinocca.jpg"
+                    src="../assets/founder-javen-cinocca.webp"
                     alt="Portrait of Javen Cinocca, founder of Runbook Relay"
                     loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
+                    width="1024"
+                    height="1024"
                   />
                 </figure>
                 <div class="about-founder-identity">

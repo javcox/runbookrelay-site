@@ -205,12 +205,22 @@ main a[href^="mailto:"]:not(.button) {
   width: 60px;
   height: 32px;
   flex: 0 0 auto;
-  background: url("./runbook-relay-brand-mark.png?v=20260411a") center / contain no-repeat;
+  background:
+    image-set(
+      url("./runbook-relay-brand-mark.webp?v=20260411b") type("image/webp"),
+      url("./runbook-relay-brand-mark.png?v=20260411a") type("image/png")
+    )
+    center / contain no-repeat;
 }
 
 .site-header.is-scrolled .brand-mark,
 .site-header.nav-open .brand-mark {
-  background: url("./runbook-relay-brand-mark.png?v=20260411a") center / contain no-repeat;
+  background:
+    image-set(
+      url("./runbook-relay-brand-mark.webp?v=20260411b") type("image/webp"),
+      url("./runbook-relay-brand-mark.png?v=20260411a") type("image/png")
+    )
+    center / contain no-repeat;
 }
 
 .brand-mark::before,
@@ -797,7 +807,12 @@ h4 {
   width: min(74%, 420px);
   aspect-ratio: 1 / 0.72;
   pointer-events: none;
-  background: url("./runbook-relay-brand-mark.png?v=20260411a") center / contain no-repeat;
+  background:
+    image-set(
+      url("./runbook-relay-brand-mark.webp?v=20260411b") type("image/webp"),
+      url("./runbook-relay-brand-mark.png?v=20260411a") type("image/png")
+    )
+    center / contain no-repeat;
   opacity: 0.05;
   filter: blur(0.5px);
 }
