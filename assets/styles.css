@@ -774,6 +774,8 @@ h4 {
   border: 1px solid rgba(21, 37, 51, 0.08);
   background: rgba(255, 255, 255, 0.92);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
 }
 
 .systems-card,
@@ -789,7 +791,45 @@ h4 {
 .credibility-card,
 .service-card,
 .stat-card {
-  padding: 22px;
+  padding: 26px;
+}
+
+.route-card::before,
+.problem-card::before,
+.deliverable-card::before,
+.outcome-card::before,
+.faq-card::before,
+.process-card::before,
+.comparison-card::before,
+.industry-card::before,
+.credibility-card::before,
+.service-card::before,
+.checklist-card::before,
+.summary-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(44, 122, 106, 0.44), rgba(47, 93, 134, 0.18), transparent 74%);
+  pointer-events: none;
+}
+
+.route-card::after,
+.problem-card::after,
+.deliverable-card::after,
+.outcome-card::after,
+.industry-card::after,
+.service-card::after {
+  content: "";
+  position: absolute;
+  right: -34px;
+  top: -34px;
+  width: 128px;
+  height: 128px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(44, 122, 106, 0.08), transparent 70%);
+  pointer-events: none;
 }
 
 .systems-card strong,
@@ -883,7 +923,8 @@ h4 {
 .story-grid,
 .industry-grid {
   display: grid;
-  gap: 18px;
+  gap: 24px;
+  align-items: start;
 }
 
 .hero-metrics,
@@ -908,7 +949,57 @@ h4 {
 .story-grid,
 .founder-grid,
 .service-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+}
+
+.route-grid,
+.deliverables-grid,
+.outcomes-grid,
+.industry-grid,
+.process-grid,
+.credibility-grid,
+.faq-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.route-grid > *,
+.deliverables-grid > *,
+.outcomes-grid > *,
+.industry-grid > *,
+.process-grid > *,
+.credibility-grid > *,
+.faq-grid > * {
+  grid-column: span 4;
+}
+
+.route-grid > *:nth-child(3n + 1),
+.deliverables-grid > *:nth-child(3n + 1),
+.outcomes-grid > *:nth-child(3n + 1),
+.industry-grid > *:nth-child(3n + 1),
+.process-grid > *:nth-child(3n + 1),
+.credibility-grid > *:nth-child(3n + 1),
+.faq-grid > *:nth-child(3n + 1) {
+  grid-column: span 5;
+}
+
+.route-grid > *:nth-child(3n + 2),
+.deliverables-grid > *:nth-child(3n + 2),
+.outcomes-grid > *:nth-child(3n + 2),
+.industry-grid > *:nth-child(3n + 2),
+.process-grid > *:nth-child(3n + 2),
+.credibility-grid > *:nth-child(3n + 2),
+.faq-grid > *:nth-child(3n + 2) {
+  grid-column: span 4;
+}
+
+.route-grid > *:nth-child(3n),
+.deliverables-grid > *:nth-child(3n),
+.outcomes-grid > *:nth-child(3n),
+.industry-grid > *:nth-child(3n),
+.process-grid > *:nth-child(3n),
+.credibility-grid > *:nth-child(3n),
+.faq-grid > *:nth-child(3n) {
+  grid-column: span 3;
 }
 
 .metric-card,
@@ -1906,6 +1997,16 @@ h4 {
     grid-template-columns: 1fr 1fr;
   }
 
+  .route-grid > *,
+  .deliverables-grid > *,
+  .outcomes-grid > *,
+  .industry-grid > *,
+  .process-grid > *,
+  .credibility-grid > *,
+  .faq-grid > * {
+    grid-column: auto;
+  }
+
   .hero-value-strip,
   .hero-value-strip.hero-value-strip-2,
   .systems-footer {
@@ -1989,6 +2090,16 @@ h4 {
   .grid-2,
   .founder-grid {
     grid-template-columns: 1fr;
+  }
+
+  .route-grid > *,
+  .deliverables-grid > *,
+  .outcomes-grid > *,
+  .industry-grid > *,
+  .process-grid > *,
+  .credibility-grid > *,
+  .faq-grid > * {
+    grid-column: auto;
   }
 
   .footer-top,
