@@ -1888,6 +1888,47 @@ h4 {
   gap: 14px;
 }
 
+.route-thank-you .kpi-strip {
+  margin-top: 22px;
+}
+
+.route-thank-you .page-hero-copy .systems-rail {
+  margin-top: 22px;
+  max-width: 560px;
+}
+
+.route-thank-you .page-hero-copy .systems-rail-item {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.page-hero .surface h1,
+.page-hero .surface h2,
+.page-hero .surface h3,
+.page-hero .surface strong,
+.page-hero .surface .card-title,
+.page-hero .surface .section-title {
+  color: var(--text-primary);
+}
+
+.page-hero .surface .eyebrow,
+.page-hero .surface .visual-label {
+  color: var(--accent-secondary);
+}
+
+.page-hero .surface p,
+.page-hero .surface li,
+.page-hero .surface .section-copy,
+.page-hero .surface .lede,
+.page-hero .surface .inline-note,
+.page-hero .surface .scheduler-note,
+.page-hero .surface .micro-copy {
+  color: var(--text-soft);
+}
+
+.route-about .credibility-grid {
+  margin-top: 24px;
+}
+
 .summary-item {
   display: flex;
   justify-content: space-between;
