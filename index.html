@@ -39,7 +39,7 @@
       crossorigin
     />
     <link rel="canonical" href="https://runbookrelay.com/" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260411a" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260411b" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
@@ -58,7 +58,7 @@
       };
     </script>
     <script src="./assets/analytics.js?v=20260409i" defer></script>
-    <script src="./assets/app.js?v=20260411a" defer></script>
+    <script src="./assets/app.js?v=20260411b" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -600,6 +600,15 @@
               <input type="hidden" name="utm_campaign" />
               <input type="hidden" name="submitted_at" />
 
+              <label class="sms-consent">
+                <input type="checkbox" name="sms_consent" value="agreed" required />
+                <span>
+                  I agree to receive text messages from Runbook Relay about my inquiry, scheduling, appointment reminders, and follow-up. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our
+                  <a href="./privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                  and
+                  <a href="./terms/" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>.
+                </span>
+              </label>
               <p class="field-note">This is the short qualification step. Scheduler comes next on the thank-you page.</p>
               <div class="form-actions">
                 <button class="button button-primary" type="submit">Book audit</button>
@@ -704,6 +713,8 @@
           <a href="./med-spa/">Med Spa</a>
           <a href="./home-services/">Home Services</a>
           <a href="#faq">FAQ</a>
+          <a href="./privacy/">Privacy</a>
+          <a href="./terms/">Terms</a>
         </div>
         <div class="footer-bottom">
           <span class="footer-copy">&copy; <span id="footer-year"></span> Runbook Relay. Operator-led systems and revenue cleanup.</span>

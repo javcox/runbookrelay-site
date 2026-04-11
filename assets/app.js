@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const siteUrl = config.siteUrl || window.location.origin;
   const storageKey = config.leadStorageKey || "rr_audit_lead";
   const thankYouPath = config.thankYouPath || "/thank-you/";
+  const smsConsentTextVersion = "2026-04-11-v1";
+  const smsConsentText =
+    "I agree to receive text messages from Runbook Relay about my inquiry, scheduling, appointment reminders, and follow-up. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.";
   const year = document.getElementById("footer-year");
   const header = document.querySelector("[data-site-header]");
   const navToggle = document.querySelector("[data-nav-toggle]");
@@ -239,6 +242,12 @@ document.addEventListener("DOMContentLoaded", function () {
     payload.page_title = document.title;
     payload.referrer = document.referrer || "";
     payload.scheduler_url = config.calendlyUrl || "";
+    payload.sms_consent = formData.get("sms_consent") ? "true" : "false";
+    payload.sms_consent_given_at = payload.sms_consent === "true" ? new Date().toISOString() : "";
+    payload.sms_consent_text_version = smsConsentTextVersion;
+    payload.sms_consent_text = smsConsentText;
+    payload.sms_consent_page_url = window.location.href;
+    payload.user_agent = window.navigator.userAgent || "";
     return payload;
   }
 

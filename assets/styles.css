@@ -1231,6 +1231,41 @@ h4 {
   color: var(--accent-secondary);
 }
 
+.sms-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(21, 37, 51, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.sms-consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--accent-primary);
+}
+
+.sms-consent span {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.sms-consent a {
+  color: var(--accent-secondary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sms-consent a:hover {
+  color: var(--accent-primary);
+}
+
 .field-note,
 .form-note,
 .scheduler-note,
