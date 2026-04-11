@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector("[data-site-header]");
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-nav-menu]");
+  const navShell = header ? header.querySelector(".nav-shell") : null;
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   const forms = Array.from(document.querySelectorAll("[data-audit-form]"));
 
@@ -30,13 +31,37 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!header || !navToggle) return;
     header.classList.remove("nav-open");
     navToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-locked");
+    if (navMenu) {
+      navMenu.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  function openNav() {
+    if (!header || !navToggle) return;
+    header.classList.add("nav-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-locked");
+    if (navMenu) {
+      navMenu.setAttribute("aria-hidden", "false");
+    }
   }
 
   if (navToggle && header) {
+    if (navMenu) {
+      if (window.innerWidth <= 920) {
+        navMenu.setAttribute("aria-hidden", "true");
+      } else {
+        navMenu.removeAttribute("aria-hidden");
+      }
+    }
     navToggle.addEventListener("click", function () {
       const nextExpanded = navToggle.getAttribute("aria-expanded") !== "true";
-      navToggle.setAttribute("aria-expanded", String(nextExpanded));
-      header.classList.toggle("nav-open", nextExpanded);
+      if (nextExpanded) {
+        openNav();
+      } else {
+        closeNav();
+      }
     });
   }
 
@@ -50,6 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
+      closeNav();
+    }
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!header || !navShell || !header.classList.contains("nav-open")) return;
+    if (!navShell.contains(event.target)) {
       closeNav();
     }
   });
@@ -339,6 +371,14 @@ document.addEventListener("DOMContentLoaded", function () {
   syncHeaderState();
   initializeGlobalBackground();
   window.addEventListener("scroll", syncHeaderState, { passive: true });
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 920) {
+      closeNav();
+      if (navMenu) {
+        navMenu.removeAttribute("aria-hidden");
+      }
+    }
+  });
 
   function track(name, props) {
     if (window.RunbookRelayAnalytics && typeof window.RunbookRelayAnalytics.trackEvent === "function") {

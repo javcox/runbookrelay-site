@@ -48,6 +48,8 @@
   --section-space: clamp(84px, 9vw, 136px);
   --headline-font: "Space Grotesk", "Manrope", "Segoe UI", sans-serif;
   --body-font: "Manrope", "Segoe UI", Arial, sans-serif;
+  --site-header-height: 80px;
+  --site-header-offset: calc(var(--site-header-height) + env(safe-area-inset-top, 0px));
 }
 
 * {
@@ -63,6 +65,8 @@ body {
   color: var(--text-primary);
   font-family: var(--body-font);
   line-height: 1.65;
+  padding-top: var(--site-header-offset);
+  scroll-padding-top: calc(var(--site-header-offset) + 24px);
   background:
     radial-gradient(circle at 12% -2%, rgba(47, 93, 134, 0.06), transparent 24%),
     radial-gradient(circle at 88% 0%, rgba(44, 122, 106, 0.05), transparent 20%),
@@ -161,9 +165,10 @@ main a[href^="mailto:"]:not(.button) {
 }
 
 .site-header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0 0 auto 0;
   z-index: 30;
+  width: 100%;
   backdrop-filter: blur(20px);
   background: linear-gradient(180deg, rgba(7, 17, 26, 0.72), rgba(7, 17, 26, 0.44));
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -248,6 +253,7 @@ main a[href^="mailto:"]:not(.button) {
   align-items: center;
   gap: 14px;
   min-width: 0;
+  margin-left: auto;
 }
 
 .nav-toggle {
@@ -296,6 +302,20 @@ main a[href^="mailto:"]:not(.button) {
 
 .nav-toggle span::after {
   top: 6px;
+}
+
+.site-header.nav-open .nav-toggle span {
+  background: transparent;
+}
+
+.site-header.nav-open .nav-toggle span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.site-header.nav-open .nav-toggle span::after {
+  top: 0;
+  transform: rotate(-45deg);
 }
 
 .site-nav {
@@ -357,6 +377,7 @@ main a[href^="mailto:"]:not(.button) {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 0 0 auto;
 }
 
 .button {
@@ -2565,7 +2586,7 @@ h4 {
 }
 
 .anchor-offset {
-  scroll-margin-top: 120px;
+  scroll-margin-top: calc(var(--site-header-offset) + 28px);
 }
 
 [data-reveal] {
@@ -3504,12 +3525,17 @@ h4 {
 }
 
 @media (max-width: 920px) {
+  :root {
+    --site-header-height: 78px;
+  }
+
   .site-header {
     isolation: isolate;
   }
 
   .nav-shell {
     position: static;
+    gap: 10px;
   }
 
   .site-header.nav-open::after {
@@ -3528,13 +3554,14 @@ h4 {
 
   .nav-toggle {
     display: inline-flex;
+    order: 3;
   }
 
   .site-nav {
     position: fixed;
     left: 16px;
     right: 16px;
-    top: calc(78px + env(safe-area-inset-top, 0px) + 12px);
+    top: calc(var(--site-header-offset) + 12px);
     display: grid;
     gap: 12px;
     padding: 16px;
@@ -3570,21 +3597,30 @@ h4 {
     transform: translateY(0);
   }
 
-  .nav-links,
-  .header-actions {
+  .nav-links {
     display: grid;
     gap: 10px;
     width: 100%;
   }
 
-  .nav-links a,
-  .header-actions .button {
+  .nav-links a {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
   }
 
-  .nav-links a {
-    min-height: 48px;
+  .header-actions {
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .header-actions .button {
+    min-height: 42px;
+    padding-inline: 14px;
+    font-size: 0.82rem;
+    white-space: nowrap;
   }
 
   .home-hero-meta {
@@ -3703,6 +3739,10 @@ h4 {
   .scheduler-frame {
     min-height: 620px;
   }
+}
+
+body.nav-locked {
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
@@ -3938,6 +3978,8 @@ body.has-global-background > :not(.site-background) {
 }
 
 body.has-global-background > .site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
   z-index: 30;
 }
 
