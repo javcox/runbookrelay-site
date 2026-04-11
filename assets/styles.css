@@ -4668,6 +4668,23 @@ main li a:not(.button):hover,
   color: #9ddaff;
 }
 
+.route-home .home-route-card .card-kicker {
+  color: rgba(191, 208, 224, 0.82);
+}
+
+.route-home .home-route-card p {
+  color: rgba(221, 231, 239, 0.88);
+}
+
+.route-home .home-route-card .list-tight li {
+  color: rgba(216, 227, 236, 0.9);
+}
+
+.route-home .home-route-card .list-tight li::before {
+  background: rgba(103, 206, 230, 0.7);
+  box-shadow: 0 0 10px rgba(77, 184, 212, 0.14);
+}
+
 .proof-source:hover,
 .route-inline-link:hover,
 .route-card .route-link:hover,
