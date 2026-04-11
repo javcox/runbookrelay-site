@@ -747,7 +747,8 @@ h4 {
 .outcomes-grid,
 .industry-grid,
 .credibility-grid,
-.faq-grid {
+.faq-grid,
+.proof-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -818,6 +819,184 @@ h4 {
 .stat-card strong {
   margin-top: 10px;
   font-size: 1.8rem;
+}
+
+.proof-band {
+  position: relative;
+  display: grid;
+  gap: 28px;
+  overflow: hidden;
+}
+
+.proof-band::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto -8%;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(44, 122, 106, 0.12), transparent 68%);
+  animation: proofGlow 9s ease-in-out infinite;
+}
+
+.proof-band::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -24% auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(47, 93, 134, 0.12), transparent 68%);
+  animation: proofGlow 10s ease-in-out infinite reverse;
+}
+
+.proof-band > * {
+  position: relative;
+  z-index: 1;
+}
+
+.proof-band .section-header {
+  margin-bottom: 0;
+}
+
+.proof-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.proof-card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-height: 100%;
+  padding: 22px 22px 20px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(21, 37, 51, 0.09);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 243, 235, 0.95)),
+    linear-gradient(135deg, rgba(44, 122, 106, 0.04), transparent 38%);
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.proof-card::before {
+  content: "";
+  position: absolute;
+  inset: -18% auto auto -12%;
+  width: 132px;
+  height: 132px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(44, 122, 106, 0.16), transparent 70%);
+  animation: proofDrift 7s ease-in-out infinite;
+}
+
+.proof-card:nth-child(2)::before {
+  animation-delay: -1.2s;
+}
+
+.proof-card:nth-child(3)::before {
+  animation-delay: -2.4s;
+}
+
+.proof-card:nth-child(4)::before {
+  animation-delay: -3.6s;
+}
+
+.proof-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.proof-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(44, 122, 106, 0.22);
+  box-shadow: 0 18px 36px rgba(21, 37, 51, 0.12);
+}
+
+.proof-card.is-spotlight {
+  border-color: rgba(44, 122, 106, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 248, 245, 0.95)),
+    linear-gradient(135deg, rgba(44, 122, 106, 0.1), transparent 42%);
+  animation: proofFloat 6s ease-in-out infinite;
+}
+
+.proof-label {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.proof-stat {
+  display: block;
+  font-family: var(--headline-font);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+}
+
+.proof-copy {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.proof-source {
+  margin-top: auto;
+  color: var(--accent-secondary);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.proof-source:hover {
+  color: var(--text-primary);
+}
+
+.proof-caption {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--text-muted);
+}
+
+@keyframes proofGlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(14px, -10px, 0) scale(1.08);
+  }
+}
+
+@keyframes proofDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(10px, 8px, 0) scale(1.08);
+  }
+}
+
+@keyframes proofFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .section {
@@ -1497,6 +1676,7 @@ h4 {
 
   .route-grid,
   .grid-3,
+  .proof-grid,
   .deliverables-grid,
   .outcomes-grid,
   .credibility-grid,
@@ -1566,6 +1746,7 @@ h4 {
   }
 
   .process-grid,
+  .proof-grid,
   .prep-grid,
   .grid-4,
   .hero-metrics,
@@ -1617,6 +1798,7 @@ h4 {
   .scheduler-frame,
   .surface,
   .surface-alt,
+  .proof-band,
   .cta-band,
   .founder-panel,
   .quote-panel {
@@ -1639,5 +1821,14 @@ h4 {
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-band::before,
+  .proof-band::after,
+  .proof-card::before,
+  .proof-card.is-spotlight {
+    animation: none;
   }
 }
