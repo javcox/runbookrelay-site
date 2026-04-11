@@ -51,6 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  function syncHeaderState() {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 18);
+  }
+
+  syncHeaderState();
+  window.addEventListener("scroll", syncHeaderState, { passive: true });
+
   function track(name, props) {
     if (window.RunbookRelayAnalytics && typeof window.RunbookRelayAnalytics.trackEvent === "function") {
       window.RunbookRelayAnalytics.trackEvent(name, props);
@@ -88,15 +96,59 @@ document.addEventListener("DOMContentLoaded", function () {
     target.dataset.state = state || "";
   }
 
+  function parseChoiceValues(rawValue) {
+    return String(rawValue || "")
+      .split(",")
+      .map(function (value) {
+        return value.trim();
+      })
+      .filter(Boolean);
+  }
+
+  function updateChoiceStatus(group, selectedValues) {
+    const note = group.querySelector("[data-choice-status]");
+    if (!note) return;
+
+    const max = Number(group.getAttribute("data-choice-max") || "1");
+    if (max > 1) {
+      note.textContent =
+        selectedValues.length > 0
+          ? selectedValues.length + " of " + max + " selected"
+          : "Pick up to " + max + ".";
+      return;
+    }
+
+    note.textContent = "";
+  }
+
   function setChoiceValue(group, value) {
     const input = group.querySelector("[data-choice-input]");
     if (!input) return;
 
-    input.value = value;
+    const max = Number(group.getAttribute("data-choice-max") || "1");
+    let selectedValues = parseChoiceValues(input.value);
+
+    if (max > 1) {
+      const isSelected = selectedValues.includes(value);
+
+      if (isSelected) {
+        selectedValues = selectedValues.filter(function (entry) {
+          return entry !== value;
+        });
+      } else if (selectedValues.length < max) {
+        selectedValues = selectedValues.concat(value);
+      }
+    } else {
+      selectedValues = value ? [value] : [];
+    }
+
+    input.value = selectedValues.join(",");
     group.classList.remove("is-invalid");
+    group.classList.toggle("is-maxed", max > 1 && selectedValues.length >= max);
+    updateChoiceStatus(group, selectedValues);
 
     group.querySelectorAll("[data-choice-value]").forEach(function (button) {
-      const isSelected = button.getAttribute("data-choice-value") === value;
+      const isSelected = selectedValues.includes(button.getAttribute("data-choice-value") || "");
       button.classList.toggle("is-selected", isSelected);
       button.setAttribute("aria-pressed", String(isSelected));
     });
@@ -116,8 +168,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       const initialValue = input && input.value ? input.value : defaultValue;
+      if (input) {
+        input.value = initialValue;
+      }
+
       if (initialValue) {
-        setChoiceValue(group, initialValue);
+        updateChoiceStatus(group, parseChoiceValues(initialValue));
+        group.querySelectorAll("[data-choice-value]").forEach(function (button) {
+          const isSelected = parseChoiceValues(initialValue).includes(button.getAttribute("data-choice-value") || "");
+          button.classList.toggle("is-selected", isSelected);
+          button.setAttribute("aria-pressed", String(isSelected));
+        });
+        group.classList.toggle(
+          "is-maxed",
+          Number(group.getAttribute("data-choice-max") || "1") > 1 &&
+            parseChoiceValues(initialValue).length >= Number(group.getAttribute("data-choice-max") || "1")
+        );
+      } else {
+        updateChoiceStatus(group, []);
       }
     });
   }
@@ -129,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const input = group.querySelector("[data-choice-input]");
       if (!input || !input.required) return;
 
-      const hasValue = Boolean(String(input.value || "").trim());
+      const hasValue = parseChoiceValues(input.value).length > 0;
       group.classList.toggle("is-invalid", !hasValue);
 
       if (!hasValue) {
@@ -172,6 +240,14 @@ document.addEventListener("DOMContentLoaded", function () {
     payload.referrer = document.referrer || "";
     payload.scheduler_url = config.calendlyUrl || "";
     return payload;
+  }
+
+  function formatChoiceValue(rawValue) {
+    const values = parseChoiceValues(rawValue).map(function (value) {
+      return value.replace(/_/g, " ");
+    });
+
+    return values.length > 0 ? values.join(", ") : "";
   }
 
   function getThankYouUrl(lead) {
@@ -236,7 +312,8 @@ document.addEventListener("DOMContentLoaded", function () {
       track("rr_audit_form_submit", {
         source_page: lead.source_page,
         industry: lead.industry,
-        biggest_issue: lead.biggest_issue
+        biggest_issue: lead.biggest_issue,
+        biggest_issue_count: parseChoiceValues(lead.biggest_issue).length
       });
 
       await postLeadToWebhook(lead);
@@ -281,8 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (lead) {
       fillText("[data-lead-name]", lead.first_name || "there");
-      fillText("[data-lead-industry]", (lead.industry || "service business").replace(/_/g, " "));
-      fillText("[data-lead-issue]", (lead.biggest_issue || "response leakage").replace(/_/g, " "));
+      fillText("[data-lead-industry]", formatChoiceValue(lead.industry) || "service business");
+      fillText("[data-lead-issue]", formatChoiceValue(lead.biggest_issue) || "response leakage");
       fillText("[data-lead-business]", lead.business_name || "your business");
       fillText("[data-lead-website]", lead.website || "your current site");
       track("rr_thank_you_view", {
