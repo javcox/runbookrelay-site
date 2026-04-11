@@ -30,12 +30,12 @@
   --line-strong: rgba(21, 37, 51, 0.18);
   --shadow: 0 24px 60px rgba(21, 37, 51, 0.1);
   --shadow-soft: 0 12px 26px rgba(21, 37, 51, 0.08);
-  --hero-bg: #071019;
-  --hero-surface: #0b1622;
-  --hero-surface-alt: #102131;
-  --hero-text: #f4f7fb;
-  --hero-muted: #9db0c3;
-  --hero-soft: #d8e4ef;
+  --hero-bg: #f7f2e9;
+  --hero-surface: #ffffff;
+  --hero-surface-alt: #eae4d8;
+  --hero-text: #152533;
+  --hero-muted: #61707c;
+  --hero-soft: #304253;
   --radius-lg: 32px;
   --radius-md: 24px;
   --radius-sm: 18px;
@@ -102,16 +102,17 @@ img {
   top: 0;
   z-index: 30;
   backdrop-filter: blur(20px);
-  background: rgba(7, 16, 25, 0.78);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(246, 243, 236, 0.92);
+  border-bottom: 1px solid rgba(21, 37, 51, 0.08);
+  box-shadow: 0 10px 30px rgba(21, 37, 51, 0.06);
   transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .site-header.is-scrolled,
 .site-header.nav-open {
-  background: rgba(246, 243, 236, 0.92);
+  background: rgba(248, 244, 236, 0.96);
   border-bottom: 1px solid rgba(21, 37, 51, 0.08);
-  box-shadow: 0 10px 30px rgba(21, 37, 51, 0.06);
+  box-shadow: 0 12px 34px rgba(21, 37, 51, 0.08);
 }
 
 .site-header-inner {
@@ -136,10 +137,10 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  border: 1px solid rgba(157, 176, 195, 0.18);
+  border: 1px solid rgba(21, 37, 51, 0.12);
   background:
-    linear-gradient(180deg, rgba(16, 33, 49, 0.92), rgba(7, 16, 25, 0.94)),
-    rgba(11, 22, 34, 0.94);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(234, 228, 216, 0.86)),
+    rgba(255, 255, 255, 0.96);
   overflow: hidden;
 }
 
@@ -161,7 +162,7 @@ img {
 .brand-mark::before {
   width: 34px;
   height: 7px;
-  background: linear-gradient(90deg, rgba(244, 247, 251, 0.94), rgba(44, 122, 106, 0.84));
+  background: linear-gradient(90deg, rgba(21, 37, 51, 0.92), rgba(44, 122, 106, 0.84));
   transform: skewX(-18deg);
 }
 
@@ -173,7 +174,7 @@ img {
 .brand-mark::after {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(137, 221, 202, 0.72);
+  border: 2px solid rgba(47, 93, 134, 0.62);
   right: 7px;
   top: 7px;
 }
@@ -192,11 +193,11 @@ img {
   font-family: var(--headline-font);
   font-size: 1rem;
   letter-spacing: -0.03em;
-  color: var(--hero-text);
+  color: var(--text-primary);
 }
 
 .brand-copy span {
-  color: var(--hero-muted);
+  color: var(--text-muted);
   font-size: 0.76rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -227,9 +228,9 @@ img {
   height: 46px;
   padding: 0;
   border-radius: 14px;
-  border: 1px solid rgba(157, 176, 195, 0.16);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--hero-text);
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text-primary);
   cursor: pointer;
 }
 
@@ -279,13 +280,13 @@ img {
   gap: 6px;
   padding: 6px;
   border-radius: 999px;
-  border: 1px solid rgba(157, 176, 195, 0.14);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(21, 37, 51, 0.08);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .nav-links a {
   padding: 10px 14px;
-  color: var(--hero-muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
   border-radius: 999px;
   transition: background 140ms ease, color 140ms ease, transform 140ms ease;
@@ -293,8 +294,8 @@ img {
 
 .nav-links a:hover,
 .nav-links a.is-current {
-  color: var(--hero-text);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  background: rgba(47, 93, 134, 0.08);
 }
 
 .site-header.is-scrolled .nav-links,
@@ -375,10 +376,10 @@ img {
   position: relative;
   padding: clamp(52px, 8vw, 94px) 0 28px;
   background:
-    radial-gradient(circle at top right, rgba(44, 122, 106, 0.14), transparent 22%),
-    radial-gradient(circle at bottom left, rgba(47, 93, 134, 0.14), transparent 24%),
-    linear-gradient(180deg, #08131d 0%, #071019 72%, #09131c 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    radial-gradient(circle at top right, rgba(44, 122, 106, 0.12), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(47, 93, 134, 0.1), transparent 26%),
+    linear-gradient(180deg, #f8f4ec 0%, #f4efe6 58%, #f6f3ec 100%);
+  border-bottom: 1px solid rgba(21, 37, 51, 0.08);
 }
 
 .hero-grid,
@@ -397,7 +398,7 @@ img {
 
 .eyebrow {
   margin: 0 0 14px;
-  color: #89ddca;
+  color: var(--accent-primary);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -524,9 +525,9 @@ h4 {
 .page-hero .trust-chip,
 .page-hero .mini-chip,
 .page-hero .pill {
-  border-color: rgba(157, 176, 195, 0.18);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--hero-soft);
+  border-color: rgba(21, 37, 51, 0.1);
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--text-soft);
 }
 
 .hero-visual,
@@ -564,10 +565,10 @@ h4 {
 .cta-band,
 .hero-visual,
 .page-hero-visual {
-  border-color: rgba(157, 176, 195, 0.16);
+  border-color: rgba(21, 37, 51, 0.1);
   background:
-    linear-gradient(155deg, rgba(11, 22, 34, 0.98), rgba(7, 16, 25, 0.98)),
-    linear-gradient(180deg, rgba(44, 122, 106, 0.08), transparent 42%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 242, 233, 0.96)),
+    linear-gradient(180deg, rgba(44, 122, 106, 0.06), transparent 42%);
 }
 
 .hero-visual,
@@ -584,8 +585,8 @@ h4 {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at top right, rgba(44, 122, 106, 0.16), transparent 28%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 30%);
+    radial-gradient(circle at top right, rgba(44, 122, 106, 0.12), transparent 28%),
+    linear-gradient(135deg, rgba(47, 93, 134, 0.04), transparent 34%);
 }
 
 .systems-board {
@@ -617,9 +618,9 @@ h4 {
   min-height: 34px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(44, 122, 106, 0.14);
-  border: 1px solid rgba(44, 122, 106, 0.2);
-  color: #d7fff1;
+  background: rgba(44, 122, 106, 0.1);
+  border: 1px solid rgba(44, 122, 106, 0.16);
+  color: var(--accent-primary);
   font-size: 0.84rem;
   font-weight: 700;
 }
@@ -714,8 +715,10 @@ h4 {
   z-index: 1;
   padding: 18px 16px;
   border-radius: 20px;
-  background: rgba(16, 33, 49, 0.94);
-  border: 1px solid rgba(157, 176, 195, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 242, 233, 0.94)),
+    rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(21, 37, 51, 0.1);
 }
 
 .systems-node span,
@@ -810,9 +813,9 @@ h4 {
 .page-hero .systems-card,
 .hero-visual .systems-card,
 .page-hero-visual .systems-card {
-  border-color: rgba(157, 176, 195, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-color: rgba(21, 37, 51, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .hero .metric-card span,
@@ -1059,7 +1062,7 @@ h4 {
 .cta-band h2,
 .cta-band h3,
 .cta-band strong {
-  color: var(--hero-text);
+  color: var(--text-primary);
 }
 
 .cta-band p,
@@ -1067,7 +1070,7 @@ h4 {
 .cta-band .section-copy,
 .cta-band .micro-copy,
 .cta-band .inline-note {
-  color: var(--hero-soft);
+  color: var(--text-soft);
 }
 
 .audit-grid,
@@ -1358,10 +1361,10 @@ h4 {
   gap: 18px;
   padding: 28px;
   border-radius: 28px;
-  border: 1px solid rgba(157, 176, 195, 0.12);
+  border: 1px solid rgba(21, 37, 51, 0.1);
   background:
-    linear-gradient(180deg, rgba(11, 22, 34, 0.96), rgba(7, 16, 25, 0.98)),
-    linear-gradient(135deg, rgba(44, 122, 106, 0.08), transparent 34%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 236, 226, 0.96)),
+    linear-gradient(135deg, rgba(44, 122, 106, 0.05), transparent 34%);
 }
 
 .footer-top,
@@ -1387,16 +1390,16 @@ h4 {
 .footer-shell .footer-copy,
 .footer-shell .footer-links a,
 .footer-shell .footer-bottom a {
-  color: var(--hero-soft);
+  color: var(--text-soft);
 }
 
 .footer-shell .brand-copy span {
-  color: var(--hero-muted);
+  color: var(--text-muted);
 }
 
 .footer-links a:hover,
 .footer-bottom a:hover {
-  color: var(--hero-text);
+  color: var(--text-primary);
 }
 
 .footer-copy {
@@ -1519,8 +1522,8 @@ h4 {
     gap: 12px;
     padding: 16px;
     border-radius: 24px;
-    border: 1px solid rgba(157, 176, 195, 0.14);
-    background: rgba(11, 22, 34, 0.98);
+    border: 1px solid rgba(21, 37, 51, 0.1);
+    background: rgba(255, 255, 255, 0.98);
     box-shadow: var(--shadow);
     opacity: 0;
     pointer-events: none;
