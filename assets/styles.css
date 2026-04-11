@@ -4516,6 +4516,13 @@ main li a:not(.button):hover,
   color: #8fe8de;
 }
 
+.route-proof-card.is-primary .proof-stat {
+  color: #ff646f;
+  text-shadow:
+    0 0 14px rgba(255, 70, 70, 0.22),
+    0 0 26px rgba(255, 70, 70, 0.14);
+}
+
 .route-home .proof-card-home.is-alert .proof-label {
   color: rgba(255, 204, 204, 0.72);
 }
