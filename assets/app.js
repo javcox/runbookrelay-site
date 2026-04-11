@@ -99,6 +99,55 @@ document.addEventListener("DOMContentLoaded", function () {
     target.dataset.state = state || "";
   }
 
+  function normalizePhoneNumber(rawValue) {
+    const raw = String(rawValue || "").trim();
+    if (!raw) {
+      return { valid: false, value: "" };
+    }
+
+    if (raw.startsWith("+")) {
+      const digits = raw.slice(1).replace(/\D/g, "");
+      const normalized = "+" + digits;
+      return {
+        valid: /^\+\d{8,15}$/.test(normalized),
+        value: normalized
+      };
+    }
+
+    const digits = raw.replace(/\D/g, "");
+    if (digits.length === 10) {
+      return { valid: true, value: "+1" + digits };
+    }
+
+    if (digits.length === 11 && digits.startsWith("1")) {
+      return { valid: true, value: "+" + digits };
+    }
+
+    return { valid: false, value: raw };
+  }
+
+  function preparePhoneField(form) {
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (!phoneInput) return true;
+
+    phoneInput.setCustomValidity("");
+
+    if (!String(phoneInput.value || "").trim()) {
+      return true;
+    }
+
+    const normalized = normalizePhoneNumber(phoneInput.value);
+    if (!normalized.valid) {
+      phoneInput.setCustomValidity(
+        "Enter a valid phone number. U.S./Canada numbers can be entered normally. For other countries, include the country code."
+      );
+      return false;
+    }
+
+    phoneInput.value = normalized.value;
+    return true;
+  }
+
   function parseChoiceValues(rawValue) {
     return String(rawValue || "")
       .split(",")
@@ -304,10 +353,31 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeChoiceGroups(form);
     syncHiddenFields(form);
 
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener("input", function () {
+        phoneInput.setCustomValidity("");
+      });
+
+      phoneInput.addEventListener("blur", function () {
+        if (!String(phoneInput.value || "").trim()) {
+          phoneInput.setCustomValidity("");
+          return;
+        }
+
+        const normalized = normalizePhoneNumber(phoneInput.value);
+        if (normalized.valid) {
+          phoneInput.value = normalized.value;
+          phoneInput.setCustomValidity("");
+        }
+      });
+    }
+
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       syncHiddenFields(form);
 
+      preparePhoneField(form);
       const nativeValid = form.reportValidity();
       const choiceValid = validateChoiceGroups(form);
 
