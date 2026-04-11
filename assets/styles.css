@@ -933,6 +933,22 @@ h4 {
   gap: 22px;
 }
 
+.founder-visual {
+  margin: 0 0 18px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(21, 37, 51, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow-soft);
+}
+
+.founder-visual img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
 .founder-meta {
   display: flex;
   flex-wrap: wrap;
