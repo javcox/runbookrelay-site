@@ -1532,6 +1532,106 @@ h4 {
   gap: 18px;
 }
 
+.decision-band {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 40px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(9, 22, 33, 0.98), rgba(10, 28, 41, 0.96)),
+    linear-gradient(135deg, rgba(44, 122, 106, 0.18), transparent 40%);
+  box-shadow: 0 24px 70px rgba(7, 16, 24, 0.24);
+}
+
+.decision-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top right, rgba(44, 122, 106, 0.18), transparent 30%),
+    linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.05) 52%, transparent 68%);
+  animation: consoleSweep 18s ease-in-out infinite;
+}
+
+.decision-band > * {
+  position: relative;
+  z-index: 1;
+}
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.88fr) auto;
+  gap: 30px;
+  align-items: end;
+}
+
+.decision-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.decision-copy .eyebrow,
+.decision-point span {
+  color: #8fd5c8;
+}
+
+.decision-copy .section-title {
+  max-width: 11ch;
+  color: #f8fbff;
+}
+
+.decision-copy .section-copy,
+.decision-actions .micro-copy {
+  color: rgba(219, 229, 238, 0.76);
+}
+
+.decision-points {
+  display: grid;
+  gap: 12px;
+}
+
+.decision-point {
+  display: grid;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.decision-point span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.decision-point strong {
+  color: #f8fbff;
+  font-family: var(--headline-font);
+  font-size: 1.02rem;
+  letter-spacing: -0.03em;
+}
+
+.decision-point p {
+  margin: 0;
+  color: rgba(219, 229, 238, 0.68);
+  line-height: 1.6;
+}
+
+.decision-actions {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  align-content: center;
+}
+
+.decision-actions .button {
+  min-width: 220px;
+}
+
 .cta-band .section-title {
   max-width: 12ch;
 }
@@ -2009,6 +2109,7 @@ h4 {
 
   .hero-value-strip,
   .hero-value-strip.hero-value-strip-2,
+  .decision-grid,
   .systems-footer {
     grid-template-columns: 1fr;
   }
@@ -2166,6 +2267,11 @@ h4 {
 
   .proof-band {
     margin-top: -42px;
+  }
+
+  .decision-actions .button {
+    min-width: 0;
+    width: 100%;
   }
 }
 
