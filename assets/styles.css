@@ -1664,6 +1664,52 @@ h4 {
   padding: clamp(32px, 4.2vw, 48px);
 }
 
+.route-about .page-hero-lead,
+.route-about .subroute-note,
+.route-about .about-founder-note,
+.route-about .about-founder-story .section-copy,
+.route-about .about-framework-copy .section-copy,
+.route-about .about-process-intro .section-copy,
+.route-about .about-process-note p,
+.route-about .about-proof-item p,
+.route-about .about-fit-card p,
+.route-about .about-process-card p,
+.route-about .about-pillar p,
+.route-about .quote-panel p,
+.route-about .decision-copy .section-copy,
+.route-about .decision-point p,
+.route-about .form-note {
+  color: #b8c7d3;
+  line-height: 1.68;
+  text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.05);
+}
+
+.route-about .page-hero-lead,
+.route-about .subroute-note,
+.route-about .about-founder-story .section-copy,
+.route-about .about-framework-copy .section-copy,
+.route-about .about-process-intro .section-copy,
+.route-about .decision-copy .section-copy {
+  max-width: 520px;
+}
+
+.route-about .page-hero-lead {
+  margin-top: 24px;
+}
+
+.route-about .subroute-note {
+  margin-top: 22px;
+}
+
+.route-about .about-founder-role,
+.route-about .about-founder-note,
+.route-about .about-process-note .card-kicker,
+.route-about .systems-summary .systems-caption,
+.route-about .about-fit-card .card-kicker,
+.route-about .about-pillar .card-kicker {
+  color: #8fa3b8;
+}
+
 .about-authority-grid {
   display: grid;
   grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
@@ -1713,7 +1759,7 @@ h4 {
 
 .about-founder-story {
   display: grid;
-  gap: 26px;
+  gap: 30px;
   align-content: start;
 }
 
@@ -1724,7 +1770,7 @@ h4 {
 .about-founder-pillars {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
 .about-pillar {
@@ -1749,7 +1795,7 @@ h4 {
 
 .about-framework-panel {
   display: grid;
-  gap: 24px;
+  gap: 28px;
 }
 
 .about-proof-stack {
@@ -1799,6 +1845,27 @@ h4 {
   box-shadow:
     0 18px 44px rgba(0, 0, 0, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.route-about .about-authority-band,
+.route-about .about-framework-panel,
+.route-about .about-process-intro,
+.route-about .about-founder-quote,
+.route-about .about-pillar,
+.route-about .about-fit-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(11, 19, 29, 0.94), rgba(6, 12, 20, 0.98)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 58%);
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.route-about .trust-chip,
+.route-about .mini-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .about-fit-card .card-title {
