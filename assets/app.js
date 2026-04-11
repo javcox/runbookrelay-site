@@ -128,15 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let frictionZones = [];
     let stageMarkers = [];
     let lastRender = 0;
+    let sceneCycleStartedAt = 0;
+    const sceneCycleDuration = 5 * 60 * 1000;
 
     function randomBetween(min, max) {
       return min + Math.random() * (max - min);
     }
 
-    function buildScene() {
+    function buildScene(cycleStartTime) {
       const laneCount = width <= 640 ? 4 : 6;
-      const nodeCount = width <= 640 ? 7 : 12;
+      const nodeCount = width <= 640 ? 9 : 16;
       const laneGap = height / (laneCount + 1);
+      sceneCycleStartedAt = typeof cycleStartTime === "number" ? cycleStartTime : window.performance.now();
 
       lanes = Array.from({ length: laneCount }, function (_, index) {
         const priority = index % 2 === 0 ? "primary" : "secondary";
@@ -163,10 +166,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       nodes = Array.from({ length: nodeCount }, function (_, index) {
+        const distributedProgress = (index / nodeCount + randomBetween(-0.035, 0.07) + 1) % 1;
         return {
           id: index,
-          laneIndex: Math.floor(Math.random() * lanes.length),
-          progress: Math.random(),
+          laneIndex: index % lanes.length,
+          progress: distributedProgress,
           baseSpeed: randomBetween(0.00018, 0.00034),
           speed: 0,
           size: randomBetween(1.8, 3.1),
@@ -274,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
           node.progress += node.speed;
 
           if (node.progress > 1.04) {
-            node.progress = randomBetween(-0.08, 0.02);
+            node.progress = randomBetween(-0.16, -0.02);
             node.laneIndex = Math.floor(Math.random() * lanes.length);
           }
         }
@@ -319,6 +323,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      if (time - sceneCycleStartedAt >= sceneCycleDuration) {
+        buildScene(time);
+      }
+
       lastRender = time;
       paintFrame(time, false);
       animationFrameId = window.requestAnimationFrame(renderFrame);
@@ -333,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
       canvas.style.width = width + "px";
       canvas.style.height = height + "px";
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildScene();
+      buildScene(window.performance.now());
       paintFrame(window.performance.now(), true);
     }
 
