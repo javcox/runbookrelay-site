@@ -41,7 +41,7 @@
       crossorigin
     />
     <link rel="canonical" href="https://runbookrelay.com/med-spa/" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260411j" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260411m" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
@@ -60,7 +60,7 @@
       };
     </script>
     <script src="../assets/analytics.js?v=20260409i" defer></script>
-    <script src="../assets/app.js?v=20260411c" defer></script>
+    <script src="../assets/app.js?v=20260411d" defer></script>
   </head>
   <body class="route-med-spa">
     <header class="site-header" data-site-header>
@@ -105,12 +105,12 @@
               the clinic does not have a demand problem first. It has a response and follow-up problem.
             </p>
             <p class="subroute-note">
-              Runbook Relay helps med spas tighten first response, booking recovery, no-show follow-up,
-              and staff execution so more interest turns into scheduled consults.
+              Operator-led by Javen Cinocca, MBA, Runbook Relay helps med spas tighten first response, booking recovery,
+              no-show follow-up, and staff execution so more interest turns into scheduled consults.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="med_spa_hero_book_audit">Book audit</a>
-              <a class="button button-secondary" href="#process">See how it works</a>
+              <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="med_spa_hero_book_audit">Book the $1,000 audit</a>
+              <a class="button button-secondary" href="#process">How the sprint works</a>
             </div>
             <div class="trust-line">
               <span class="trust-chip">Lead speed</span>
@@ -185,200 +185,244 @@
 
       <section class="section">
         <div class="shell">
-          <div class="surface proof-band" data-reveal>
-            <div class="section-header compact">
-              <p class="eyebrow">Why booking leaks get expensive</p>
-              <h2 class="section-title">You usually do not have to lose many consults before the leak outruns the fix.</h2>
-              <p class="section-copy">
-                In appointment-driven businesses, demand can cool fast when the first response is slow,
-                the second touch is missed, or reminders stay inconsistent.
-              </p>
+          <div class="surface proof-band route-proof-band" data-reveal>
+            <div class="proof-band-top">
+              <div class="section-header compact route-proof-header">
+                <p class="eyebrow">Why booking leaks get expensive</p>
+                <h2 class="section-title">You usually do not have to lose many consults before the leak outruns the fix.</h2>
+                <p class="section-copy">
+                  In appointment-driven businesses, demand can cool fast when the first response is slow, the second touch
+                  is missed, or reminders stay inconsistent.
+                </p>
+              </div>
+              <aside class="proof-sidecar" aria-label="Med spa cost framing">
+                <span class="proof-sidecar-label">Illustrative leakage</span>
+                <h3 class="proof-sidecar-title">A few cooled consults a month can be enough to justify the cleanup.</h3>
+                <p class="proof-sidecar-copy">
+                  When consult demand already exists, the expensive part is often the loose follow-up between first interest,
+                  scheduled appointment, and no-show recovery.
+                </p>
+                <div class="proof-sidecar-metrics">
+                  <article class="proof-sidecar-metric">
+                    <span>Example only</span>
+                    <strong>4 cooled consults/mo</strong>
+                    <p>because the first or second touch missed the window</p>
+                  </article>
+                  <article class="proof-sidecar-metric">
+                    <span>Rough annual leakage</span>
+                    <strong>48 consult chances/year</strong>
+                    <p>before counting actual treatment value or rebook potential</p>
+                  </article>
+                </div>
+              </aside>
             </div>
-            <div class="proof-grid">
-              <article class="proof-card is-spotlight">
+            <div class="proof-grid route-proof-grid">
+              <article class="proof-card route-proof-card is-primary">
                 <span class="proof-label">Unanswered calls</span>
-                <strong class="proof-stat">78%</strong>
-                <p class="proof-copy">
-                  Of consumers have abandoned a business after an unanswered call, according to CallRail.
-                </p>
-                <a class="proof-source" href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" target="_blank" rel="noreferrer">Source: CallRail</a>
+                <div class="proof-stat-lockup">
+                  <strong class="proof-stat">78%</strong>
+                  <p class="proof-emphasis">have abandoned after an unanswered call</p>
+                </div>
+                <p class="proof-copy">CallRail reports many buyers walk away after the first missed call instead of waiting around.</p>
+                <a class="proof-source" href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" target="_blank" rel="noreferrer">Source: CallRail missed-call data</a>
               </article>
-              <article class="proof-card">
+              <article class="proof-card route-proof-card is-primary">
                 <span class="proof-label">Immediate switch</span>
-                <strong class="proof-stat">21%</strong>
-                <p class="proof-copy">
-                  Immediately call another business after an unanswered call, according to CallRail.
-                </p>
-                <a class="proof-source" href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" target="_blank" rel="noreferrer">Source: CallRail</a>
+                <div class="proof-stat-lockup">
+                  <strong class="proof-stat">21%</strong>
+                  <p class="proof-emphasis">call another business right away</p>
+                </div>
+                <p class="proof-copy">CallRail found some buyers do not just cool off. They move directly to a competitor.</p>
+                <a class="proof-source" href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" target="_blank" rel="noreferrer">Source: CallRail missed-call data</a>
               </article>
-              <article class="proof-card">
+              <article class="proof-card route-proof-card">
                 <span class="proof-label">Reminder effect</span>
-                <strong class="proof-stat">23.1% -> 17.3%</strong>
-                <p class="proof-copy">
-                  No-show rates fell from 23.1% with no reminder to 17.3% with automated reminders in a randomized trial.
-                </p>
+                <div class="proof-stat-lockup">
+                  <strong class="proof-stat">23.1% -> 17.3%</strong>
+                  <p class="proof-emphasis">no-show rates fell with automated reminders</p>
+                </div>
+                <p class="proof-copy">A randomized trial found reminder workflows reduced no-shows relative to no-reminder baselines.</p>
                 <a class="proof-source" href="https://pubmed.ncbi.nlm.nih.gov/20569761/" target="_blank" rel="noreferrer">Source: Mayo Clinic Proceedings / PubMed</a>
               </article>
-              <article class="proof-card">
+              <article class="proof-card route-proof-card">
                 <span class="proof-label">Response speed</span>
-                <strong class="proof-stat">8x</strong>
-                <p class="proof-copy">
-                  Conversion rates can drop 8x after 5 minutes of delay, according to InsideSales.
-                </p>
-                <a class="proof-source" href="https://www.insidesales.com/response-time-matters/" target="_blank" rel="noreferrer">Source: InsideSales</a>
+                <div class="proof-stat-lockup">
+                  <strong class="proof-stat">8x</strong>
+                  <p class="proof-emphasis">conversion drop after 5 minutes</p>
+                </div>
+                <p class="proof-copy">InsideSales found conversion rates can fall sharply when the first response slows down.</p>
+                <a class="proof-source" href="https://www.insidesales.com/response-time-matters/" target="_blank" rel="noreferrer">Source: InsideSales response-time data</a>
               </article>
             </div>
-            <p class="proof-caption">
-              Illustration only: if just a few high-intent consults or rebookings leak out each month,
-              the cost can outrun a narrow cleanup quickly.
-            </p>
+            <div class="proof-caption-wrap">
+              <p class="proof-caption">Illustration only: if just a few high-intent consults or rebookings leak out each month, the cost can outrun a narrow cleanup quickly.</p>
+              <p class="proof-caption proof-caption-strong">That is why the first booking leak is often worth fixing before buying more demand.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="what-we-fix">
+        <div class="shell">
+          <div class="route-diagnosis-band" data-reveal>
+            <div class="section-header compact route-diagnosis-intro">
+              <p class="eyebrow">Where clinics leak demand</p>
+              <h2 class="section-title">Med spas leak demand quietly when the first response is too slow.</h2>
+              <p class="section-copy">
+                The clinic often feels the leak as “we are busy, but bookings still feel soft.” The audit is meant to inspect
+                where consult momentum is actually cooling between first interest and scheduled appointment.
+              </p>
+            </div>
+            <div class="route-diagnosis-grid">
+              <article class="problem-card route-diagnosis-card is-featured">
+                <span class="card-kicker">Slow first touch</span>
+                <h3 class="card-title">Consult requests sit too long before anyone follows up.</h3>
+                <p>Interest is hot for a short window. Delay changes booking behavior quickly.</p>
+              </article>
+              <article class="problem-card route-diagnosis-card">
+                <span class="card-kicker">Second-touch drift</span>
+                <h3 class="card-title">Staff misses the second or third follow-up step.</h3>
+                <p>Without a tighter rhythm, a good lead can disappear after one missed handoff or reminder.</p>
+              </article>
+              <article class="problem-card route-diagnosis-card">
+                <span class="card-kicker">Channel sprawl</span>
+                <h3 class="card-title">Calls, forms, DMs, and texts do not all live in the same workflow.</h3>
+                <p>That makes it easy to feel busy while still leaking appointment demand across channels.</p>
+              </article>
+              <article class="problem-card route-diagnosis-card">
+                <span class="card-kicker">Recovery gap</span>
+                <h3 class="card-title">No-show and old-consult follow-up is too inconsistent.</h3>
+                <p>Good revenue often sits in conversations nobody is working methodically after the initial attempt.</p>
+              </article>
+            </div>
+            <div class="route-diagnosis-footer">
+              <p class="micro-copy">The sprint is not about rebuilding the whole clinic workflow. It is about fixing the booking or recovery leak that is already costing consults.</p>
+              <a class="route-link route-inline-link" href="#audit-form">Bring the booking leak into the audit</a>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section anchor-offset" id="process">
         <div class="shell">
-          <div class="section-header" data-reveal>
-            <p class="eyebrow">The missed-lead problem</p>
-            <h2 class="section-title">Med spas leak demand quietly when the first response is too slow.</h2>
-          </div>
-          <div class="grid-2" data-reveal>
-            <article class="problem-card">
-              <span class="card-kicker">Response delay</span>
-              <h3 class="card-title">Consult requests sit too long before anyone follows up.</h3>
-              <p>Interest is hot for a short window. Delay changes booking behavior quickly.</p>
-            </article>
-            <article class="problem-card">
-              <span class="card-kicker">Follow-up gap</span>
-              <h3 class="card-title">Staff misses the second or third touch.</h3>
-              <p>Without a tighter system, a good lead can disappear after one missed step.</p>
-            </article>
-            <article class="problem-card">
-              <span class="card-kicker">Channel sprawl</span>
-              <h3 class="card-title">Calls, forms, DMs, and texts do not all live in the same rhythm.</h3>
-              <p>That makes it easy to feel busy while still leaking appointment demand.</p>
-            </article>
-            <article class="problem-card">
-              <span class="card-kicker">Reactivation</span>
-              <h3 class="card-title">No-show and lost-consult follow-up is too inconsistent.</h3>
-              <p>Good revenue often sits in old conversations nobody is working methodically.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="shell split-highlight">
-          <article class="surface-alt surface-stack" data-reveal>
-            <div class="section-header compact">
-              <p class="eyebrow">Booking recovery system</p>
-              <h2 class="section-title">The first job is getting demand contacted and booked faster.</h2>
-            </div>
-            <ul class="list">
-              <li>Faster follow-up for new consult requests</li>
-              <li>Cleaner staff ownership after form, DM, call, or missed contact</li>
-              <li>Less revenue leakage between "interested" and "booked"</li>
-            </ul>
-          </article>
-          <article class="surface surface-stack" data-reveal>
-            <div class="section-header compact">
-              <p class="eyebrow">No-show and reactivation</p>
-              <h2 class="section-title">The second job is recovering demand that should not have been lost.</h2>
-            </div>
-            <ul class="list">
-              <li>No-show follow-up logic that does not depend on memory</li>
-              <li>Reactivation workflow for older consult interest</li>
-              <li>Cleaner handoff between front desk, coordinator, and booking owner</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section anchor-offset" id="expected-outcomes">
-        <div class="shell">
-          <div class="section-header" data-reveal>
-            <p class="eyebrow">Expected outcomes</p>
-            <h2 class="section-title">What a tighter booking system should change.</h2>
-          </div>
-          <div class="outcomes-grid" data-reveal>
-            <article class="outcome-card">
-              <span class="card-kicker">Speed</span>
-              <h3 class="card-title">More consult requests contacted while intent is still high</h3>
-              <p>Less ad spend and inbound demand leaking from response delay.</p>
-            </article>
-            <article class="outcome-card">
-              <span class="card-kicker">Conversion</span>
-              <h3 class="card-title">Stronger follow-up from first inquiry to scheduled appointment</h3>
-              <p>Cleaner rhythm between first touch, reminder, and booking action.</p>
-            </article>
-            <article class="outcome-card">
-              <span class="card-kicker">Recovery</span>
-              <h3 class="card-title">More value pulled out of no-shows and old consult threads</h3>
-              <p>Not every missed consult needs to become a permanent loss.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="shell">
-          <div class="section-header" data-reveal>
-            <p class="eyebrow">Process</p>
-            <h2 class="section-title">Operator-led cleanup for the booking workflow the clinic already has.</h2>
-          </div>
-          <div class="process-grid" data-reveal>
-            <article class="process-card">
-              <span class="step-index">01</span>
-              <h3 class="card-title">Audit the inquiry path</h3>
-              <p>Look at where calls, forms, DMs, and consult requests are currently slowing down.</p>
-            </article>
-            <article class="process-card">
-              <span class="step-index">02</span>
-              <h3 class="card-title">Find the booking leak</h3>
-              <p>Decide whether the highest-value fix is response speed, follow-up rhythm, or no-show recovery.</p>
-            </article>
-            <article class="process-card">
-              <span class="step-index">03</span>
-              <h3 class="card-title">Install the workflow</h3>
-              <p>Build the cleaner follow-up structure and ownership instead of relying on good intentions.</p>
-            </article>
-            <article class="process-card">
-              <span class="step-index">04</span>
-              <h3 class="card-title">Hand off a tighter system</h3>
-              <p>Leave behind a booking rhythm the clinic can actually run day to day.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="shell">
-          <div class="decision-band anchor-offset" data-reveal id="decision-point">
-            <div class="decision-grid">
-              <div class="decision-copy">
-                <p class="eyebrow">When to book</p>
-                <h2 class="section-title">If demand is already there, audit the booking leak before another batch of consults cools off.</h2>
+          <div class="route-journey-band split-highlight">
+            <article class="surface-alt surface-stack route-journey-copy" data-reveal>
+              <div class="section-header compact">
+                <p class="eyebrow">How the sprint works</p>
+                <h2 class="section-title">A tight path from inquiry to booked-consult recovery.</h2>
                 <p class="section-copy">
-                  The audit fits clinics where calls, forms, DMs, no-shows, or follow-up gaps are already
-                  costing booked appointments and the team needs a cleaner operating rhythm.
+                  The goal is not to add another beauty-industry playbook. The goal is to inspect the live booking path,
+                  tighten the workflow around it, and leave the clinic with a cleaner follow-up rhythm.
                 </p>
               </div>
-              <div class="decision-points">
-                <article class="decision-point">
-                  <span>Best fit</span>
-                  <strong>Appointment-driven teams with inquiry volume</strong>
-                  <p>Especially when the first or second touch still depends too much on staff memory.</p>
+              <ul class="list">
+                <li>Inspect the live path from first inquiry through consult, reminder, and no-show recovery.</li>
+                <li>Keep the scope fixed so the sprint solves one expensive booking problem first.</li>
+                <li>Leave clearer ownership instead of letting booking discipline depend on memory.</li>
+              </ul>
+            </article>
+            <article class="surface route-journey-panel" data-reveal>
+              <div class="route-step-list">
+                <article class="route-step">
+                  <span class="step-index">01</span>
+                  <div>
+                    <h3 class="card-title">Inspect the inquiry path</h3>
+                    <p>Look at where calls, forms, DMs, consult requests, or no-shows are currently leaking momentum.</p>
+                  </div>
                 </article>
-                <article class="decision-point">
-                  <span>Scope</span>
-                  <strong>One booking or recovery leak first</strong>
-                  <p>First response, consult recovery, no-show follow-up, or reactivation before anything broader.</p>
+                <article class="route-step">
+                  <span class="step-index">02</span>
+                  <div>
+                    <h3 class="card-title">Choose one booking leak first</h3>
+                    <p>Decide whether the highest-value fix is first response, follow-up rhythm, or no-show recovery.</p>
+                  </div>
+                </article>
+                <article class="route-step">
+                  <span class="step-index">03</span>
+                  <div>
+                    <h3 class="card-title">Install the cleaner booking rhythm</h3>
+                    <p>Build the follow-up structure, ownership, and recovery logic instead of relying on good intentions.</p>
+                  </div>
                 </article>
               </div>
-              <div class="decision-actions">
-                <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="med_spa_decision_band_book">Start the short intake</a>
-                <p class="micro-copy">Short form first. Scheduler opens inline so the audit stays tied to the booking problem you already feel.</p>
+              <div class="route-result-strip">
+                <article class="route-result-card">
+                  <span>Contact</span>
+                  <strong>More inquiries reached while intent is high</strong>
+                </article>
+                <article class="route-result-card">
+                  <span>Booking</span>
+                  <strong>Tighter reminder and follow-up rhythm</strong>
+                </article>
+                <article class="route-result-card">
+                  <span>Recovery</span>
+                  <strong>More value from no-shows and old threads</strong>
+                </article>
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="what-gets-installed">
+        <div class="shell">
+          <div class="section-header centered route-deliverables-header" data-reveal>
+            <p class="eyebrow">What gets installed</p>
+            <h2 class="section-title">Practical systems for faster booking and cleaner recovery.</h2>
+            <p class="section-copy">First response, consult follow-up, no-show recovery, and staff ownership tightened into one cleaner booking path.</p>
+          </div>
+          <div class="deliverables-grid route-deliverables-grid" data-reveal>
+            <article class="deliverable-card route-deliverable-card">
+              <span class="card-kicker">First response</span>
+              <h3 class="card-title">Workflow for new consult requests across channels</h3>
+              <p>Cleaner handling after call, form, DM, or missed contact so fewer leads cool off early.</p>
+            </article>
+            <article class="deliverable-card route-deliverable-card">
+              <span class="card-kicker">Booking cadence</span>
+              <h3 class="card-title">Follow-up rhythm from interest to scheduled appointment</h3>
+              <p>A tighter second-touch and reminder sequence so more high-intent inquiries actually book.</p>
+            </article>
+            <article class="deliverable-card route-deliverable-card">
+              <span class="card-kicker">Recovery</span>
+              <h3 class="card-title">No-show and reactivation logic</h3>
+              <p>Cleaner workflow for recovering lost appointments and older consult interest instead of letting it decay.</p>
+            </article>
+            <article class="deliverable-card route-deliverable-card">
+              <span class="card-kicker">Ownership</span>
+              <h3 class="card-title">Clearer staff handoff and channel accountability</h3>
+              <p>Less ambiguity between coordinator, front desk, and booking owner about who acts next.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="surface-alt route-fit-band anchor-offset" data-reveal id="decision-point">
+            <div class="section-header compact route-fit-intro">
+              <p class="eyebrow">Why this is easier to buy</p>
+              <h2 class="section-title">One booking leak. One fixed-scope cleanup.</h2>
+              <p class="section-copy">
+                Runbook Relay is for clinics already generating consult demand but not fully converting it. The scope stays
+                operator-led, practical, and honest about fit before anything bigger gets sold.
+              </p>
+            </div>
+            <div class="route-fit-grid">
+              <article class="route-fit-card is-toned">
+                <span class="card-kicker">Best fit</span>
+                <h3 class="card-title">Appointment-driven clinics with inquiry volume and loose follow-up.</h3>
+                <p>Especially when the first or second touch still depends too much on staff memory and channel juggling.</p>
+              </article>
+              <article class="route-fit-card">
+                <span class="card-kicker">What this is not</span>
+                <h3 class="card-title">Not a creative, branding, or ad-management package.</h3>
+                <p>The value is tighter booking conversion from the demand already reaching the clinic, not more campaign spin.</p>
+              </article>
+              <article class="route-fit-card">
+                <span class="card-kicker">Working style</span>
+                <h3 class="card-title">Operator-led by Javen Cinocca, MBA, with a sober fit check.</h3>
+                <p>If the booking leak is real, the scope stays sharp. If the path to value is weak, you hear that early.</p>
+              </article>
             </div>
           </div>
         </div>
@@ -528,14 +572,15 @@
         <div class="shell">
           <div class="cta-band" data-reveal>
             <p class="eyebrow">Next step</p>
-            <h2 class="section-title">Book the audit and find the fastest booking leak first.</h2>
+            <h2 class="section-title">Book the booking audit if demand is already there but consults still cool off.</h2>
             <p class="section-copy">
               If your clinic is already getting consult interest, the highest-leverage fix is often faster response and stronger follow-up discipline.
             </p>
             <div class="cta-actions">
-              <a class="button button-primary" href="#audit-form">Book audit</a>
-              <a class="button button-secondary" href="#process">See how it works</a>
+              <a class="button button-primary" href="#audit-form">Start the med spa intake</a>
+              <a class="button button-secondary" href="#what-gets-installed">See what gets installed</a>
             </div>
+            <p class="micro-copy">One booking leak first. No vague med-spa marketing package. No bloated implementation pitch.</p>
           </div>
         </div>
       </section>

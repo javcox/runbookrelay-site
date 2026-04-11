@@ -59,7 +59,285 @@ document.addEventListener("DOMContentLoaded", function () {
     header.classList.toggle("is-scrolled", window.scrollY > 18);
   }
 
+  function initializeGlobalBackground() {
+    if (document.querySelector("[data-site-background]")) {
+      return;
+    }
+
+    const canvasHost = document.createElement("div");
+    const canvas = document.createElement("canvas");
+    const overlay = document.createElement("div");
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const body = document.body;
+
+    canvasHost.className = "site-background";
+    canvasHost.setAttribute("data-site-background", "");
+    canvasHost.setAttribute("aria-hidden", "true");
+
+    canvas.className = "site-background-canvas";
+    overlay.className = "site-background-overlay";
+
+    canvasHost.appendChild(canvas);
+    canvasHost.appendChild(overlay);
+    body.prepend(canvasHost);
+    body.classList.add("has-global-background");
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      return;
+    }
+
+    let animationFrameId = 0;
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let lanes = [];
+    let nodes = [];
+    let frictionZones = [];
+    let stageMarkers = [];
+    let lastRender = 0;
+
+    function randomBetween(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function buildScene() {
+      const laneCount = width <= 640 ? 4 : 6;
+      const nodeCount = width <= 640 ? 7 : 12;
+      const laneGap = height / (laneCount + 1);
+
+      lanes = Array.from({ length: laneCount }, function (_, index) {
+        const priority = index % 2 === 0 ? "primary" : "secondary";
+        return {
+          baseY: laneGap * (index + 1),
+          phase: randomBetween(-Math.PI, Math.PI),
+          amplitude: priority === "primary" ? randomBetween(8, 18) : randomBetween(6, 13),
+          drift: randomBetween(0.00012, 0.00024),
+          depth: randomBetween(0.72, 1.18),
+          priority: priority
+        };
+      });
+
+      frictionZones = [
+        { x: width * 0.24, width: width * 0.12, intensity: 0.16 },
+        { x: width * 0.54, width: width * 0.1, intensity: 0.2 },
+        { x: width * 0.78, width: width * 0.08, intensity: 0.11 }
+      ];
+
+      stageMarkers = [0.16, 0.34, 0.54, 0.74, 0.9].map(function (position) {
+        return {
+          x: position * width
+        };
+      });
+
+      nodes = Array.from({ length: nodeCount }, function (_, index) {
+        return {
+          id: index,
+          laneIndex: Math.floor(Math.random() * lanes.length),
+          progress: Math.random(),
+          baseSpeed: randomBetween(0.00018, 0.00034),
+          speed: 0,
+          size: randomBetween(1.8, 3.1),
+          alpha: randomBetween(0.32, 0.68)
+        };
+      });
+    }
+
+    function laneYAtProgress(lane, progress, time) {
+      const oscillation =
+        lane.amplitude * Math.sin(progress * Math.PI * 3.2 + lane.phase + time * lane.drift);
+      const funnelBias = (height * 0.54 - lane.baseY) * Math.pow(progress, 2.15) * 0.085;
+      const correctionBias = Math.sin((progress * 2.5 + lane.phase) * Math.PI) * lane.depth * 3.4;
+      return lane.baseY + oscillation + funnelBias + correctionBias;
+    }
+
+    function drawFrictionZones() {
+      frictionZones.forEach(function (zone, index) {
+        const zoneGradient = ctx.createLinearGradient(zone.x, 0, zone.x + zone.width, 0);
+        zoneGradient.addColorStop(0, "rgba(4, 10, 18, 0)");
+        zoneGradient.addColorStop(0.5, index === 1 ? "rgba(8, 18, 29, 0.24)" : "rgba(8, 18, 29, 0.18)");
+        zoneGradient.addColorStop(1, "rgba(4, 10, 18, 0)");
+        ctx.fillStyle = zoneGradient;
+        ctx.fillRect(zone.x, 0, zone.width, height);
+      });
+    }
+
+    function drawStageMarkers() {
+      stageMarkers.forEach(function (marker, index) {
+        ctx.beginPath();
+        ctx.strokeStyle = index === stageMarkers.length - 1 ? "rgba(102, 199, 225, 0.08)" : "rgba(111, 164, 207, 0.05)";
+        ctx.lineWidth = index % 2 === 0 ? 1 : 0.8;
+        ctx.moveTo(marker.x, 0);
+        ctx.lineTo(marker.x, height);
+        ctx.stroke();
+      });
+    }
+
+    function drawLanes(time) {
+      const xStep = Math.max(18, width / 56);
+      lanes.forEach(function (lane) {
+        const isPrimary = lane.priority === "primary";
+        ctx.beginPath();
+        ctx.strokeStyle = isPrimary ? "rgba(105, 187, 242, 0.12)" : "rgba(88, 154, 198, 0.06)";
+        ctx.lineWidth = isPrimary ? 1.25 : 0.8;
+        for (let x = -width * 0.06; x <= width * 1.04; x += xStep) {
+          const progress = x / width;
+          const drawY = laneYAtProgress(lane, progress, time);
+          if (x <= -width * 0.06) {
+            ctx.moveTo(x, drawY);
+          } else {
+            ctx.lineTo(x, drawY);
+          }
+        }
+        ctx.stroke();
+      });
+    }
+
+    function drawNode(node, x, y, isPrimary) {
+      const glowSize = isPrimary ? node.size * 5.2 : node.size * 3.2;
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, glowSize);
+      const glowAlpha = (isPrimary ? 0.24 : 0.12) * node.alpha;
+      const coreAlpha = (isPrimary ? 0.74 : 0.4) * node.alpha;
+
+      glow.addColorStop(0, "rgba(121, 222, 210, " + glowAlpha.toFixed(3) + ")");
+      glow.addColorStop(0.55, "rgba(93, 170, 232, " + (glowAlpha * 0.52).toFixed(3) + ")");
+      glow.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(x, y, glowSize, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "rgba(160, 239, 228, " + coreAlpha.toFixed(3) + ")";
+      ctx.beginPath();
+      ctx.arc(x, y, node.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function drawNodes(time, staticOnly) {
+      nodes.forEach(function (node) {
+        const lane = lanes[node.laneIndex];
+        const isPrimary = lane.priority === "primary";
+        const x = node.progress * width;
+        const y = laneYAtProgress(lane, node.progress, time);
+
+        if (!staticOnly) {
+          let speedModifier = 1;
+
+          frictionZones.forEach(function (zone) {
+            if (x > zone.x && x < zone.x + zone.width) {
+              speedModifier -= zone.intensity;
+            }
+          });
+
+          if (node.progress > 0.72) {
+            speedModifier += 0.14;
+          }
+
+          if (node.progress > 0.9) {
+            speedModifier += 0.05;
+          }
+
+          node.speed = node.baseSpeed * Math.max(0.5, speedModifier);
+          node.progress += node.speed;
+
+          if (node.progress > 1.04) {
+            node.progress = randomBetween(-0.08, 0.02);
+            node.laneIndex = Math.floor(Math.random() * lanes.length);
+          }
+        }
+
+        drawNode(node, x, y, isPrimary);
+      });
+    }
+
+    function paintFrame(time, staticOnly) {
+      ctx.clearRect(0, 0, width, height);
+
+      const wash = ctx.createLinearGradient(0, 0, 0, height);
+      wash.addColorStop(0, "rgba(5, 10, 18, 0.08)");
+      wash.addColorStop(0.48, "rgba(7, 14, 22, 0.18)");
+      wash.addColorStop(1, "rgba(2, 5, 10, 0.36)");
+      ctx.fillStyle = wash;
+      ctx.fillRect(0, 0, width, height);
+
+      drawFrictionZones();
+      drawStageMarkers();
+      drawLanes(time);
+      drawNodes(time, staticOnly);
+
+      const vignette = ctx.createRadialGradient(
+        width * 0.5,
+        height * 0.38,
+        width * 0.08,
+        width * 0.5,
+        height * 0.5,
+        width * 0.84
+      );
+      vignette.addColorStop(0, "rgba(0, 0, 0, 0)");
+      vignette.addColorStop(0.72, "rgba(0, 0, 0, 0.2)");
+      vignette.addColorStop(1, "rgba(2, 5, 10, 0.62)");
+      ctx.fillStyle = vignette;
+      ctx.fillRect(0, 0, width, height);
+    }
+
+    function renderFrame(time) {
+      if (time - lastRender < 33) {
+        animationFrameId = window.requestAnimationFrame(renderFrame);
+        return;
+      }
+
+      lastRender = time;
+      paintFrame(time, false);
+      animationFrameId = window.requestAnimationFrame(renderFrame);
+    }
+
+    function updateCanvasSize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, width <= 640 ? 1 : 1.35);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      buildScene();
+      paintFrame(window.performance.now(), true);
+    }
+
+    function stopAnimation() {
+      if (animationFrameId) {
+        window.cancelAnimationFrame(animationFrameId);
+        animationFrameId = 0;
+      }
+    }
+
+    function syncAnimationState() {
+      stopAnimation();
+
+      if (reducedMotionQuery.matches || document.visibilityState === "hidden") {
+        paintFrame(window.performance.now(), true);
+        return;
+      }
+
+      animationFrameId = window.requestAnimationFrame(renderFrame);
+    }
+
+    updateCanvasSize();
+    syncAnimationState();
+
+    window.addEventListener("resize", updateCanvasSize, { passive: true });
+    document.addEventListener("visibilitychange", syncAnimationState);
+
+    if (typeof reducedMotionQuery.addEventListener === "function") {
+      reducedMotionQuery.addEventListener("change", syncAnimationState);
+    } else if (typeof reducedMotionQuery.addListener === "function") {
+      reducedMotionQuery.addListener(syncAnimationState);
+    }
+  }
+
   syncHeaderState();
+  initializeGlobalBackground();
   window.addEventListener("scroll", syncHeaderState, { passive: true });
 
   function track(name, props) {
