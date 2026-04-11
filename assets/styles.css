@@ -1624,6 +1624,213 @@ h4 {
   gap: 10px;
 }
 
+.about-authority-band {
+  gap: clamp(28px, 3.8vw, 40px);
+  padding: clamp(32px, 4.2vw, 48px);
+}
+
+.about-authority-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: start;
+}
+
+.about-founder-media {
+  display: grid;
+  gap: 18px;
+}
+
+.about-founder-portrait {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(180deg, rgba(9, 16, 25, 0.94), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(84, 171, 214, 0.08), transparent 44%);
+}
+
+.about-founder-portrait img {
+  aspect-ratio: 4 / 5;
+  object-position: center 20%;
+}
+
+.about-founder-identity {
+  display: grid;
+  gap: 6px;
+  padding: 18px 20px 0;
+}
+
+.about-founder-role {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+  font-weight: 760;
+  letter-spacing: -0.01em;
+}
+
+.about-founder-note {
+  color: var(--text-muted);
+  line-height: 1.72;
+}
+
+.about-founder-chip-grid {
+  align-items: flex-start;
+}
+
+.about-founder-story {
+  display: grid;
+  gap: 26px;
+  align-content: start;
+}
+
+.about-founder-story .section-title {
+  max-width: 12.2ch;
+}
+
+.about-founder-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-pillar {
+  min-height: 100%;
+}
+
+.about-pillar:last-child {
+  grid-column: 1 / -1;
+}
+
+.about-founder-quote {
+  padding: 24px 26px;
+}
+
+.about-framework-band {
+  align-items: stretch;
+}
+
+.about-framework-copy .section-title {
+  max-width: 12.4ch;
+}
+
+.about-framework-panel {
+  display: grid;
+  gap: 24px;
+}
+
+.about-proof-stack {
+  display: grid;
+  gap: 0;
+}
+
+.about-proof-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid rgba(170, 199, 221, 0.12);
+}
+
+.about-proof-item:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.about-proof-item .card-title {
+  margin: 0;
+  max-width: 18ch;
+}
+
+.about-proof-item p {
+  margin: 8px 0 0;
+}
+
+.about-fit-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-fit-card {
+  display: grid;
+  gap: 10px;
+  min-height: 100%;
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(170, 199, 221, 0.14);
+  background:
+    linear-gradient(180deg, rgba(8, 15, 24, 0.84), rgba(6, 11, 18, 0.96)),
+    linear-gradient(180deg, rgba(103, 173, 214, 0.04), transparent);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.about-fit-card .card-title {
+  margin: 0;
+}
+
+.about-fit-card p {
+  margin: 0;
+}
+
+.about-process-band {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 3vw, 38px);
+  align-items: start;
+}
+
+.about-process-intro {
+  display: grid;
+  gap: 26px;
+  min-height: 100%;
+  padding: clamp(28px, 3vw, 34px);
+}
+
+.about-process-intro .section-title {
+  max-width: 11ch;
+}
+
+.about-process-note {
+  display: grid;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(170, 199, 221, 0.12);
+}
+
+.about-process-note p {
+  margin: 0;
+  max-width: 34ch;
+}
+
+.about-process-flow {
+  display: grid;
+  gap: 14px;
+}
+
+.about-process-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  min-height: 0;
+  padding: 24px 26px;
+}
+
+.about-process-card .step-index {
+  margin-top: 2px;
+}
+
+.about-process-card .card-title {
+  margin: 0 0 7px;
+}
+
+.about-process-card p {
+  margin: 0;
+  max-width: 44ch;
+}
+
 .quote-panel {
   display: grid;
   gap: 20px;
@@ -3106,6 +3313,16 @@ h4 {
     max-width: 100%;
   }
 
+  .about-authority-grid,
+  .about-framework-band,
+  .about-process-band {
+    grid-template-columns: 1fr;
+  }
+
+  .about-founder-pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-visual,
   .page-hero-visual {
     min-height: 420px;
@@ -3233,6 +3450,15 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  .about-founder-pillars,
+  .about-fit-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .about-process-intro {
+    padding: 26px;
+  }
+
   .route-diagnosis-footer {
     display: grid;
   }
@@ -3333,6 +3559,7 @@ h4 {
   .route-proof-card,
   .route-deliverable-card,
   .route-fit-card,
+  .about-fit-card,
   .route-home .home-route-card,
   .home-founder-point,
   .home-step,
@@ -3346,6 +3573,30 @@ h4 {
   .route-fit-band,
   .route-home .home-founder-band,
   .route-home .home-final-cta {
+    gap: 16px;
+  }
+
+  .about-authority-band,
+  .about-founder-quote {
+    padding: 22px;
+  }
+
+  .about-founder-identity {
+    padding: 8px 0 0;
+  }
+
+  .about-proof-item {
+    gap: 14px;
+    padding: 18px 0;
+  }
+
+  .about-process-intro,
+  .about-process-card {
+    padding: 22px;
+  }
+
+  .about-process-card {
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
