@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Runbook Relay Ops Sprint | Systems Cleanup for Ops-Heavy Teams</title>
+    <meta
+      name="description"
+      content="Operator-led systems cleanup for ops-heavy teams. Fix SOP drift, handoff friction, reporting waste, and repetitive admin work with a practical fixed-scope sprint."
+    />
+    <meta name="theme-color" content="#071019" />
+    <meta property="og:title" content="Runbook Relay Ops Sprint | Systems Cleanup for Ops-Heavy Teams" />
+    <meta
+      property="og:description"
+      content="Fix SOP drift, handoff friction, reporting waste, and repetitive admin work with an operator-led sprint."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://runbookrelay.com/ops/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Runbook Relay Ops Sprint | Systems Cleanup for Ops-Heavy Teams" />
+    <meta
+      name="twitter:description"
+      content="Operator-led workflow cleanup for teams carrying too much manual operational drag."
+    />
+    <link rel="icon" type="image/png" href="../assets/runbook-relay-logo.png?v=20260411a" />
+    <link rel="apple-touch-icon" href="../assets/runbook-relay-logo.png?v=20260411a" />
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin.woff2?v=20260409i"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/space-grotesk-latin.woff2?v=20260409i"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="canonical" href="https://runbookrelay.com/ops/" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260411a" />
+    <script>
+      window.RUNBOOK_RELAY_CONFIG = {
+        siteUrl: "https://runbookrelay.com",
+        businessName: "Runbook Relay",
+        calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
+        thankYouPath: "/thank-you/",
+        leadStorageKey: "rr_audit_lead",
+        leadCaptureWebhook: "",
+        analytics: {
+          ga4MeasurementId: "G-ZFQPBPZYZ7",
+          posthogApiKey: "phc_rrYJ2yyNMwe4WhzRrTYmtsVxXaX8k3vsYy4yq6fLLn9N",
+          posthogApiHost: "https://us.i.posthog.com",
+          clarityProjectId: "w8wxphs466",
+          debug: false
+        }
+      };
+    </script>
+    <script src="../assets/analytics.js?v=20260409i" defer></script>
+    <script src="../assets/app.js?v=20260411a" defer></script>
+  </head>
+  <body class="route-ops">
+    <header class="site-header" data-site-header>
+      <div class="shell site-header-inner">
+        <a class="brand" href="../" aria-label="Runbook Relay home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            <strong>Runbook Relay</strong>
+            <span>Operator-led systems</span>
+          </span>
+        </a>
+        <div class="nav-shell">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation" data-nav-toggle>
+            <span></span>
+          </button>
+          <nav class="site-nav" aria-label="Primary" data-nav-menu>
+            <div class="nav-links">
+              <a href="../" data-route="/">Home</a>
+              <a href="../about/" data-route="/about">About</a>
+              <a href="../ops/" data-route="/ops">Ops Sprint</a>
+              <a href="../law-firms/" data-route="/law-firms">Law Firms</a>
+              <a href="../med-spa/" data-route="/med-spa">Med Spa</a>
+              <a href="../home-services/" data-route="/home-services">Home Services</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div class="header-actions">
+              <a class="button button-small button-primary" href="#audit-form" data-track="cta" data-track-label="ops_nav_book_audit">Book audit</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="shell page-hero-grid">
+          <div class="page-hero-copy" data-reveal>
+            <p class="eyebrow">Ops sprint</p>
+            <h1 class="page-hero-title">Fix SOP drift, handoff friction, reporting waste, and repetitive admin work.</h1>
+            <p class="page-hero-lead">
+              Runbook Relay helps ops-heavy teams clean up the manual work that keeps
+              slowing execution down. The starting point is a narrow, practical sprint
+              built around one real operational bottleneck.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="ops_hero_book_audit">Book audit</a>
+              <a class="button button-secondary" href="#process">See how it works</a>
+            </div>
+            <div class="trust-line">
+              <span class="trust-chip">Operator-led</span>
+              <span class="trust-chip">Fixed scope</span>
+              <span class="trust-chip">Fast implementation</span>
+              <span class="trust-chip">Built for operational reality</span>
+            </div>
+          </div>
+
+          <aside class="page-hero-visual" data-reveal>
+            <div class="systems-board">
+              <div class="systems-top">
+                <span class="visual-label">Ops cleanup view</span>
+                <span class="systems-status">Sprint framing ready</span>
+              </div>
+              <div class="systems-grid">
+                <article class="systems-card">
+                  <span class="card-kicker">SOP drift</span>
+                  <strong>Multiple versions create execution noise</strong>
+                  <p>Teams work from outdated instructions when process knowledge lives in too many places.</p>
+                </article>
+                <article class="systems-card">
+                  <span class="card-kicker">Handoffs</span>
+                  <strong>Context falls out between steps</strong>
+                  <p>Slack threads and memory are not a reliable operating system for recurring work.</p>
+                </article>
+                <article class="systems-card">
+                  <span class="card-kicker">Reporting drag</span>
+                  <strong>Managers keep rebuilding the same updates</strong>
+                  <p>Low-grade manual reporting work quietly steals hours every single week.</p>
+                </article>
+                <article class="systems-card">
+                  <span class="card-kicker">Admin load</span>
+                  <strong>Repeat work keeps multiplying</strong>
+                  <p>Small recurring admin tasks become expensive when the workflow never gets cleaned up.</p>
+                </article>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Pain pattern</p>
+            <h2 class="section-title">Ops-heavy teams usually know the drag is real. They just have not had time to clean it up properly.</h2>
+          </div>
+          <div class="grid-2" data-reveal>
+            <article class="problem-card">
+              <span class="card-kicker">SOP drift</span>
+              <h3 class="card-title">The process exists, but the team is working from different versions.</h3>
+              <p>Documents multiply, ownership gets fuzzy, and execution becomes more dependent on who remembers the latest answer.</p>
+            </article>
+            <article class="problem-card">
+              <span class="card-kicker">Handoff friction</span>
+              <h3 class="card-title">Work slows down whenever context moves from one person to another.</h3>
+              <p>Shift changes, client updates, dispatch, onboarding, and operations all suffer when handoffs are too informal.</p>
+            </article>
+            <article class="problem-card">
+              <span class="card-kicker">Reporting waste</span>
+              <h3 class="card-title">Leadership keeps paying for the same updates more than once.</h3>
+              <p>When recurring reporting is rebuilt by hand, you lose time and still end up with inconsistent visibility.</p>
+            </article>
+            <article class="problem-card">
+              <span class="card-kicker">Admin load</span>
+              <h3 class="card-title">The business quietly carries too much manual cleanup work.</h3>
+              <p>Task routing, reminders, recaps, and internal follow-up stay stuck in admin friction instead of a tighter system.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="deliverables">
+        <div class="shell">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Deliverables</p>
+            <h2 class="section-title">What the sprint can actually install.</h2>
+            <p class="section-copy">
+              The work is designed to leave the team with a more usable operating rhythm,
+              not a pile of abstract recommendations.
+            </p>
+          </div>
+          <div class="deliverables-grid" data-reveal>
+            <article class="deliverable-card">
+              <span class="card-kicker">System cleanup</span>
+              <h3 class="card-title">Runbook and SOP consolidation</h3>
+              <p>One clearer source of truth for the operating work your team repeats.</p>
+            </article>
+            <article class="deliverable-card">
+              <span class="card-kicker">Workflow design</span>
+              <h3 class="card-title">Tighter handoff structure</h3>
+              <p>Clear ownership, cleaner task transitions, and fewer dropped details.</p>
+            </article>
+            <article class="deliverable-card">
+              <span class="card-kicker">Reporting</span>
+              <h3 class="card-title">Usable KPI or manager brief</h3>
+              <p>Less manual recap work and a tighter view of what actually needs attention.</p>
+            </article>
+            <article class="deliverable-card">
+              <span class="card-kicker">Automation</span>
+              <h3 class="card-title">Lightweight admin removal</h3>
+              <p>Simple automations where repetitive internal work is clearly worth removing.</p>
+            </article>
+            <article class="deliverable-card">
+              <span class="card-kicker">Documentation</span>
+              <h3 class="card-title">Clear operating ownership</h3>
+              <p>Less dependence on memory and fewer process questions bouncing around the team.</p>
+            </article>
+            <article class="deliverable-card">
+              <span class="card-kicker">Roadmap</span>
+              <h3 class="card-title">Next-step operating priorities</h3>
+              <p>A sharper view of what to fix next once the first bottleneck is under control.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Examples</p>
+            <h2 class="section-title">Examples of the kind of improvements this sprint is built to make.</h2>
+          </div>
+          <div class="comparison-grid" data-reveal>
+            <article class="comparison-card">
+              <span class="comparison-label before">Before</span>
+              <ul class="list-tight">
+                <li>SOPs scattered across folders, inboxes, and old docs</li>
+                <li>Shift or client handoffs living in Slack and memory</li>
+                <li>Managers manually rebuilding the same weekly brief</li>
+              </ul>
+            </article>
+            <article class="comparison-card">
+              <span class="comparison-label after">After</span>
+              <ul class="list-tight">
+                <li>A cleaner runbook hub with clearer ownership</li>
+                <li>A repeatable handoff structure the team can actually follow</li>
+                <li>A simpler reporting rhythm with less repetitive rebuild work</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="process">
+        <div class="shell">
+          <div class="section-header centered" data-reveal>
+            <p class="eyebrow">Process</p>
+            <h2 class="section-title">Narrow scope. Clean install. Honest fit check.</h2>
+          </div>
+          <div class="process-grid" data-reveal>
+            <article class="process-card">
+              <span class="step-index">01</span>
+              <h3 class="card-title">Audit the friction</h3>
+              <p>Review the workflow, who touches it, where context drops, and what the manual work is really costing.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-index">02</span>
+              <h3 class="card-title">Choose one bottleneck</h3>
+              <p>Keep the sprint narrow enough to move quickly and concrete enough to measure.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-index">03</span>
+              <h3 class="card-title">Install the cleanup</h3>
+              <p>Rewrite the workflow, tighten the handoff, simplify the reporting, or remove repetitive admin where it matters.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-index">04</span>
+              <h3 class="card-title">Hand off a sharper system</h3>
+              <p>Leave behind clearer documentation, ownership, and a next-step roadmap instead of more process fog.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="surface-alt" data-reveal>
+            <div class="section-header compact">
+              <p class="eyebrow">Sprint framing</p>
+              <h2 class="section-title">The best fit is a real operational leak that is already stealing time.</h2>
+              <p class="section-copy">
+                Runbook Relay is not a giant transformation project. The work starts with a booked audit and a fixed-scope implementation if the problem is clear enough to solve cleanly.
+              </p>
+            </div>
+            <div class="grid-2">
+              <article class="service-card">
+                <span class="card-kicker">What makes it easier to buy</span>
+                <h3 class="card-title">One narrow problem, one operator-led scope.</h3>
+                <p>That keeps the work fast, legible, and measurable instead of vague and expensive.</p>
+              </article>
+              <article class="service-card">
+                <span class="card-kicker">What happens if the fit is weak</span>
+                <h3 class="card-title">You hear that early.</h3>
+                <p>If the bottleneck is not clear enough or the path to value is weak, the answer stays honest before anything bigger gets sold.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="audit-form">
+        <div class="shell audit-grid">
+          <article class="surface-alt surface-stack form-panel" data-reveal>
+            <div class="section-header compact">
+              <p class="eyebrow">Book audit</p>
+              <h2 class="section-title">Give the sprint context first, then schedule the audit.</h2>
+              <p class="section-copy">
+                Share the basics so the call starts with the right bottleneck already in view.
+                Then the thank-you page opens the scheduler inline.
+              </p>
+            </div>
+            <ul class="list">
+              <li>Best for SOP drift, handoff friction, reporting drag, or repetitive admin work</li>
+              <li>Short qualification form before scheduling</li>
+              <li>Cleaner audit prep than a cold redirect</li>
+              <li>Better follow-up foundation once CRM automation is connected</li>
+            </ul>
+          </article>
+
+          <article class="surface form-panel" data-reveal>
+            <form class="audit-form" data-audit-form data-default-industry="ops_heavy_services" data-page-label="/ops" novalidate>
+              <div class="form-grid">
+                <label class="field">
+                  <span class="field-label">First name</span>
+                  <input type="text" name="first_name" placeholder="Javen" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Email</span>
+                  <input type="email" name="email" placeholder="you@company.com" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Phone</span>
+                  <input type="tel" name="phone" placeholder="(555) 555-5555" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Business name</span>
+                  <input type="text" name="business_name" placeholder="Company name" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Website</span>
+                  <input type="url" name="website" placeholder="https://yourwebsite.com" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Industry</span>
+                  <select name="industry" required>
+                    <option value="">Select one</option>
+                    <option value="law_firm">Law firm</option>
+                    <option value="med_spa">Med spa</option>
+                    <option value="home_services">Home services</option>
+                    <option value="ops_heavy_services">Ops-heavy service business</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+                <label class="field field-full">
+                  <span class="field-label">Biggest issue</span>
+                  <select name="biggest_issue" required>
+                    <option value="">Select the main leak</option>
+                    <option value="slow_response">Slow response</option>
+                    <option value="missed_calls">Missed calls</option>
+                    <option value="weak_follow_up">Weak follow-up</option>
+                    <option value="manual_handoffs">Manual handoffs</option>
+                    <option value="sop_drift">SOP drift</option>
+                    <option value="reporting_drag">Reporting drag</option>
+                    <option value="repetitive_admin">Repetitive admin work</option>
+                    <option value="not_sure">Not sure yet</option>
+                  </select>
+                </label>
+                <label class="field field-full">
+                  <span class="field-label">Notes</span>
+                  <textarea name="notes" placeholder="Optional: what is breaking most often in the workflow right now?"></textarea>
+                </label>
+              </div>
+
+              <input type="hidden" name="source_page" />
+              <input type="hidden" name="source_path" />
+              <input type="hidden" name="source_url" />
+              <input type="hidden" name="utm_source" />
+              <input type="hidden" name="utm_medium" />
+              <input type="hidden" name="utm_campaign" />
+              <input type="hidden" name="submitted_at" />
+
+              <p class="field-note">Form first. Scheduler second. That keeps the audit grounded in the real ops leak.</p>
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Book audit</button>
+                <a class="button button-secondary" href="#process">See how it works</a>
+              </div>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="faq">
+        <div class="shell">
+          <div class="surface" data-reveal>
+            <div class="section-header compact">
+              <p class="eyebrow">FAQ</p>
+              <h2 class="section-title">Good fit questions before the sprint starts.</h2>
+            </div>
+            <div class="faq-list">
+              <details open>
+                <summary>Is this a software project?</summary>
+                <p>No. The sprint is for operational cleanup, workflow tightening, and lightweight automation where the business clearly benefits.</p>
+              </details>
+              <details>
+                <summary>What kinds of teams usually fit?</summary>
+                <p>Ops-heavy service businesses, 3PLs, field-service teams, and other groups carrying real workflow complexity and repeat admin drag.</p>
+              </details>
+              <details>
+                <summary>How quickly can this move?</summary>
+                <p>The point is speed and clarity. Once the right bottleneck is identified, the work is designed to move quickly instead of dragging into a long consulting cycle.</p>
+              </details>
+              <details>
+                <summary>What if the issue is bigger than one sprint?</summary>
+                <p>Then the first sprint should still clarify where the highest-leverage cleanup belongs. Runbook Relay starts by fixing the leak that is worth addressing now.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="cta-band" data-reveal>
+            <p class="eyebrow">Next step</p>
+            <h2 class="section-title">Book the audit and decide which workflow deserves cleanup first.</h2>
+            <p class="section-copy">
+              If SOP drift, handoff friction, reporting waste, or repetitive admin work are already costing time,
+              start with a clean diagnosis and a narrower scope.
+            </p>
+            <div class="cta-actions">
+              <a class="button button-primary" href="#audit-form">Book audit</a>
+              <a class="button button-secondary" href="#process">See how it works</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-shell">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="../" aria-label="Runbook Relay home">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">
+                <strong>Runbook Relay</strong>
+                <span>Operator-led systems</span>
+              </span>
+            </a>
+            <p class="footer-copy">Practical systems cleanup for businesses losing money to slow response, weak follow-up, and operational drag.</p>
+          </div>
+          <a class="button button-primary" href="#audit-form">Book audit</a>
+        </div>
+        <div class="footer-links">
+          <a href="../">Home</a>
+          <a href="../about/">About</a>
+          <a href="../law-firms/">Law Firms</a>
+          <a href="../med-spa/">Med Spa</a>
+          <a href="../home-services/">Home Services</a>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">&copy; <span id="footer-year"></span> Runbook Relay.</span>
+          <a href="mailto:javen@runbookrelay.com">javen@runbookrelay.com</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

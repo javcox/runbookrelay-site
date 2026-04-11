@@ -4,7 +4,15 @@ This is the code-first site package for `runbookrelay.com`.
 
 ## What this package includes
 
-- A conversion-focused landing page for the `Ops Autopilot Sprint`
+- A premium multi-page Runbook Relay website with routes for:
+  - `/`
+  - `/about`
+  - `/ops`
+  - `/law-firms`
+  - `/med-spa`
+  - `/home-services`
+  - `/thank-you`
+- A reusable audit-intake form flow that routes visitors to an on-site scheduler page
 - Built-in analytics hooks for:
   - Google Analytics 4
   - PostHog
@@ -89,6 +97,10 @@ Use domain verification if possible so the root domain and subdomains are covere
 - `rr_first_contentful_paint`
 - `rr_largest_contentful_paint`
 - `rr_cumulative_layout_shift`
+- `rr_audit_form_submit`
+- `rr_audit_form_invalid`
+- `rr_thank_you_view`
+- `rr_scheduler_embed_loaded`
 
 ## Important note
 
@@ -102,10 +114,36 @@ Use them like this:
 - Clarity = replay and heatmap spot checks
 - Lighthouse CI = technical regressions
 
+## Form-first flow
+
+The current site now uses:
+
+1. short qualification form
+2. thank-you page with inline scheduler
+3. optional webhook handoff for CRM / email / SMS automation later
+
+Captured fields:
+
+- first name
+- email
+- phone
+- business name
+- website
+- industry
+- biggest issue
+- notes
+- source page
+- source path
+- source URL
+- UTM source
+- UTM medium
+- UTM campaign
+- submitted timestamp
+
 ## Next upgrades
 
-- add a dedicated audit request form
-- add case-study or proof blocks once you have them
-- add thank-you page tracking
-- add UTMs to every outreach link
+- connect `leadCaptureWebhook` to HubSpot / Zapier / Make
+- add instant email + SMS confirmation after form submit
+- add no-booking and no-show follow-up sequences
+- add UTM-tagged outbound links in email/SMS follow-up
 - wire PostHog experiments to headline and CTA tests

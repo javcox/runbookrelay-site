@@ -3,27 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Runbook Relay | Ops Autopilot Sprint</title>
+    <title>Runbook Relay | Operator-Led Systems and Revenue Cleanup</title>
     <meta
       name="description"
-      content="Runbook Relay helps 3PLs and ops-heavy SMBs clean up SOPs, reduce handoff misses, simplify reporting, and ship practical automations in 7 days."
+      content="Runbook Relay helps service businesses clean up manual workflows, tighten follow-up, reduce leakage, and install practical systems that improve response speed and execution."
     />
-    <meta name="theme-color" content="#0b1020" />
-    <meta property="og:title" content="Runbook Relay | Ops Autopilot Sprint" />
+    <meta name="theme-color" content="#071019" />
+    <meta property="og:title" content="Runbook Relay | Operator-Led Systems and Revenue Cleanup" />
     <meta
       property="og:description"
-      content="Fix the operational work your team keeps doing by hand. Clean up SOPs, handoffs, reporting, and admin drag in 7 days."
+      content="Fix the work your team keeps doing by hand. Operator-led systems cleanup for law firms, med spas, home services, and ops-heavy teams."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://runbookrelay.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Runbook Relay | Ops Autopilot Sprint" />
+    <meta name="twitter:title" content="Runbook Relay | Operator-Led Systems and Revenue Cleanup" />
     <meta
       name="twitter:description"
-      content="Runbook Relay helps 3PLs and ops-heavy SMBs fix SOP drift, handoff misses, and reporting drag."
+      content="Runbook Relay helps service businesses improve response speed, follow-up discipline, and operational execution without fluff."
     />
-    <link rel="icon" type="image/png" href="./assets/runbook-relay-logo.png?v=20260409i" />
-    <link rel="apple-touch-icon" href="./assets/runbook-relay-logo.png?v=20260409i" />
+    <link rel="icon" type="image/png" href="./assets/runbook-relay-logo.png?v=20260411a" />
+    <link rel="apple-touch-icon" href="./assets/runbook-relay-logo.png?v=20260411a" />
     <link
       rel="preload"
       href="./assets/fonts/manrope-latin.woff2?v=20260409i"
@@ -38,14 +38,16 @@
       type="font/woff2"
       crossorigin
     />
-    <!-- Optional: paste the Search Console HTML verification tag here if you use URL-prefix verification. -->
     <link rel="canonical" href="https://runbookrelay.com/" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260409i" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260411a" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
         businessName: "Runbook Relay",
         calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
+        thankYouPath: "/thank-you/",
+        leadStorageKey: "rr_audit_lead",
+        leadCaptureWebhook: "",
         analytics: {
           ga4MeasurementId: "G-ZFQPBPZYZ7",
           posthogApiKey: "phc_rrYJ2yyNMwe4WhzRrTYmtsVxXaX8k3vsYy4yq6fLLn9N",
@@ -56,563 +58,652 @@
       };
     </script>
     <script src="./assets/analytics.js?v=20260409i" defer></script>
-    <script src="./assets/app.js?v=20260409i" defer></script>
+    <script src="./assets/app.js?v=20260411a" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Runbook Relay",
         "url": "https://runbookrelay.com/",
-        "description": "Runbook Relay helps 3PLs and ops-heavy SMBs clean up SOPs, reduce handoff misses, simplify reporting, and ship practical automations in 7 days.",
+        "description": "Operator-led systems and automation consultancy for service businesses and ops-heavy teams.",
         "areaServed": "United States",
-        "serviceType": "Operations systems cleanup and automation sprint",
+        "serviceType": [
+          "Operations systems cleanup",
+          "Lead follow-up systems",
+          "Workflow automation",
+          "Speed-to-lead improvement"
+        ],
         "offers": {
           "@type": "Offer",
-          "name": "Ops Autopilot Sprint",
+          "name": "Runbook Relay Audit",
           "priceCurrency": "USD",
           "price": "1000"
         }
       }
     </script>
   </head>
-  <body>
-    <header class="topbar">
-      <div class="shell topbar-inner">
-        <a class="brand" href="#top" aria-label="Runbook Relay home">
-          <span class="brand-glyph" aria-hidden="true">
-            <span class="brand-glyph-track brand-glyph-track-light"></span>
-            <span class="brand-glyph-track brand-glyph-track-accent"></span>
-          </span>
-          <span class="brand-wordmark">
+  <body class="route-home">
+    <header class="site-header" data-site-header>
+      <div class="shell site-header-inner">
+        <a class="brand" href="./" aria-label="Runbook Relay home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
             <strong>Runbook Relay</strong>
-            <small>Ops systems</small>
+            <span>Operator-led systems</span>
           </span>
         </a>
-        <nav class="topnav" aria-label="Primary">
-          <a href="#credibility">Why us</a>
-          <a href="#offer">Offer</a>
-          <a href="#process">Process</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-          <a
-            class="button button-small button-primary"
-            href="https://calendly.com/YOUR-CALENDLY-SLUG/ops-audit"
-            data-track="cta"
-            data-track-label="topbar_book_audit"
-            data-calendly-link
-            >Book audit</a
-          >
-        </nav>
+
+        <div class="nav-shell">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation" data-nav-toggle>
+            <span></span>
+          </button>
+          <nav class="site-nav" aria-label="Primary" data-nav-menu>
+            <div class="nav-links">
+              <a href="./" data-route="/">Home</a>
+              <a href="./about/" data-route="/about">About</a>
+              <a href="./ops/" data-route="/ops">Ops Sprint</a>
+              <a href="./law-firms/" data-route="/law-firms">Law Firms</a>
+              <a href="./med-spa/" data-route="/med-spa">Med Spa</a>
+              <a href="./home-services/" data-route="/home-services">Home Services</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div class="header-actions">
+              <a class="button button-small button-primary" href="#audit-form" data-track="cta" data-track-label="nav_book_audit">Book audit</a>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <main class="shell" id="top">
-      <section class="hero">
-        <div class="hero-mist hero-mist-left"></div>
-        <div class="hero-mist hero-mist-right"></div>
-        <div class="hero-card">
-          <div class="hero-copy">
-            <p class="eyebrow">Ops Autopilot Sprint</p>
-            <h1>Fix the operational work your team keeps doing by hand.</h1>
+    <main>
+      <section class="hero anchor-offset" id="top">
+        <div class="shell hero-grid">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">Operator-led systems and revenue cleanup</p>
+            <h1 class="hero-title">Fix the work your team keeps doing by hand.</h1>
             <p class="hero-lead">
-              Runbook Relay helps 3PLs and ops-heavy small businesses clean up SOPs,
-              reduce handoff misses, simplify reporting, and ship 1-2 practical
-              automations in 7 days.
+              Runbook Relay helps service businesses and ops-heavy teams clean up
+              manual workflows, tighten follow-up, reduce leakage, and install
+              simple systems that improve response speed and execution.
             </p>
-            <div class="signal-row" aria-label="Offer highlights">
-              <article class="signal-chip">
-                <span class="signal-value">7 days</span>
-                <span class="signal-label">fixed-scope delivery</span>
-              </article>
-              <article class="signal-chip">
-                <span class="signal-value">1 bottleneck</span>
-                <span class="signal-label">cleaned up first</span>
-              </article>
-              <article class="signal-chip">
-                <span class="signal-value">30 days</span>
-                <span class="signal-label">next-step roadmap</span>
-              </article>
-            </div>
             <div class="hero-actions">
-              <a
-                class="button button-primary"
-                href="https://calendly.com/YOUR-CALENDLY-SLUG/ops-audit"
-                data-track="cta"
-                data-track-label="hero_book_audit"
-                data-calendly-link
-                >Book a 20-minute ops audit</a
-              >
-              <a class="button button-secondary" href="#pricing" data-track="jump" data-track-label="hero_see_pricing"
-                >See pricing</a
-              >
+              <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="home_hero_book_audit">Book audit</a>
+              <a class="button button-secondary" href="#process" data-track="jump" data-track-label="home_hero_how_it_works">See how it works</a>
             </div>
             <p class="hero-note">
-              We'll review where SOP drift, manual updates, and reporting drag are
-              costing time. If there's no clear fit, we'll say so.
+              Built for businesses already losing money from slow response, weak
+              follow-up, manual handoffs, avoidable admin work, and inconsistent execution.
             </p>
-            <div class="trust-inline">
-              <span>Focused on 3PLs and ops-heavy SMBs</span>
-              <span>7-day sprint</span>
-              <span>Practical systems, not AI fluff</span>
+            <div class="trust-line" aria-label="Trust points">
+              <span class="trust-chip">Operator-minded</span>
+              <span class="trust-chip">Fixed-scope delivery</span>
+              <span class="trust-chip">Fast implementation</span>
+              <span class="trust-chip">No AI agency fluff</span>
+            </div>
+            <div class="hero-metrics" data-reveal>
+              <article class="metric-card">
+                <span>Primary lens</span>
+                <strong>Revenue leakage</strong>
+                <p>Find the slow follow-up, missed handoff, or manual bottleneck first.</p>
+              </article>
+              <article class="metric-card">
+                <span>Delivery style</span>
+                <strong>Operator-led</strong>
+                <p>Practical systems cleanup, not a strategy deck with no install path.</p>
+              </article>
+              <article class="metric-card">
+                <span>Build speed</span>
+                <strong>Fast scope</strong>
+                <p>One narrow problem, one clear build, one meaningful business outcome.</p>
+              </article>
+              <article class="metric-card">
+                <span>Best fit</span>
+                <strong>Ops-heavy teams</strong>
+                <p>Law firms, med spas, home services, and manual workflow-heavy operators.</p>
+              </article>
             </div>
           </div>
 
-          <aside class="hero-side">
-            <div class="cover-asset">
-              <div class="cover-badge">Operator-built systems cleanup</div>
-              <h3 class="cover-title">From workflow drag to a cleaner operating rhythm.</h3>
-              <div class="cover-routes" aria-hidden="true">
-                <span class="cover-route cover-route-light"></span>
-                <span class="cover-route cover-route-accent"></span>
+          <aside class="hero-visual" data-reveal>
+            <div class="systems-board">
+              <div class="systems-top">
+                <span class="visual-label">Control surface</span>
+                <span class="systems-status">Leak diagnosis active</span>
               </div>
-              <div class="cover-strip" aria-label="Ops Autopilot Sprint workflow">
-                <article class="cover-strip-item">
-                  <strong>Audit</strong>
-                  <span>find the bottleneck</span>
+              <div class="systems-grid">
+                <article class="systems-card">
+                  <span class="card-kicker">Response speed</span>
+                  <strong>Lead contact lag</strong>
+                  <p>When forms, calls, and messages sit too long, good opportunities disappear quietly.</p>
                 </article>
-                <article class="cover-strip-item">
-                  <strong>Handoffs</strong>
-                  <span>tighten execution</span>
+                <article class="systems-card">
+                  <span class="card-kicker">Follow-up discipline</span>
+                  <strong>Tasks keep falling out</strong>
+                  <p>Manual reminders and loose ownership make revenue depend on whoever remembers first.</p>
                 </article>
-                <article class="cover-strip-item">
-                  <strong>Roadmap</strong>
-                  <span>clarify next steps</span>
+                <article class="systems-card">
+                  <span class="card-kicker">Handoff clarity</span>
+                  <strong>Context gets dropped</strong>
+                  <p>Sales, intake, dispatch, or support loses momentum when handoffs stay verbal and inconsistent.</p>
+                </article>
+                <article class="systems-card">
+                  <span class="card-kicker">Execution rhythm</span>
+                  <strong>Admin work piles up</strong>
+                  <p>Repeating low-value tasks keep stealing hours that should be spent on revenue and service delivery.</p>
                 </article>
               </div>
-              <p class="cover-copy">
-                A sharp, fixed-scope sprint for teams that need better SOP discipline,
-                cleaner handoffs, and reporting that stops stealing time.
-              </p>
-            </div>
-            <div class="mini-card">
-              <h3>What you leave with</h3>
-              <ul class="clean">
-                <li>Cleaned-up SOP and runbook hub</li>
-                <li>KPI or manager brief leaders can actually use</li>
-                <li>1-2 lightweight automations for repetitive internal work</li>
-                <li>30-day roadmap for the next highest-leverage fixes</li>
-              </ul>
+              <div class="systems-flow" aria-label="Runbook Relay operating flow">
+                <article class="systems-node">
+                  <span>Audit</span>
+                  <strong>Find the leak hurting response or execution first</strong>
+                </article>
+                <article class="systems-node">
+                  <span>Install</span>
+                  <strong>Clean the workflow, ownership, and follow-up rhythm</strong>
+                </article>
+                <article class="systems-node">
+                  <span>Tighten</span>
+                  <strong>Leave the team with a system they can actually run</strong>
+                </article>
+              </div>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="founder-strip section">
-        <div class="founder-strip-card">
-          <div class="founder-strip-copy">
-            <p class="eyebrow">Founder / operator lens</p>
-            <h2>Built by someone who respects operational reality.</h2>
-            <p>
-              Runbook Relay is shaped by Javen Cinocca around the kind of friction
-              that quietly breaks execution: outdated SOPs, weak handoffs, reporting
-              churn, and repetitive admin work that keeps piling up.
-            </p>
-          </div>
-          <div class="founder-strip-points">
-            <article class="founder-point">
-              <span class="founder-point-title">Operator-minded</span>
-              <span class="founder-point-copy">Practical systems cleanup over consulting theater</span>
-            </article>
-            <article class="founder-point">
-              <span class="founder-point-title">Fixed-scope</span>
-              <span class="founder-point-copy">One narrow sprint with a real finish line</span>
-            </article>
-            <article class="founder-point">
-              <span class="founder-point-title">Honest fit check</span>
-              <span class="founder-point-copy">If there is no clear ROI path, the answer is no</span>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="credibility">
-        <div class="credibility-grid">
-          <article class="credibility-lead">
-            <p class="eyebrow">Why Runbook Relay</p>
-            <h2>Built for teams that need an operator, not a theory deck.</h2>
-            <p>
-              Runbook Relay is shaped by hands-on experience inside process-heavy
-              operating environments where SOP ownership, handoff clarity, execution
-              discipline, and reporting accuracy directly affect the day.
-            </p>
-            <p>
-              The goal is not to sell a giant transformation project. The goal is to
-              clean up the most expensive friction first, make the workflow easier to
-              run, and leave your team with a system they can actually use.
-            </p>
-          </article>
-          <article class="credibility-panel">
-            <h3>What buyers are really paying for</h3>
-            <ul class="clean">
-              <li>Operator-minded diagnosis instead of vague “strategy” language</li>
-              <li>A fixed-scope sprint with clear deliverables and a real stopping point</li>
-              <li>Practical systems cleanup that improves execution without adding headcount</li>
-              <li>Direct honesty if the sprint is not the right fit before money changes hands</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="pain">
-        <div class="section-head">
-          <h2>When operations get messy, the same problems keep showing up.</h2>
-        </div>
-        <div class="grid-2">
-          <article class="panel">
-            <ul class="clean">
-              <li>SOPs live in too many places, so the team works from different versions.</li>
-              <li>Shift handoffs depend on memory, Slack messages, and heroics.</li>
-              <li>Managers spend too much time chasing updates and rebuilding reports.</li>
-            </ul>
-          </article>
-          <article class="panel">
-            <ul class="clean">
-              <li>Useful process knowledge exists, but people can't find it fast.</li>
-              <li>Small recurring admin tasks pile up and steal time every week.</li>
-              <li>You need a tighter operating system for the work that already exists.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section before-after-section" id="before-after">
-        <div class="section-head before-after-head">
-          <p class="eyebrow">Before → After</p>
-          <h2>What a cleaner operating system actually looks like.</h2>
-          <p class="credibility-line">
-            Built for detail-sensitive operations environments where daily execution
-            depends on clean SOPs, disciplined handoffs, and reporting accuracy.
-          </p>
-        </div>
-        <div class="before-after-grid">
-          <article class="transform-panel">
-            <span class="transform-label">Before</span>
-            <ul class="clean transform-list">
-              <li>SOPs spread across multiple docs and versions</li>
-              <li>Managers rebuilding KPI updates every week</li>
-              <li>Shift and client handoffs handled in Slack threads</li>
-            </ul>
-          </article>
-          <article class="transform-visual" aria-label="Before and after workflow example">
-            <div class="transform-visual-card">
-              <div class="transform-column">
-                <span class="transform-kicker">Current state</span>
-                <span class="transform-chip">6 SOP docs</span>
-                <span class="transform-chip">Manual KPI rebuild</span>
-                <span class="transform-chip">Slack handoffs</span>
-              </div>
-              <div class="transform-connector" aria-hidden="true">
-                <span class="transform-line transform-line-light"></span>
-                <span class="transform-line transform-line-accent"></span>
-                <span class="transform-arrow">→</span>
-              </div>
-              <div class="transform-column">
-                <span class="transform-kicker">Sprint output</span>
-                <span class="transform-chip transform-chip-accent">Single runbook hub</span>
-                <span class="transform-chip transform-chip-accent">Automated KPI brief</span>
-                <span class="transform-chip transform-chip-accent">Structured handoff template</span>
-              </div>
+      <section class="section">
+        <div class="shell">
+          <div class="surface" data-reveal>
+            <div class="stats-grid">
+              <article class="stat-card">
+                <span>Positioning</span>
+                <strong>Operator-led</strong>
+                <p>Built for owners and operators who care about execution, speed, and measurable outcomes.</p>
+              </article>
+              <article class="stat-card">
+                <span>Engagement model</span>
+                <strong>Fixed scope</strong>
+                <p>One problem at a time, with a clear decision path and a real finish line.</p>
+              </article>
+              <article class="stat-card">
+                <span>What gets improved</span>
+                <strong>Response and rhythm</strong>
+                <p>Follow-up systems, handoffs, SOP discipline, reporting sanity, and repetitive admin work.</p>
+              </article>
+              <article class="stat-card">
+                <span>What you do not get</span>
+                <strong>No fluff</strong>
+                <p>No vague AI transformation talk, no bloated retainer posture, no consultant theater.</p>
+              </article>
             </div>
-            <p>
-              Same operating work, tighter system. The sprint cleans up the workflow
-              your team already runs instead of forcing a giant change program.
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="what-we-fix">
+        <div class="shell">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">What we fix</p>
+            <h2 class="section-title">The same operational leaks keep showing up in different industries.</h2>
+            <p class="section-copy">
+              The surface issue changes by business, but the underlying pattern is usually the same:
+              slow response, weak follow-up, dropped context, avoidable admin drag, and too much
+              work living in people's heads instead of a usable system.
             </p>
-          </article>
-          <article class="transform-panel transform-panel-after">
-            <span class="transform-label transform-label-after">After</span>
-            <ul class="clean transform-list">
-              <li>One source of truth for runbooks and SOPs</li>
-              <li>A reporting layer leaders can actually use</li>
-              <li>Clear handoff structure that reduces dropped context</li>
-            </ul>
-          </article>
+          </div>
+          <div class="grid-2" data-reveal>
+            <article class="problem-card">
+              <span class="card-kicker">Revenue leakage</span>
+              <h3 class="card-title">Leads go cold because response speed is inconsistent.</h3>
+              <p>
+                Calls, forms, DMs, or consultation requests sit too long, and the
+                business loses the moment when intent is highest.
+              </p>
+            </article>
+            <article class="problem-card">
+              <span class="card-kicker">Follow-up leakage</span>
+              <h3 class="card-title">Good opportunities stall because ownership is too loose.</h3>
+              <p>
+                Teams tell themselves they followed up, but the work really lives in
+                memory, scattered inboxes, or whoever happened to be available.
+              </p>
+            </article>
+            <article class="problem-card">
+              <span class="card-kicker">Execution drag</span>
+              <h3 class="card-title">Manual handoffs create friction, delay, and dropped context.</h3>
+              <p>
+                Sales to intake, intake to service, dispatch to field, or manager to team -
+                the same gaps keep reopening because the workflow is too informal.
+              </p>
+            </article>
+            <article class="problem-card">
+              <span class="card-kicker">Admin overload</span>
+              <h3 class="card-title">Repetitive work quietly steals time every week.</h3>
+              <p>
+                Reports get rebuilt, tasks get re-entered, reminders get sent by hand,
+                and the team keeps paying for a system that was never cleaned up.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="verticals">
+        <div class="shell">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Industry routes</p>
+            <h2 class="section-title">Route into the version of the problem you actually have.</h2>
+            <p class="section-copy">
+              Runbook Relay is built around revenue-critical response and execution problems,
+              not generic automation packaging. Choose the lane that matches your business.
+            </p>
+          </div>
+          <div class="route-grid" data-reveal>
+            <article class="route-card">
+              <span class="card-kicker">Law firms</span>
+              <h3 class="card-title">Stop losing cases to slow intake response.</h3>
+              <p>
+                For small and mid-sized firms losing consults because leads contact multiple
+                firms, follow-up is inconsistent, or intake handling is too manual.
+              </p>
+              <ul class="list-tight">
+                <li>Speed-to-lead cleanup</li>
+                <li>Consultation follow-up systems</li>
+                <li>Intake handoff discipline</li>
+              </ul>
+              <a class="route-link" href="./law-firms/">See the law firm route</a>
+            </article>
+            <article class="route-card">
+              <span class="card-kicker">Med spa</span>
+              <h3 class="card-title">Turn missed leads into booked appointments.</h3>
+              <p>
+                For clinics and med spas where DMs, forms, and consult requests go cold
+                because staff misses the first response or follow-up rhythm.
+              </p>
+              <ul class="list-tight">
+                <li>Lead booking recovery</li>
+                <li>No-show and reactivation workflows</li>
+                <li>Staff follow-up clarity</li>
+              </ul>
+              <a class="route-link" href="./med-spa/">See the med spa route</a>
+            </article>
+            <article class="route-card">
+              <span class="card-kicker">Home services</span>
+              <h3 class="card-title">Capture every missed call before it becomes someone else's job.</h3>
+              <p>
+                For roofing, HVAC, plumbing, solar, and remodeling companies losing
+                revenue to slower competitors because missed calls and estimate follow-up sit too long.
+              </p>
+              <ul class="list-tight">
+                <li>Missed call follow-up</li>
+                <li>Estimate pipeline cleanup</li>
+                <li>Dispatch and sales handoff systems</li>
+              </ul>
+              <a class="route-link" href="./home-services/">See the home services route</a>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="section">
-        <div class="mid-cta">
-          <p class="eyebrow">If that list sounded familiar</p>
-          <h2>Start with the workflow that is costing the most time.</h2>
-          <p>
-            Use the audit to pinpoint the highest-friction bottleneck first. If there
-            is no clear path to ROI, you will hear that before you buy a sprint.
-          </p>
-          <div class="hero-actions hero-actions-center">
-            <a
-              class="button button-primary"
-              href="https://calendly.com/YOUR-CALENDLY-SLUG/ops-audit"
-              data-track="cta"
-              data-track-label="midpage_book_audit"
-              data-calendly-link
-              >Book a 20-minute ops audit</a
-            >
+        <div class="shell split-highlight">
+          <article class="surface-alt surface-stack" data-reveal>
+            <div class="section-header compact">
+              <p class="eyebrow">Ops sprint</p>
+              <h2 class="section-title">Need broader systems cleanup instead of a vertical-specific install?</h2>
+              <p class="section-copy">
+                The Runbook Relay ops sprint is built for teams carrying SOP drift,
+                broken handoffs, repetitive admin work, and reporting drag that keeps
+                slowing execution down.
+              </p>
+            </div>
+            <ul class="list">
+              <li>Clean up one operational bottleneck first instead of boiling the ocean.</li>
+              <li>Install practical workflow structure the team can actually follow.</li>
+              <li>Remove avoidable admin work where lightweight automation clearly helps.</li>
+              <li>Leave a sharper system and a clearer next-step roadmap behind.</li>
+            </ul>
+            <div class="cta-actions">
+              <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="home_ops_book_audit">Book audit</a>
+              <a class="button button-secondary" href="./ops/">See how it works</a>
+            </div>
+          </article>
+
+          <article class="surface surface-stack" data-reveal>
+            <div class="section-header compact">
+              <p class="eyebrow">What gets installed</p>
+              <h2 class="section-title">The output is a cleaner operating rhythm, not a software science project.</h2>
+            </div>
+            <div class="deliverables-grid">
+              <article class="deliverable-card">
+                <span class="card-kicker">Workflow</span>
+                <h3 class="card-title">Response and follow-up lanes</h3>
+                <p>Clear ownership, better timing, and fewer leads slipping out between steps.</p>
+              </article>
+              <article class="deliverable-card">
+                <span class="card-kicker">Execution</span>
+                <h3 class="card-title">Handoff and SOP cleanup</h3>
+                <p>Stronger runbooks, clearer task routing, and less reliance on memory.</p>
+              </article>
+              <article class="deliverable-card">
+                <span class="card-kicker">Visibility</span>
+                <h3 class="card-title">Cleaner reporting rhythm</h3>
+                <p>Less manual recap work and a tighter view of what actually needs attention.</p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section anchor-offset" id="founder">
+        <div class="shell">
+          <div class="founder-panel" data-reveal>
+            <div class="founder-grid">
+              <div>
+                <p class="eyebrow">Founder credibility</p>
+                <h2 class="section-title">Built by someone who respects operational reality.</h2>
+                <p class="section-copy">
+                  Runbook Relay is led by Javen Cinocca, MBA, with real operational
+                  leadership and hands-on process credibility. The work is designed for
+                  business owners who need sharper execution, not a trendy deck about AI.
+                </p>
+                <p class="section-copy">
+                  The lens is practical: find the leak, tighten the workflow, reduce the
+                  manual drag, and leave the team with a system that holds up after the build.
+                </p>
+              </div>
+              <div>
+                <div class="founder-meta">
+                  <span class="mini-chip">Operator-minded</span>
+                  <span class="mini-chip">MBA</span>
+                  <span class="mini-chip">Process-driven</span>
+                  <span class="mini-chip">Fixed-scope delivery</span>
+                </div>
+                <div class="quote-panel">
+                  <p class="eyebrow">Working style</p>
+                  <h3 class="card-title">Sharp diagnosis. Clean implementation. Honest fit check.</h3>
+                  <p>
+                    If a workflow problem is real and measurable, Runbook Relay helps clean it up quickly.
+                    If the bottleneck is not clear enough for a fixed-scope engagement, the answer stays honest.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="offer">
-        <div class="section-head">
-          <h2>What the sprint does</h2>
-          <p>
-            In 7 days, we help you turn scattered operational knowledge into a cleaner,
-            more usable system.
-          </p>
-        </div>
-        <div class="panel">
-          <ul class="clean">
-            <li>A cleaned-up SOP and runbook hub</li>
-            <li>A KPI or manager brief leaders can actually use</li>
-            <li>1-2 lightweight automations for repetitive internal work</li>
-            <li>A simple internal Q&amp;A layer over your docs</li>
-            <li>A ranked 30-day roadmap for the next highest-leverage fixes</li>
-          </ul>
-          <p>
-            This is built for teams that need practical operational cleanup, not a
-            custom software project.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="examples">
-        <div class="section-head">
-          <h2>What this looks like in practice</h2>
-        </div>
-        <div class="grid-2">
-          <article class="panel stack">
-            <h3>Examples inside the sprint</h3>
-            <ul class="clean">
-              <li>Consolidating SOPs so people stop working from outdated instructions</li>
-              <li>Tightening shift or client handoff workflows</li>
-              <li>Reducing manual KPI updates and recap work</li>
-            </ul>
-          </article>
-          <article class="panel stack">
-            <h3>More examples</h3>
-            <ul class="clean">
-              <li>Making core docs easier to search and use</li>
-              <li>Identifying which repetitive tasks should be automated first</li>
-              <li>Removing avoidable reporting churn that keeps stealing time</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="process">
-        <div class="section-head">
-          <h2>How the sprint works</h2>
-        </div>
-        <div class="process">
-          <article class="step">
-            <div class="step-num">1</div>
-            <div>
-              <h3>Audit</h3>
-              <p>We review your current SOPs, reporting flow, handoffs, and recurring admin work.</p>
-            </div>
-          </article>
-          <article class="step">
-            <div class="step-num">2</div>
-            <div>
-              <h3>Cleanup</h3>
-              <p>We reorganize the highest-friction runbooks and working docs.</p>
-            </div>
-          </article>
-          <article class="step">
-            <div class="step-num">3</div>
-            <div>
-              <h3>Simplification</h3>
-              <p>We create a clearer KPI or manager brief and remove avoidable reporting churn.</p>
-            </div>
-          </article>
-          <article class="step">
-            <div class="step-num">4</div>
-            <div>
-              <h3>Practical automation</h3>
-              <p>We implement 1-2 lightweight automations where they will actually save time.</p>
-            </div>
-          </article>
-          <article class="step">
-            <div class="step-num">5</div>
-            <div>
-              <h3>Roadmap</h3>
-              <p>We leave you with a clear 30-day improvement plan, prioritized by operational leverage.</p>
-            </div>
-          </article>
+      <section class="section anchor-offset" id="process">
+        <div class="shell">
+          <div class="section-header centered" data-reveal>
+            <p class="eyebrow">Process</p>
+            <h2 class="section-title">A simple path from bottleneck diagnosis to cleaner execution.</h2>
+            <p class="section-copy">
+              The goal is not to keep you in an endless advisory cycle. The goal is to
+              identify the leak, install the system, and leave the business sharper.
+            </p>
+          </div>
+          <div class="process-grid" data-reveal>
+            <article class="process-card">
+              <span class="step-index">01</span>
+              <h3 class="card-title">Audit the leak</h3>
+              <p>Find where slow response, weak follow-up, or manual workflow drag is actually costing money or time.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-index">02</span>
+              <h3 class="card-title">Narrow the scope</h3>
+              <p>Choose one bottleneck to clean up first so the work stays fast, concrete, and measurable.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-index">03</span>
+              <h3 class="card-title">Install the system</h3>
+              <p>Build the follow-up rhythm, handoff structure, SOP cleanup, or lightweight automation that fixes the leak.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-index">04</span>
+              <h3 class="card-title">Tighten and hand off</h3>
+              <p>Leave clear ownership, cleaner execution, and a next-step roadmap instead of more operational fog.</p>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="section">
-        <div class="grid-2">
-          <article class="panel">
-            <h2>Who this is for</h2>
-            <ul class="clean">
-              <li>A 3PL with growing operational complexity</li>
-              <li>An ops-heavy SMB where processes live across docs, inboxes, and people's heads</li>
-              <li>A team dealing with SOP drift, handoff misses, or manual reporting drag</li>
-              <li>A founder or operator who wants cleaner execution without hiring a full internal ops systems team</li>
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Who this is not for</h2>
-            <ul class="clean">
-              <li>Teams looking for a custom software build</li>
-              <li>Companies that want a long strategy engagement before fixing basics</li>
-              <li>Organizations without documented processes to improve at all</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="why">
-        <div class="section-head">
-          <h2>Why teams buy this</h2>
-        </div>
-        <div class="panel">
-          <p>Because operational drag is expensive even when it looks small.</p>
-          <p>
-            A missed handoff, an outdated SOP, or a manager rebuilding the same report
-            every week does not usually trigger a crisis. It just keeps stealing time.
-          </p>
-          <p>
-            Ops Autopilot Sprint is designed to fix that kind of drag quickly and concretely.
-          </p>
-          <p>
-            We do not lead with hype. We do not invent case studies. We focus on
-            practical operational improvements you can see inside a week.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="proof">
-        <div class="section-head">
-          <h2>Why the sprint feels low-risk to buy.</h2>
-          <p>
-            The offer is intentionally narrow. That makes it easier to scope, easier
-            to approve, and easier to tell whether it solved the right problem.
-          </p>
-        </div>
-        <div class="proof-grid">
-          <article class="proof-card">
-            <span class="proof-index">01</span>
-            <h3>Fixed scope</h3>
-            <p>
-              This is not an open-ended retainer by default. It is a single sprint
-              with a clear start, finish, and deliverable set.
+        <div class="shell">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Outcomes</p>
+            <h2 class="section-title">What the business should feel after the cleanup.</h2>
+            <p class="section-copy">
+              Better operations is not just a cleaner dashboard. It is faster response,
+              less dropped context, tighter follow-up, and fewer manual tasks dragging the day down.
             </p>
-          </article>
-          <article class="proof-card">
-            <span class="proof-index">02</span>
-            <h3>Operator-first lens</h3>
-            <p>
-              The work is designed around how teams actually run day to day, not how
-              consultants wish they ran on a slide.
-            </p>
-          </article>
-          <article class="proof-card">
-            <span class="proof-index">03</span>
-            <h3>Honest fit check</h3>
-            <p>
-              If the audit does not show a credible path to ROI, the answer is no.
-              That protects both sides from buying the wrong engagement.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="pricing">
-        <div class="pricing-card">
-          <p class="eyebrow">Founding engagement</p>
-          <h2>Simple, narrow, and built to move fast.</h2>
-          <div class="price">
-            <strong>$1,000</strong>
-            <span>starting engagement</span>
           </div>
-          <ul class="clean">
-            <li>Free 20-minute audit to scope the highest-friction bottleneck first</li>
-            <li>$1,000 fixed-scope sprint, paid before kickoff</li>
-            <li>7-day Ops Autopilot Sprint to clean up core ops friction</li>
-            <li>Optional light ongoing support after the sprint, if needed</li>
-            <li>If there is no clear path to ROI during the audit, we will say so before you buy anything</li>
-          </ul>
-          <div class="hero-actions hero-actions-inline">
-            <a
-              class="button button-primary"
-              href="https://calendly.com/YOUR-CALENDLY-SLUG/ops-audit"
-              data-track="cta"
-              data-track-label="pricing_book_audit"
-              data-calendly-link
-              >Book a 20-minute ops audit</a
-            >
+          <div class="outcomes-grid" data-reveal>
+            <article class="outcome-card">
+              <span class="card-kicker">Speed</span>
+              <h3 class="card-title">Faster first response</h3>
+              <p>Fewer leads waiting around while the business decides who owns the next step.</p>
+            </article>
+            <article class="outcome-card">
+              <span class="card-kicker">Consistency</span>
+              <h3 class="card-title">Cleaner follow-up discipline</h3>
+              <p>Less revenue depending on memory, sticky notes, or someone remembering after hours.</p>
+            </article>
+            <article class="outcome-card">
+              <span class="card-kicker">Execution</span>
+              <h3 class="card-title">Stronger handoffs and SOP use</h3>
+              <p>Fewer dropped details and less variation from one person to the next.</p>
+            </article>
+            <article class="outcome-card">
+              <span class="card-kicker">Time</span>
+              <h3 class="card-title">Less avoidable admin work</h3>
+              <p>More hours recovered from repetitive updates, manual routing, and rework.</p>
+            </article>
+            <article class="outcome-card">
+              <span class="card-kicker">Visibility</span>
+              <h3 class="card-title">Cleaner reporting rhythm</h3>
+              <p>Less reporting drag and a tighter view of what actually needs a decision.</p>
+            </article>
+            <article class="outcome-card">
+              <span class="card-kicker">Control</span>
+              <h3 class="card-title">A system the team can actually run</h3>
+              <p>Not just a one-time fix, but a more usable operating rhythm after implementation.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="faq">
-        <div class="section-head">
-          <h2>FAQ</h2>
-        </div>
-        <div class="faq">
-          <details data-track="faq" data-track-label="faq_ops_audit">
-            <summary>What happens in the 20-minute ops audit?</summary>
-            <p>
-              We identify the biggest sources of SOP drift, handoff friction, reporting drag,
-              and repetitive admin work. If the sprint looks like a fit, we outline the best
-              starting scope.
-            </p>
-          </details>
-          <details data-track="faq" data-track-label="faq_company_type">
-            <summary>What kind of company is this for?</summary>
-            <p>Primarily 3PLs and other ops-heavy SMBs with recurring internal process friction.</p>
-          </details>
-          <details data-track="faq" data-track-label="faq_required_access">
-            <summary>What do you need from us to start?</summary>
-            <p>Access to your current SOPs, runbooks, reporting flow, and the people closest to the bottlenecks.</p>
-          </details>
-          <details data-track="faq" data-track-label="faq_lightweight_automation">
-            <summary>What counts as a lightweight automation?</summary>
-            <p>Simple internal workflows that remove repetitive manual steps without requiring a custom platform build.</p>
-          </details>
-          <details data-track="faq" data-track-label="faq_replace_hire">
-            <summary>Do you replace an operations hire or agency?</summary>
-            <p>No. This is a focused sprint to clean up systems, reduce friction, and create a clearer next-step roadmap.</p>
-          </details>
-          <details data-track="faq" data-track-label="faq_after_sprint">
-            <summary>What happens after the sprint?</summary>
-            <p>
-              You leave with improved documentation, a better reporting layer, a few
-              immediate efficiency gains, and a ranked list of what to fix next.
-            </p>
-          </details>
+      <section class="section anchor-offset" id="audit-form">
+        <div class="shell audit-grid">
+          <article class="surface-alt surface-stack form-panel" data-reveal>
+            <div class="section-header compact">
+              <p class="eyebrow">Book audit</p>
+              <h2 class="section-title">Start with a short intake, then schedule the audit inline.</h2>
+              <p class="section-copy">
+                This keeps the path tighter than sending people away cold. We capture the basics first,
+                preserve attribution, and send you to a thank-you page with the scheduler already loaded.
+              </p>
+            </div>
+            <ul class="list">
+              <li>Short qualification form first</li>
+              <li>Cleaner routing into the right niche or ops conversation</li>
+              <li>Better pre-call context before the audit happens</li>
+              <li>Stronger follow-up foundation once CRM, SMS, and email automation are wired</li>
+            </ul>
+            <p class="form-note">Primary CTA: Book audit. Secondary CTA: See how it works.</p>
+          </article>
+
+          <article class="surface form-panel" data-reveal>
+            <form class="audit-form" data-audit-form data-default-industry="ops_heavy_services" data-page-label="/" novalidate>
+              <div class="form-grid">
+                <label class="field">
+                  <span class="field-label">First name</span>
+                  <input type="text" name="first_name" placeholder="Javen" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Email</span>
+                  <input type="email" name="email" placeholder="you@company.com" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Phone</span>
+                  <input type="tel" name="phone" placeholder="(555) 555-5555" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Business name</span>
+                  <input type="text" name="business_name" placeholder="Company name" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Website</span>
+                  <input type="url" name="website" placeholder="https://yourwebsite.com" required />
+                </label>
+                <label class="field">
+                  <span class="field-label">Industry</span>
+                  <select name="industry" required>
+                    <option value="">Select one</option>
+                    <option value="law_firm">Law firm</option>
+                    <option value="med_spa">Med spa</option>
+                    <option value="home_services">Home services</option>
+                    <option value="ops_heavy_services">Ops-heavy service business</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+                <label class="field field-full">
+                  <span class="field-label">Biggest issue</span>
+                  <select name="biggest_issue" required>
+                    <option value="">Select the main leak</option>
+                    <option value="slow_response">Slow response</option>
+                    <option value="missed_calls">Missed calls</option>
+                    <option value="weak_follow_up">Weak follow-up</option>
+                    <option value="manual_handoffs">Manual handoffs</option>
+                    <option value="sop_drift">SOP drift</option>
+                    <option value="reporting_drag">Reporting drag</option>
+                    <option value="repetitive_admin">Repetitive admin work</option>
+                    <option value="not_sure">Not sure yet</option>
+                  </select>
+                </label>
+                <label class="field field-full">
+                  <span class="field-label">Notes</span>
+                  <textarea name="notes" placeholder="Optional: anything useful to review before the audit."></textarea>
+                </label>
+              </div>
+
+              <input type="hidden" name="source_page" />
+              <input type="hidden" name="source_path" />
+              <input type="hidden" name="source_url" />
+              <input type="hidden" name="utm_source" />
+              <input type="hidden" name="utm_medium" />
+              <input type="hidden" name="utm_campaign" />
+              <input type="hidden" name="submitted_at" />
+
+              <p class="field-note">This is the short qualification step. Scheduler comes next on the thank-you page.</p>
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Book audit</button>
+                <a class="button button-secondary" href="#process">See how it works</a>
+              </div>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+          </article>
         </div>
       </section>
 
-      <section class="cta-band" id="audit">
-        <p class="eyebrow">Start here</p>
-        <h2>Book a 20-minute ops audit</h2>
-        <p>
-          If your team is losing time to SOP drift, handoff chaos, and manual reporting,
-          this is the fastest place to start.
-        </p>
-        <div class="hero-actions hero-actions-center">
-          <a
-            class="button button-primary"
-            href="https://calendly.com/YOUR-CALENDLY-SLUG/ops-audit"
-            data-track="cta"
-            data-track-label="final_book_audit"
-            data-calendly-link
-            >Book a 20-minute ops audit</a
-          >
+      <section class="section anchor-offset" id="faq">
+        <div class="shell">
+          <div class="section-header centered" data-reveal>
+            <p class="eyebrow">FAQ</p>
+            <h2 class="section-title">The fit is better when the bottleneck is real, specific, and already costing something.</h2>
+          </div>
+          <div class="surface" data-reveal>
+            <div class="faq-list">
+              <details open data-track="faq" data-track-label="home_faq_audit">
+                <summary>What happens in the audit?</summary>
+                <p>
+                  We identify the most expensive operational leak first. That might be slow response,
+                  weak follow-up, manual handoff friction, reporting drag, or repetitive admin work.
+                  If there is no clear path to value, we will say so.
+                </p>
+              </details>
+              <details data-track="faq" data-track-label="home_faq_fit">
+                <summary>Who is the best fit?</summary>
+                <p>
+                  Small businesses and service businesses with real operational complexity:
+                  law firms, med spas, home services, and other teams where work leaks because
+                  the workflow is too manual or too inconsistent.
+                </p>
+              </details>
+              <details data-track="faq" data-track-label="home_faq_ai">
+                <summary>Is this an AI agency engagement?</summary>
+                <p>
+                  No. Runbook Relay is an operator-led systems and automation consultancy.
+                  The point is better execution and revenue capture, not selling generic AI language.
+                </p>
+              </details>
+              <details data-track="faq" data-track-label="home_faq_scope">
+                <summary>Do you build giant custom systems?</summary>
+                <p>
+                  Not by default. The work is intentionally narrow and practical. Clean up the leak,
+                  install the workflow, and leave the business with a clearer operating rhythm first.
+                </p>
+              </details>
+              <details data-track="faq" data-track-label="home_faq_price">
+                <summary>How is the engagement framed?</summary>
+                <p>
+                  The starting path is a booked audit and a fixed-scope implementation if the fit is clear.
+                  That keeps the work easier to approve, easier to run, and easier to measure.
+                </p>
+              </details>
+            </div>
+          </div>
         </div>
-        <p class="hero-note">
-          We'll look at the bottlenecks, tell you whether the sprint is a fit, and
-          recommend the highest-leverage next step.
-        </p>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="cta-band" data-reveal>
+            <p class="eyebrow">Next step</p>
+            <h2 class="section-title">Book the audit and send the bottleneck into the right queue.</h2>
+            <p class="section-copy">
+              If slow response, weak follow-up, manual handoffs, or admin drag are already costing money,
+              the first step is to diagnose the leak clearly and decide what is worth cleaning up now.
+            </p>
+            <div class="cta-actions">
+              <a class="button button-primary" href="#audit-form" data-track="cta" data-track-label="home_final_book_audit">Book audit</a>
+              <a class="button button-secondary" href="#process">See how it works</a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="shell footer-inner">
-        <span>Runbook Relay</span>
-        <span id="footer-year"></span>
+      <div class="shell footer-shell">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="./" aria-label="Runbook Relay home">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">
+                <strong>Runbook Relay</strong>
+                <span>Operator-led systems</span>
+              </span>
+            </a>
+            <p class="footer-copy">
+              Practical systems cleanup for businesses losing money to slow response,
+              weak follow-up, handoff friction, and repetitive admin work.
+            </p>
+          </div>
+          <a class="button button-primary" href="#audit-form">Book audit</a>
+        </div>
+        <div class="footer-links">
+          <a href="./ops/">Ops Sprint</a>
+          <a href="./about/">About</a>
+          <a href="./law-firms/">Law Firms</a>
+          <a href="./med-spa/">Med Spa</a>
+          <a href="./home-services/">Home Services</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">&copy; <span id="footer-year"></span> Runbook Relay. Operator-led systems and revenue cleanup.</span>
+          <a href="mailto:javen@runbookrelay.com">javen@runbookrelay.com</a>
+        </div>
       </div>
     </footer>
   </body>
