@@ -91,33 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
     header.classList.toggle("is-scrolled", window.scrollY > 18);
   }
 
-  function scheduleGlobalBackground() {
-    const start = function () {
-      initializeGlobalBackground();
-    };
-
-    if (document.readyState === "complete") {
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(start, { timeout: 1500 });
-      } else {
-        window.setTimeout(start, 900);
-      }
-      return;
-    }
-
-    window.addEventListener(
-      "load",
-      function () {
-        if ("requestIdleCallback" in window) {
-          window.requestIdleCallback(start, { timeout: 1500 });
-        } else {
-          window.setTimeout(start, 900);
-        }
-      },
-      { once: true }
-    );
-  }
-
   function initializeGlobalBackground() {
     if (document.querySelector("[data-site-background]")) {
       return;
@@ -404,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   syncHeaderState();
-  scheduleGlobalBackground();
+  initializeGlobalBackground();
   window.addEventListener("scroll", syncHeaderState, { passive: true });
   window.addEventListener("resize", function () {
     if (window.innerWidth > 920) {
