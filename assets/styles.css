@@ -4694,8 +4694,31 @@ main li a:not(.button):hover,
     inset 0 0 0 1px rgba(255, 86, 86, 0.06);
 }
 
+.route-proof-card.is-primary {
+  border-color: rgba(255, 86, 86, 0.24);
+  background:
+    linear-gradient(180deg, rgba(18, 11, 15, 0.96), rgba(10, 7, 11, 1)),
+    linear-gradient(180deg, rgba(255, 82, 82, 0.08), rgba(255, 82, 82, 0.015));
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 0 1px rgba(255, 86, 86, 0.06);
+}
+
 .route-proof-card:hover,
 .route-proof-card:focus-within {
+  border-color: rgba(255, 104, 104, 0.34);
+  background:
+    linear-gradient(180deg, rgba(22, 12, 17, 0.98), rgba(10, 7, 11, 1)),
+    linear-gradient(180deg, rgba(255, 82, 82, 0.14), rgba(255, 82, 82, 0.02));
+  box-shadow:
+    0 28px 58px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 30px rgba(255, 66, 66, 0.12);
+}
+
+.route-proof-card.is-primary:hover,
+.route-proof-card.is-primary:focus-within {
   border-color: rgba(255, 104, 104, 0.34);
   background:
     linear-gradient(180deg, rgba(22, 12, 17, 0.98), rgba(10, 7, 11, 1)),
