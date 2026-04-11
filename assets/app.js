@@ -88,6 +88,58 @@ document.addEventListener("DOMContentLoaded", function () {
     target.dataset.state = state || "";
   }
 
+  function setChoiceValue(group, value) {
+    const input = group.querySelector("[data-choice-input]");
+    if (!input) return;
+
+    input.value = value;
+    group.classList.remove("is-invalid");
+
+    group.querySelectorAll("[data-choice-value]").forEach(function (button) {
+      const isSelected = button.getAttribute("data-choice-value") === value;
+      button.classList.toggle("is-selected", isSelected);
+      button.setAttribute("aria-pressed", String(isSelected));
+    });
+  }
+
+  function initializeChoiceGroups(form) {
+    form.querySelectorAll("[data-choice-group]").forEach(function (group) {
+      const input = group.querySelector("[data-choice-input]");
+      const choiceName = group.getAttribute("data-choice-name");
+      const defaultValue =
+        choiceName === "industry" ? form.getAttribute("data-default-industry") || "" : "";
+
+      group.querySelectorAll("[data-choice-value]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          setChoiceValue(group, button.getAttribute("data-choice-value") || "");
+        });
+      });
+
+      const initialValue = input && input.value ? input.value : defaultValue;
+      if (initialValue) {
+        setChoiceValue(group, initialValue);
+      }
+    });
+  }
+
+  function validateChoiceGroups(form) {
+    let isValid = true;
+
+    form.querySelectorAll("[data-choice-group]").forEach(function (group) {
+      const input = group.querySelector("[data-choice-input]");
+      if (!input || !input.required) return;
+
+      const hasValue = Boolean(String(input.value || "").trim());
+      group.classList.toggle("is-invalid", !hasValue);
+
+      if (!hasValue) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
   function syncHiddenFields(form) {
     const utmData = getUtmData();
     const defaults = {
@@ -106,12 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
         input.value = defaults[key];
       }
     });
-
-    const defaultIndustry = form.getAttribute("data-default-industry");
-    const industryField = form.querySelector('select[name="industry"]');
-    if (defaultIndustry && industryField && !industryField.value) {
-      industryField.value = defaultIndustry;
-    }
   }
 
   function buildLeadPayload(form) {
@@ -160,13 +206,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   forms.forEach(function (form) {
+    initializeChoiceGroups(form);
     syncHiddenFields(form);
 
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       syncHiddenFields(form);
 
-      if (!form.reportValidity()) {
+      const nativeValid = form.reportValidity();
+      const choiceValid = validateChoiceGroups(form);
+
+      if (!nativeValid || !choiceValid) {
         setStatus(form, "Please complete the required fields so the audit can be routed correctly.", "error");
         track("rr_audit_form_invalid", {
           source_page: form.getAttribute("data-page-label") || path

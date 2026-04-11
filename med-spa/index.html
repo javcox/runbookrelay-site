@@ -307,29 +307,33 @@
                   <span class="field-label">Website</span>
                   <input type="url" name="website" placeholder="https://yourmedspa.com" required />
                 </label>
-                <label class="field">
+                <div class="field field-full choice-field">
                   <span class="field-label">Industry</span>
-                  <select name="industry" required>
-                    <option value="">Select one</option>
-                    <option value="law_firm">Law firm</option>
-                    <option value="med_spa">Med spa</option>
-                    <option value="home_services">Home services</option>
-                    <option value="ops_heavy_services">Ops-heavy service business</option>
-                    <option value="other">Other</option>
-                  </select>
-                </label>
-                <label class="field field-full">
+                  <div class="choice-group" data-choice-group data-choice-name="industry">
+                    <input type="hidden" name="industry" required data-choice-input />
+                    <div class="choice-options">
+                      <button class="choice-button" type="button" data-choice-value="law_firm">Law firm</button>
+                      <button class="choice-button" type="button" data-choice-value="med_spa">Med spa</button>
+                      <button class="choice-button" type="button" data-choice-value="home_services">Home services</button>
+                      <button class="choice-button" type="button" data-choice-value="ops_heavy_services">Ops-heavy service business</button>
+                      <button class="choice-button" type="button" data-choice-value="other">Other</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="field field-full choice-field">
                   <span class="field-label">Biggest issue</span>
-                  <select name="biggest_issue" required>
-                    <option value="">Select the main leak</option>
-                    <option value="slow_response">Slow response to new consults</option>
-                    <option value="missed_calls">Missed calls or DMs</option>
-                    <option value="weak_follow_up">Weak follow-up after inquiry</option>
-                    <option value="manual_handoffs">Manual staff handoffs</option>
-                    <option value="repetitive_admin">Repetitive admin work</option>
-                    <option value="not_sure">Not sure yet</option>
-                  </select>
-                </label>
+                  <div class="choice-group" data-choice-group data-choice-name="biggest_issue">
+                    <input type="hidden" name="biggest_issue" required data-choice-input />
+                    <div class="choice-options">
+                      <button class="choice-button" type="button" data-choice-value="slow_response">Slow response to new consults</button>
+                      <button class="choice-button" type="button" data-choice-value="missed_calls">Missed calls or DMs</button>
+                      <button class="choice-button" type="button" data-choice-value="weak_follow_up">Weak follow-up after inquiry</button>
+                      <button class="choice-button" type="button" data-choice-value="manual_handoffs">Manual staff handoffs</button>
+                      <button class="choice-button" type="button" data-choice-value="repetitive_admin">Repetitive admin work</button>
+                      <button class="choice-button" type="button" data-choice-value="not_sure">Not sure yet</button>
+                    </div>
+                  </div>
+                </div>
                 <label class="field field-full">
                   <span class="field-label">Notes</span>
                   <textarea name="notes" placeholder="Optional: where do consult requests or no-show recovery feel weakest?"></textarea>
