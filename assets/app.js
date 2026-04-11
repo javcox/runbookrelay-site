@@ -566,9 +566,32 @@ document.addEventListener("DOMContentLoaded", function () {
       { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
     );
 
+    const revealInViewport = function () {
+      document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach(function (node) {
+        const rect = node.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.94 && rect.bottom >= 0) {
+          node.classList.add("is-visible");
+          observer.unobserve(node);
+        }
+      });
+    };
+
     document.querySelectorAll("[data-reveal]").forEach(function (node) {
       observer.observe(node);
     });
+
+    revealInViewport();
+
+    window.addEventListener("load", revealInViewport, { once: true });
+
+    if (window.location.hash) {
+      window.requestAnimationFrame(function () {
+        document.querySelectorAll("[data-reveal]").forEach(function (node) {
+          node.classList.add("is-visible");
+          observer.unobserve(node);
+        });
+      });
+    }
   } else {
     document.querySelectorAll("[data-reveal]").forEach(function (node) {
       node.classList.add("is-visible");
