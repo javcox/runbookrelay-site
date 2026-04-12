@@ -5280,3 +5280,270 @@ main li a:not(.button):hover,
     transition: none;
   }
 }
+
+/* Homepage conversion flow */
+
+.route-home .homepage-main {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: clamp(84px, 9vw, 132px);
+}
+
+.route-home .homepage-main > * {
+  width: 100%;
+}
+
+.route-home .hero {
+  order: 1;
+  padding-bottom: clamp(76px, 8vw, 116px);
+}
+
+.route-home #problem {
+  order: 2;
+}
+
+.route-home #authority {
+  order: 3;
+}
+
+.route-home #impact {
+  order: 4;
+}
+
+.route-home #differentiation {
+  order: 5;
+}
+
+.route-home #translation {
+  order: 6;
+}
+
+.route-home #offer {
+  order: 7;
+}
+
+.route-home .homepage-section-cta {
+  order: 8;
+}
+
+.route-home .homepage-main > .section {
+  position: relative;
+  padding-top: clamp(84px, 9vw, 126px);
+  padding-bottom: clamp(84px, 9vw, 126px);
+}
+
+.route-home .homepage-main > .section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(calc(100% - 56px), var(--max-width));
+  transform: translateX(-50%);
+  border-top: 1px solid rgba(171, 203, 227, 0.12);
+}
+
+.route-home .homepage-main .hero-title,
+.route-home .homepage-main .section-title,
+.route-home .homepage-main .card-title {
+  text-wrap: balance;
+}
+
+.route-home .homepage-main .hero-title {
+  max-width: 8.6ch;
+}
+
+.route-home .homepage-main .hero-lead,
+.route-home .homepage-main .hero-fit,
+.route-home .homepage-main .hero-note,
+.route-home .homepage-main .section-copy,
+.route-home .homepage-main .proof-copy,
+.route-home .homepage-main .proof-caption,
+.route-home .homepage-main .proof-sidecar-copy,
+.route-home .homepage-main .home-diagnosis-card p,
+.route-home .homepage-main .home-route-card p,
+.route-home .homepage-main .home-founder-point p,
+.route-home .homepage-main .home-step p,
+.route-home .homepage-main .form-note,
+.route-home .homepage-main .field-note,
+.route-home .homepage-main .field-help,
+.route-home .homepage-main .choice-note,
+.route-home .homepage-main .home-final-cta .section-copy,
+.route-home .homepage-main .home-final-cta .micro-copy {
+  color: rgba(224, 233, 241, 0.9);
+}
+
+.route-home .homepage-main .hero-lead,
+.route-home .homepage-main .section-copy {
+  font-size: 1.08rem;
+  line-height: 1.76;
+}
+
+.route-home .homepage-main .hero-note,
+.route-home .homepage-main .hero-fit,
+.route-home .homepage-main .proof-caption,
+.route-home .homepage-main .form-note,
+.route-home .homepage-main .field-note {
+  font-size: 0.99rem;
+}
+
+.route-home .hero-note strong,
+.route-home .homepage-main strong {
+  color: #f6fbff;
+}
+
+.route-home .hero-actions-home {
+  margin-top: 28px;
+}
+
+.route-home .hero-actions-home .button-primary,
+.route-home .home-final-cta .button-primary {
+  box-shadow:
+    0 24px 54px rgba(24, 108, 152, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26);
+}
+
+.route-home .hero-actions-home .button-primary {
+  min-width: 236px;
+}
+
+.route-home .proof-header,
+.route-home .home-diagnosis-intro,
+.route-home .home-route-header,
+.route-home .home-founder-story,
+.route-home .home-journey-copy,
+.route-home #offer .section-header {
+  max-width: 720px;
+}
+
+.route-home .proof-band-home,
+.route-home .home-diagnosis-band,
+.route-home .home-journey-band,
+.route-home .home-founder-band,
+.route-home #offer .form-panel,
+.route-home .home-final-cta {
+  border-color: rgba(171, 203, 227, 0.14);
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.route-home .home-diagnosis-card,
+.route-home .home-route-card,
+.route-home .home-founder-point,
+.route-home .home-result-card,
+.route-home #offer .form-panel {
+  border-color: rgba(171, 203, 227, 0.14);
+  background:
+    linear-gradient(180deg, rgba(8, 16, 26, 0.88), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(78, 171, 213, 0.06), transparent 44%);
+}
+
+.route-home .home-diagnosis-card p,
+.route-home .home-route-card p,
+.route-home .home-founder-point p,
+.route-home .home-step p,
+.route-home .proof-copy {
+  max-width: 34ch;
+}
+
+.route-home .home-route-card .card-title {
+  max-width: 15ch;
+}
+
+.route-home .home-route-card .route-link,
+.route-home .home-inline-link {
+  margin-top: auto;
+}
+
+.route-home .home-journey-copy .list,
+.route-home #offer .list {
+  gap: 12px;
+}
+
+.route-home .home-result-card span,
+.route-home .home-founder-point .card-kicker {
+  color: rgba(163, 218, 228, 0.88);
+}
+
+.route-home #impact .proof-copy {
+  line-height: 1.7;
+}
+
+.route-home #impact .proof-sidecar-title,
+.route-home #impact .proof-sidecar strong,
+.route-home #offer .section-title,
+.route-home .home-final-cta .section-title {
+  color: #f7fbff;
+}
+
+.route-home #offer .audit-grid {
+  align-items: start;
+}
+
+.route-home #offer .form-panel .section-title {
+  max-width: 12ch;
+}
+
+.route-home #offer .form-note strong {
+  color: #f7fbff;
+}
+
+.route-home .home-final-cta {
+  gap: 20px;
+  background:
+    linear-gradient(180deg, rgba(11, 23, 35, 0.84), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(100, 190, 214, 0.1), transparent 38%);
+}
+
+.route-home .home-final-cta .section-copy,
+.route-home .home-final-cta .micro-copy {
+  max-width: 56ch;
+}
+
+@media (max-width: 920px) {
+  .route-home .homepage-main > .section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .route-home .hero {
+    padding-bottom: 72px;
+  }
+
+  .route-home .hero-actions-home .button-primary,
+  .route-home .hero-actions-home .button-secondary,
+  .route-home .home-final-cta .button-primary,
+  .route-home .home-final-cta .button-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .route-home .home-diagnosis-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .route-home .homepage-main > .section::before {
+    width: min(calc(100% - 32px), var(--max-width));
+  }
+
+  .route-home .hero-title {
+    max-width: 9.2ch;
+  }
+
+  .route-home .hero-lead,
+  .route-home .section-copy {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .route-home .home-diagnosis-card p,
+  .route-home .home-route-card p,
+  .route-home .home-founder-point p,
+  .route-home .home-step p,
+  .route-home .proof-copy {
+    max-width: none;
+  }
+}
