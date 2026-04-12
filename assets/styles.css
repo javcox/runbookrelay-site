@@ -5547,3 +5547,585 @@ main li a:not(.button):hover,
     max-width: none;
   }
 }
+
+/* Homepage conversion rebuild */
+.route-home .rr-homepage {
+  position: relative;
+  display: grid;
+  gap: 0;
+}
+
+.route-home .rr-home-section {
+  position: relative;
+  padding: clamp(68px, 8vw, 104px) 0;
+}
+
+.route-home .rr-home-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(calc(100% - 48px), 1180px);
+  transform: translateX(-50%);
+  border-top: 1px solid rgba(162, 190, 214, 0.12);
+}
+
+.route-home .rr-homepage > .rr-home-section:first-child::before {
+  display: none;
+}
+
+.route-home .rr-home-stack {
+  display: grid;
+  gap: 28px;
+}
+
+.route-home .rr-home-section-heading,
+.route-home .rr-home-authority-intro,
+.route-home .rr-home-cta-copy {
+  max-width: 720px;
+}
+
+.route-home .rr-home-section-title,
+.route-home .rr-home-hero-title {
+  margin: 0;
+  color: #f7fbff;
+  text-wrap: balance;
+}
+
+.route-home .rr-home-hero-title {
+  max-width: 12.8ch;
+  font-size: clamp(2.8rem, 5.7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.route-home .rr-home-section-title {
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.route-home .rr-home-hero-subhead,
+.route-home .rr-home-section-copy,
+.route-home .rr-home-card p,
+.route-home .rr-home-support,
+.route-home .rr-home-hero-list-item p,
+.route-home .rr-home-offer-price p,
+.route-home .rr-home-offer-steps span,
+.route-home .rr-home-form-panel .section-copy,
+.route-home .rr-home-form-panel .field-help,
+.route-home .rr-home-form-panel .field-note,
+.route-home .rr-home-form-panel .choice-note,
+.route-home .rr-home-form-panel .sms-consent span {
+  color: #d7e4ee;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.route-home .rr-home-hero-subhead,
+.route-home .rr-home-section-copy {
+  max-width: 38ch;
+  font-size: 1.08rem;
+}
+
+.route-home .rr-home-hero {
+  padding-top: clamp(54px, 7vw, 88px);
+  padding-bottom: clamp(52px, 6vw, 78px);
+}
+
+.route-home .rr-home-hero-grid,
+.route-home .rr-home-authority-grid,
+.route-home .rr-home-cta-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
+}
+
+.route-home .rr-home-hero-copy,
+.route-home .rr-home-hero-panel,
+.route-home .rr-home-card,
+.route-home .rr-home-form-panel {
+  position: relative;
+}
+
+.route-home .rr-home-hero-copy {
+  display: grid;
+  gap: 22px;
+}
+
+.route-home .rr-home-hero-panel,
+.route-home .rr-home-card,
+.route-home .rr-home-cta-checklist {
+  overflow: hidden;
+  border: 1px solid rgba(164, 193, 216, 0.16);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(8, 16, 26, 0.92), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(89, 184, 207, 0.08), transparent 48%);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.route-home .rr-home-hero-panel {
+  display: grid;
+  gap: 22px;
+  padding: clamp(24px, 3vw, 34px);
+  background:
+    radial-gradient(circle at top right, rgba(97, 195, 214, 0.16), transparent 42%),
+    linear-gradient(180deg, rgba(8, 16, 27, 0.94), rgba(4, 10, 18, 1));
+}
+
+.route-home .rr-home-panel-kicker,
+.route-home .rr-home-card span,
+.route-home .rr-home-form-panel .eyebrow,
+.route-home .rr-home-offer-primary .eyebrow {
+  color: #9fd8e3;
+}
+
+.route-home .rr-home-panel-title {
+  margin: 0;
+  max-width: 13ch;
+  color: #f7fbff;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.route-home .rr-home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.route-home .rr-home-hero-actions .button-primary,
+.route-home #cta .button-primary {
+  min-width: 220px;
+  justify-content: center;
+  box-shadow:
+    0 22px 48px rgba(28, 126, 176, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26);
+}
+
+.route-home .rr-home-hero-actions .button-secondary,
+.route-home #cta .button-secondary {
+  border-color: rgba(167, 200, 222, 0.18);
+  background: rgba(10, 19, 31, 0.8);
+  color: #eff7fd;
+}
+
+.route-home .rr-home-hero-actions .button-secondary:hover,
+.route-home #cta .button-secondary:hover {
+  border-color: rgba(187, 224, 245, 0.32);
+  background: rgba(15, 27, 42, 0.92);
+}
+
+.route-home .rr-home-support {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 0.98rem;
+}
+
+.route-home .rr-home-hero-metrics,
+.route-home .rr-home-impact-grid,
+.route-home .rr-home-problem-grid,
+.route-home .rr-home-diff-grid,
+.route-home .rr-home-translation-grid,
+.route-home .rr-home-offer-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.route-home .rr-home-hero-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.route-home .rr-home-card,
+.route-home .rr-home-stat-card {
+  padding: 24px;
+}
+
+.route-home .rr-home-stat-card {
+  border: 1px solid rgba(168, 198, 221, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(9, 17, 27, 0.9), rgba(6, 11, 19, 0.98)),
+    linear-gradient(135deg, rgba(255, 90, 112, 0.06), transparent 52%);
+}
+
+.route-home .rr-home-card span,
+.route-home .rr-home-stat-card span,
+.route-home .rr-home-panel-kicker {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.route-home .rr-home-stat-card strong,
+.route-home .rr-home-impact-card strong {
+  display: block;
+  margin-bottom: 12px;
+  color: #ff6b7a;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.route-home .rr-home-card p,
+.route-home .rr-home-stat-card p,
+.route-home .rr-home-proof-card strong,
+.route-home .rr-home-offer-steps span {
+  margin: 0;
+}
+
+.route-home .rr-home-hero-list,
+.route-home .rr-home-mini-stats,
+.route-home .rr-home-authority-summary {
+  display: grid;
+  gap: 14px;
+}
+
+.route-home .rr-home-hero-list-item,
+.route-home .rr-home-mini-stat {
+  border: 1px solid rgba(163, 194, 216, 0.12);
+  border-radius: 22px;
+  background: rgba(5, 12, 20, 0.62);
+  padding: 18px 18px 16px;
+}
+
+.route-home .rr-home-hero-list-item strong,
+.route-home .rr-home-mini-stat strong,
+.route-home .rr-home-proof-card strong,
+.route-home .rr-home-offer-price strong,
+.route-home .rr-home-offer-steps strong {
+  color: #f7fbff;
+}
+
+.route-home .rr-home-hero-list-item strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.route-home .rr-home-mini-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.route-home .rr-home-mini-stat strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+}
+
+.route-home .rr-home-mini-stat span {
+  display: block;
+  margin: 0;
+  color: #d9e6ef;
+  font-size: 0.88rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.route-home .rr-home-problem-grid,
+.route-home .rr-home-impact-grid,
+.route-home .rr-home-diff-grid,
+.route-home .rr-home-translation-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-home .rr-home-authority-grid {
+  align-items: stretch;
+}
+
+.route-home .rr-home-authority-intro {
+  display: grid;
+  gap: 22px;
+}
+
+.route-home .rr-home-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+.route-home .rr-home-proof-card {
+  display: flex;
+  align-items: flex-start;
+  min-height: 128px;
+  background:
+    linear-gradient(180deg, rgba(10, 17, 28, 0.94), rgba(6, 11, 19, 0.98)),
+    linear-gradient(135deg, rgba(255, 99, 117, 0.08), transparent 54%);
+}
+
+.route-home .rr-home-proof-card strong {
+  font-size: 1.02rem;
+  line-height: 1.42;
+}
+
+.route-home .rr-home-impact-card {
+  background:
+    linear-gradient(180deg, rgba(15, 10, 15, 0.92), rgba(10, 8, 12, 0.98)),
+    radial-gradient(circle at top left, rgba(255, 82, 104, 0.12), transparent 42%);
+  border-color: rgba(255, 105, 120, 0.24);
+}
+
+.route-home .rr-home-impact-card span {
+  color: #ff9ba6;
+}
+
+.route-home .rr-home-diff-card-primary {
+  border-color: rgba(157, 209, 221, 0.24);
+  background:
+    linear-gradient(180deg, rgba(8, 18, 28, 0.94), rgba(5, 10, 18, 1)),
+    linear-gradient(135deg, rgba(98, 187, 212, 0.12), transparent 46%);
+}
+
+.route-home .rr-home-translation-card,
+.route-home .rr-home-problem-card,
+.route-home .rr-home-offer-card,
+.route-home .rr-home-authority-card,
+.route-home .rr-home-cta-checklist {
+  display: grid;
+  gap: 14px;
+}
+
+.route-home .rr-home-offer-grid {
+  grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(0, 0.95fr));
+}
+
+.route-home .rr-home-offer-primary {
+  background:
+    radial-gradient(circle at top right, rgba(255, 81, 103, 0.14), transparent 42%),
+    linear-gradient(180deg, rgba(10, 17, 28, 0.96), rgba(6, 11, 19, 1));
+}
+
+.route-home .rr-home-offer-price {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid rgba(255, 112, 124, 0.2);
+  border-radius: 24px;
+  background: rgba(16, 10, 14, 0.54);
+}
+
+.route-home .rr-home-offer-price strong {
+  font-size: clamp(2.2rem, 3vw, 3.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: #ff6b7a;
+}
+
+.route-home .rr-home-offer-steps {
+  display: grid;
+  gap: 14px;
+}
+
+.route-home .rr-home-offer-steps div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid rgba(161, 189, 211, 0.12);
+}
+
+.route-home .rr-home-offer-steps div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.route-home .rr-home-offer-steps strong {
+  color: #ff8996;
+  font-size: 1.2rem;
+}
+
+.route-home .rr-home-cta-grid {
+  align-items: start;
+}
+
+.route-home .rr-home-cta-copy {
+  display: grid;
+  gap: 22px;
+}
+
+.route-home .rr-home-cta-checklist {
+  background:
+    linear-gradient(180deg, rgba(8, 16, 26, 0.94), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(95, 189, 212, 0.08), transparent 46%);
+}
+
+.route-home .rr-home-form-panel {
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.route-home .rr-home-form-panel .section-title {
+  max-width: 16ch;
+  color: #f7fbff;
+}
+
+.route-home .rr-homepage .card-title {
+  margin: 0;
+  color: #f7fbff;
+  font-size: 1.45rem;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.route-home .rr-homepage .route-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  color: #99dfff;
+  font-weight: 700;
+}
+
+.route-home .rr-homepage .route-link::after {
+  content: "→";
+  font-size: 0.96rem;
+}
+
+.route-home .rr-homepage .list-tight {
+  display: grid;
+  gap: 12px;
+}
+
+.route-home .rr-homepage .list-tight li {
+  position: relative;
+  padding-left: 18px;
+  color: #e2edf6;
+}
+
+.route-home .rr-homepage .list-tight li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #ff6b7a;
+  box-shadow: 0 0 12px rgba(255, 106, 121, 0.48);
+}
+
+.route-home .rr-homepage .card-kicker {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: #9fd8e3;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.route-home #cta .form-actions {
+  align-items: stretch;
+}
+
+.route-home #cta .form-actions .button {
+  justify-content: center;
+}
+
+.route-home .rr-homepage .form-panel input,
+.route-home .rr-homepage .form-panel textarea,
+.route-home .rr-homepage .form-panel .choice-button {
+  font-size: 1rem;
+}
+
+.route-home .rr-homepage [data-reveal] {
+  transform-origin: top center;
+}
+
+@media (max-width: 1040px) {
+  .route-home .rr-home-hero-grid,
+  .route-home .rr-home-authority-grid,
+  .route-home .rr-home-cta-grid,
+  .route-home .rr-home-offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-home .rr-home-hero-title {
+    max-width: 11.4ch;
+  }
+
+  .route-home .rr-home-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 840px) {
+  .route-home .rr-home-section {
+    padding: 60px 0;
+  }
+
+  .route-home .rr-home-section::before {
+    width: min(calc(100% - 32px), 1180px);
+  }
+
+  .route-home .rr-home-hero-actions .button-primary,
+  .route-home .rr-home-hero-actions .button-secondary,
+  .route-home #cta .button-primary,
+  .route-home #cta .button-secondary {
+    width: 100%;
+  }
+
+  .route-home .rr-home-hero-metrics,
+  .route-home .rr-home-problem-grid,
+  .route-home .rr-home-impact-grid,
+  .route-home .rr-home-diff-grid,
+  .route-home .rr-home-translation-grid,
+  .route-home .rr-home-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-home .rr-home-mini-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .route-home .rr-home-hero {
+    padding-top: 42px;
+    padding-bottom: 48px;
+  }
+
+  .route-home .rr-home-hero-title {
+    font-size: clamp(2.45rem, 12vw, 3.4rem);
+    line-height: 0.98;
+  }
+
+  .route-home .rr-home-section-title {
+    font-size: clamp(1.8rem, 8.4vw, 2.45rem);
+  }
+
+  .route-home .rr-home-hero-subhead,
+  .route-home .rr-home-section-copy,
+  .route-home .rr-home-card p,
+  .route-home .rr-home-support {
+    font-size: 1rem;
+  }
+
+  .route-home .rr-home-card,
+  .route-home .rr-home-stat-card,
+  .route-home .rr-home-hero-panel,
+  .route-home .rr-home-form-panel {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .route-home .rr-homepage .card-title {
+    font-size: 1.28rem;
+  }
+
+  .route-home .rr-home-proof-card {
+    min-height: auto;
+  }
+}
