@@ -5783,6 +5783,8 @@ main li a:not(.button):hover,
 }
 
 .route-home .rr-home-stat-card {
+  display: grid;
+  gap: 14px;
   border: 1px solid rgba(168, 198, 221, 0.14);
   border-radius: 24px;
   background:
@@ -5791,7 +5793,7 @@ main li a:not(.button):hover,
 }
 
 .route-home .rr-home-card span,
-.route-home .rr-home-stat-card span,
+.route-home .rr-home-stat-card > span,
 .route-home .rr-home-panel-kicker {
   display: block;
   margin-bottom: 10px;
@@ -5816,6 +5818,100 @@ main li a:not(.button):hover,
 .route-home .rr-home-proof-card strong,
 .route-home .rr-home-offer-steps span {
   margin: 0;
+}
+
+.route-home .rr-home-stat-card .proof-stat-lockup {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 18px 22px 16px;
+  isolation: isolate;
+}
+
+.route-home .rr-home-stat-card .proof-stat-lockup::before,
+.route-home .rr-home-stat-card .proof-stat-lockup::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.route-home .rr-home-stat-card .proof-stat-lockup::before {
+  inset: 0;
+  border: 1px solid rgba(255, 96, 96, 0.3);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 88, 88, 0.16), transparent 68%),
+    linear-gradient(180deg, rgba(255, 87, 87, 0.1), rgba(255, 87, 87, 0));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 122, 122, 0.08),
+    0 0 24px rgba(255, 62, 62, 0.14);
+}
+
+.route-home .rr-home-stat-card .proof-stat-lockup::after {
+  inset: -8px;
+  border: 1px solid rgba(255, 100, 100, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 70, 70, 0.06),
+    0 0 28px rgba(255, 58, 58, 0.18);
+  animation: proofAlarmPulse 2.3s ease-out infinite;
+}
+
+.route-home .rr-home-stat-card:nth-child(2) .proof-stat-lockup::after {
+  animation-delay: 0.76s;
+}
+
+.route-home .rr-home-stat-card:nth-child(3) .proof-stat-lockup::after {
+  animation-delay: 1.52s;
+}
+
+.route-home .rr-home-stat-card .proof-stat,
+.route-home .rr-home-stat-card .proof-emphasis {
+  position: relative;
+  z-index: 1;
+}
+
+.route-home .rr-home-stat-card .proof-stat {
+  margin-bottom: 0;
+  color: #ff646f;
+  text-shadow:
+    0 0 14px rgba(255, 70, 70, 0.22),
+    0 0 26px rgba(255, 70, 70, 0.14);
+}
+
+.route-home .rr-home-stat-card .proof-emphasis {
+  color: #ffe1e1;
+}
+
+.route-home .rr-home-stat-card .proof-copy {
+  color: rgba(233, 219, 223, 0.82);
+  line-height: 1.66;
+}
+
+.route-home .rr-home-stat-card .proof-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 118, 118, 0.18);
+  color: #ffb1b7;
+  font-size: 0.79rem;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.route-home .rr-home-stat-card .proof-source::after {
+  content: "↗";
+  color: rgba(255, 177, 183, 0.72);
+  font-size: 0.78rem;
+}
+
+.route-home .rr-home-stat-card .proof-source:hover {
+  color: #ffd8dc;
 }
 
 .route-home .rr-home-hero-list,
