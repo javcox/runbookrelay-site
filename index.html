@@ -48,7 +48,7 @@
       fetchpriority="high"
     />
     <link rel="canonical" href="https://runbookrelay.com/" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260412d" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260412e" />
     <script>
       window.RUNBOOK_RELAY_CONFIG = {
         siteUrl: "https://runbookrelay.com",
@@ -247,17 +247,18 @@
               </div>
             </div>
             <div class="rr-home-authority-side">
-              <article class="rr-home-card rr-home-about-card">
-                <figure class="rr-home-about-visual">
-                  <img
-                    src="./assets/founder-javen-cinocca.webp"
-                    alt="Javen Cinocca, founder of Runbook Relay"
-                    loading="lazy"
-                    decoding="async"
-                    width="1024"
-                    height="1024"
-                  />
-                </figure>
+              <figure class="rr-home-authority-photo">
+                <img
+                  src="./assets/founder-javen-cinocca.webp"
+                  alt="Javen Cinocca, founder of Runbook Relay"
+                  loading="eager"
+                  fetchpriority="low"
+                  decoding="async"
+                  width="1024"
+                  height="1024"
+                />
+              </figure>
+              <article class="rr-home-card rr-home-about-box">
                 <div class="rr-home-about-copy">
                   <span class="card-kicker">About me</span>
                   <h3 class="card-title">I build execution systems inside real operating environments, not theory decks.</h3>
@@ -265,15 +266,15 @@
                   <p>Runbook Relay comes from fixing missed ownership, weak follow-up, and delayed visibility where they were already costing real money.</p>
                 </div>
               </article>
-              <div class="rr-home-proof-grid" aria-label="Authority proof points">
-                <article class="rr-home-card rr-home-proof-card"><strong>Managed sitewide labor allocation across 200+ employee operations</strong></article>
-                <article class="rr-home-card rr-home-proof-card"><strong>Built and scaled a 33-asset automation platform</strong></article>
-                <article class="rr-home-card rr-home-proof-card"><strong>Reduced accountability/documentation effort by ~90%</strong></article>
-                <article class="rr-home-card rr-home-proof-card"><strong>Identified recurring loss gaps worth ~$2K&ndash;$10K/month</strong></article>
-                <article class="rr-home-card rr-home-proof-card"><strong>Created real-time reporting systems replacing delayed visibility</strong></article>
-                <article class="rr-home-card rr-home-proof-card"><strong>Standardized systems across teams, functions, and sites</strong></article>
-              </div>
             </div>
+          </div>
+          <div class="rr-home-proof-grid" aria-label="Authority proof points" data-reveal>
+            <article class="rr-home-card rr-home-proof-card"><strong>Managed sitewide labor allocation across 200+ employee operations</strong></article>
+            <article class="rr-home-card rr-home-proof-card"><strong>Built and scaled a 33-asset automation platform</strong></article>
+            <article class="rr-home-card rr-home-proof-card"><strong>Reduced accountability/documentation effort by ~90%</strong></article>
+            <article class="rr-home-card rr-home-proof-card"><strong>Identified recurring loss gaps worth ~$2K&ndash;$10K/month</strong></article>
+            <article class="rr-home-card rr-home-proof-card"><strong>Created real-time reporting systems replacing delayed visibility</strong></article>
+            <article class="rr-home-card rr-home-proof-card"><strong>Standardized systems across teams, functions, and sites</strong></article>
           </div>
         </div>
       </section>

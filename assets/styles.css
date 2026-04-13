@@ -5854,33 +5854,29 @@ main li a:not(.button):hover,
   align-content: start;
 }
 
-.route-home .rr-home-about-card {
-  display: grid;
-  grid-template-columns: 148px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  background:
-    linear-gradient(180deg, rgba(8, 16, 26, 0.94), rgba(5, 10, 18, 0.98)),
-    linear-gradient(135deg, rgba(88, 186, 210, 0.08), transparent 44%);
-}
-
-.route-home .rr-home-about-visual {
+.route-home .rr-home-authority-photo {
   margin: 0;
   overflow: hidden;
-  border-radius: 22px;
+  border-radius: 28px;
   border: 1px solid rgba(164, 193, 216, 0.18);
   background: rgba(8, 14, 22, 0.72);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    0 18px 38px rgba(0, 0, 0, 0.18);
+    0 22px 42px rgba(0, 0, 0, 0.2);
 }
 
-.route-home .rr-home-about-visual img {
+.route-home .rr-home-authority-photo img {
   display: block;
   width: 100%;
   height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+.route-home .rr-home-about-box {
+  background:
+    linear-gradient(180deg, rgba(8, 16, 26, 0.94), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(88, 186, 210, 0.08), transparent 44%);
 }
 
 .route-home .rr-home-about-copy {
@@ -5890,7 +5886,7 @@ main li a:not(.button):hover,
 
 .route-home .rr-home-proof-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   align-content: start;
 }
@@ -6246,12 +6242,9 @@ main li a:not(.button):hover,
     grid-template-columns: 1fr;
   }
 
-  .route-home .rr-home-about-card {
-    grid-template-columns: 1fr;
-  }
-
-  .route-home .rr-home-about-visual {
-    max-width: 180px;
+  .route-home .rr-home-authority-photo {
+    width: min(100%, 360px);
+    max-width: 100%;
   }
 }
 
