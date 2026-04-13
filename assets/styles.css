@@ -5763,6 +5763,21 @@ main li a:not(.button):hover,
   font-size: 0.98rem;
 }
 
+.route-home .rr-home-build-flag {
+  display: inline-flex;
+  width: fit-content;
+  margin: -4px 0 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 207, 92, 0.38);
+  border-radius: 999px;
+  background: rgba(65, 44, 5, 0.42);
+  color: #ffd86e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .route-home .rr-home-hero-metrics,
 .route-home .rr-home-impact-grid,
 .route-home .rr-home-problem-grid,
