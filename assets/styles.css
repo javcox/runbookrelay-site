@@ -6190,11 +6190,6 @@ main li a:not(.button):hover,
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
 }
 
-.route-home .rr-home-offer-shell {
-  display: grid;
-  gap: 18px;
-}
-
 .route-home .rr-home-offer-primary {
   background:
     radial-gradient(circle at top right, rgba(92, 224, 171, 0.16), transparent 42%),
@@ -6296,20 +6291,6 @@ main li a:not(.button):hover,
 .route-home .rr-home-cta-copy {
   display: grid;
   gap: 22px;
-}
-
-.route-home .rr-home-cta-copy .rr-home-offer-grid {
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-
-.route-home .rr-home-cta-copy .rr-home-offer-primary .rr-home-section-title {
-  max-width: 11.2ch;
-  font-size: clamp(2rem, 3.2vw, 3.1rem);
-}
-
-.route-home .rr-home-cta-copy .rr-home-offer-primary .rr-home-section-copy {
-  max-width: 36ch;
 }
 
 .route-home .rr-home-cta-checklist {
