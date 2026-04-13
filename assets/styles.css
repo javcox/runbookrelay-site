@@ -5116,6 +5116,45 @@ main li a:not(.button):hover,
   }
 }
 
+@keyframes ctaPathFlow {
+  0%,
+  100% {
+    top: 8px;
+    opacity: 0.14;
+  }
+
+  18% {
+    opacity: 0.92;
+  }
+
+  52% {
+    top: calc(100% - 74px);
+    opacity: 0.82;
+  }
+
+  78% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes ctaPathNodePulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(95, 211, 179, 0),
+      0 0 0 1px rgba(95, 211, 179, 0.16);
+    transform: scale(1);
+  }
+
+  34% {
+    box-shadow:
+      0 0 0 12px rgba(95, 211, 179, 0),
+      0 0 0 1px rgba(95, 211, 179, 0.42),
+      0 0 26px rgba(95, 211, 179, 0.24);
+    transform: scale(1.04);
+  }
+}
+
 :where(
   .systems-kpi,
   .route-card,
@@ -6148,7 +6187,9 @@ main li a:not(.button):hover,
 .route-home .rr-home-problem-card,
 .route-home .rr-home-offer-card,
 .route-home .rr-home-authority-card,
-.route-home .rr-home-cta-checklist {
+.route-home .rr-home-cta-checklist,
+.route-home .rr-home-cta-path,
+.route-home .rr-home-cta-reassurance {
   display: grid;
   gap: 14px;
 }
@@ -6260,10 +6301,183 @@ main li a:not(.button):hover,
   gap: 22px;
 }
 
+@media (min-width: 1041px) {
+  .route-home .rr-home-cta-copy {
+    position: sticky;
+    top: calc(var(--site-header-offset) + 28px);
+    align-self: start;
+  }
+}
+
+.route-home .rr-home-cta-path {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  border: 1px solid rgba(102, 225, 182, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(7, 16, 24, 0.94), rgba(5, 10, 18, 0.99)),
+    radial-gradient(circle at top left, rgba(93, 226, 181, 0.12), transparent 42%);
+  box-shadow:
+    inset 0 0 0 1px rgba(123, 255, 211, 0.04),
+    0 24px 56px rgba(0, 0, 0, 0.2);
+}
+
+.route-home .rr-home-cta-path-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.route-home .rr-home-cta-path-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid rgba(101, 224, 181, 0.22);
+  border-radius: 999px;
+  background: rgba(10, 24, 22, 0.86);
+  color: #c8f3e2;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.route-home .rr-home-cta-path-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #63f0b2;
+  box-shadow: 0 0 16px rgba(99, 240, 178, 0.48);
+  animation: proofSuccessCorePulse 2.6s ease-in-out infinite;
+}
+
+.route-home .rr-home-cta-steps {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding-left: 2px;
+}
+
+.route-home .rr-home-cta-steps::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 18px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(96, 214, 179, 0.1), rgba(96, 214, 179, 0.26), rgba(96, 214, 179, 0.08));
+}
+
+.route-home .rr-home-cta-steps::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  width: 6px;
+  height: 66px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(99, 240, 178, 0.06), rgba(99, 240, 178, 0.98), rgba(99, 240, 178, 0.06));
+  box-shadow:
+    0 0 26px rgba(99, 240, 178, 0.24),
+    0 0 48px rgba(99, 240, 178, 0.16);
+  animation: ctaPathFlow 5.8s ease-in-out infinite;
+}
+
+.route-home .rr-home-cta-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.route-home .rr-home-cta-step-marker {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(102, 225, 182, 0.28);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(99, 240, 178, 0.22), rgba(7, 20, 22, 0.96) 70%);
+  color: #dffaf0;
+  font-weight: 800;
+  box-shadow: 0 0 0 1px rgba(95, 211, 179, 0.16);
+  animation: ctaPathNodePulse 5.8s ease-in-out infinite;
+}
+
+.route-home .rr-home-cta-step:nth-child(2) .rr-home-cta-step-marker {
+  animation-delay: 1.9s;
+}
+
+.route-home .rr-home-cta-step:nth-child(3) .rr-home-cta-step-marker {
+  animation-delay: 3.8s;
+}
+
+.route-home .rr-home-cta-step-copy {
+  display: grid;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.route-home .rr-home-cta-step-copy strong {
+  color: #f7fbff;
+  font-size: 1.04rem;
+  line-height: 1.18;
+}
+
+.route-home .rr-home-cta-step-copy p {
+  margin: 0;
+}
+
 .route-home .rr-home-cta-checklist {
   background:
     linear-gradient(180deg, rgba(8, 16, 26, 0.94), rgba(5, 10, 18, 0.98)),
     linear-gradient(135deg, rgba(95, 189, 212, 0.08), transparent 46%);
+}
+
+.route-home .rr-home-cta-reassurance {
+  padding: 22px;
+  border: 1px solid rgba(164, 193, 216, 0.16);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(8, 16, 26, 0.92), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(91, 184, 207, 0.08), transparent 52%);
+}
+
+.route-home .rr-home-cta-reassurance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.route-home .rr-home-cta-reassurance-item {
+  display: grid;
+  gap: 8px;
+  min-height: 100%;
+  padding: 16px;
+  border: 1px solid rgba(104, 189, 213, 0.14);
+  border-radius: 20px;
+  background: rgba(8, 17, 27, 0.62);
+}
+
+.route-home .rr-home-cta-reassurance-item strong {
+  color: #f7fbff;
+  font-size: 1rem;
+  line-height: 1.16;
+}
+
+.route-home .rr-home-cta-reassurance-item p {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .route-home .rr-home-form-panel {
@@ -6364,6 +6578,10 @@ main li a:not(.button):hover,
   .route-home .rr-home-proof-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .route-home .rr-home-cta-reassurance-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 840px) {
@@ -6398,6 +6616,14 @@ main li a:not(.button):hover,
   .route-home .rr-home-authority-photo {
     width: min(100%, 360px);
     max-width: 100%;
+  }
+
+  .route-home .rr-home-cta-path-head {
+    align-items: start;
+  }
+
+  .route-home .rr-home-cta-step-copy strong {
+    font-size: 1rem;
   }
 }
 
@@ -6441,5 +6667,28 @@ main li a:not(.button):hover,
 
   .route-home .rr-home-offer-price {
     grid-template-columns: 1fr;
+  }
+
+  .route-home .rr-home-cta-path,
+  .route-home .rr-home-cta-reassurance {
+    padding: 20px;
+  }
+
+  .route-home .rr-home-cta-step {
+    gap: 14px;
+  }
+
+  .route-home .rr-home-cta-step-marker {
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+
+  .route-home .rr-home-cta-steps::before {
+    left: 16px;
+  }
+
+  .route-home .rr-home-cta-steps::after {
+    left: 14px;
   }
 }
