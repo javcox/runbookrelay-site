@@ -6400,16 +6400,21 @@ main li a:not(.button):hover,
 .route-home .rr-home-cta-step-marker {
   position: relative;
   z-index: 1;
-  display: inline-grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   border: 1px solid rgba(102, 225, 182, 0.28);
   background:
     radial-gradient(circle at 50% 40%, rgba(99, 240, 178, 0.22), rgba(7, 20, 22, 0.96) 70%);
   color: #dffaf0;
-  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 900;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
   box-shadow: 0 0 0 1px rgba(95, 211, 179, 0.16);
   animation: ctaPathNodePulse 5.8s ease-in-out infinite;
 }
@@ -6679,9 +6684,9 @@ main li a:not(.button):hover,
   }
 
   .route-home .rr-home-cta-step-marker {
-    width: 34px;
-    height: 34px;
-    font-size: 0.95rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 
   .route-home .rr-home-cta-steps::before {
