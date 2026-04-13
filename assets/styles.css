@@ -5328,39 +5328,6 @@ main li a:not(.button):hover,
   width: 100%;
 }
 
-.route-home .hero {
-  order: 1;
-  padding-bottom: clamp(76px, 8vw, 116px);
-}
-
-.route-home #problem {
-  order: 2;
-}
-
-.route-home #authority {
-  order: 3;
-}
-
-.route-home #impact {
-  order: 4;
-}
-
-.route-home #differentiation {
-  order: 5;
-}
-
-.route-home #translation {
-  order: 6;
-}
-
-.route-home #offer {
-  order: 7;
-}
-
-.route-home .homepage-section-cta {
-  order: 8;
-}
-
 .route-home .homepage-main > .section {
   position: relative;
   padding-top: clamp(84px, 9vw, 126px);
