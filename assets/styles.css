@@ -5848,6 +5848,12 @@ main li a:not(.button):hover,
   gap: 22px;
 }
 
+.route-home .rr-home-authority-side {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
 .route-home .rr-home-about-card {
   display: grid;
   grid-template-columns: 148px minmax(0, 1fr);
@@ -5943,7 +5949,7 @@ main li a:not(.button):hover,
 }
 
 .route-home .rr-home-proof-card:nth-child(4)::after,
-.route-home .rr-home-proof-card:nth-child(7)::after {
+.route-home .rr-home-proof-card:nth-child(1)::after {
   animation-delay: -2.2s;
 }
 
