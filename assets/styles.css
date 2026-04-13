@@ -5848,6 +5848,40 @@ main li a:not(.button):hover,
   gap: 22px;
 }
 
+.route-home .rr-home-about-card {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  background:
+    linear-gradient(180deg, rgba(8, 16, 26, 0.94), rgba(5, 10, 18, 0.98)),
+    linear-gradient(135deg, rgba(88, 186, 210, 0.08), transparent 44%);
+}
+
+.route-home .rr-home-about-visual {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(164, 193, 216, 0.18);
+  background: rgba(8, 14, 22, 0.72);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 18px 38px rgba(0, 0, 0, 0.18);
+}
+
+.route-home .rr-home-about-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.route-home .rr-home-about-copy {
+  display: grid;
+  gap: 10px;
+}
+
 .route-home .rr-home-proof-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5858,26 +5892,142 @@ main li a:not(.button):hover,
 .route-home .rr-home-proof-card {
   display: flex;
   align-items: flex-start;
+  position: relative;
+  isolation: isolate;
   min-height: 128px;
+  border-color: rgba(103, 216, 178, 0.22);
   background:
     linear-gradient(180deg, rgba(10, 17, 28, 0.94), rgba(6, 11, 19, 0.98)),
-    linear-gradient(135deg, rgba(255, 99, 117, 0.08), transparent 54%);
+    linear-gradient(135deg, rgba(92, 212, 170, 0.1), transparent 54%);
+  box-shadow:
+    inset 0 0 0 1px rgba(120, 255, 205, 0.04),
+    0 0 24px rgba(69, 214, 161, 0.08);
+}
+
+.route-home .rr-home-proof-card::before,
+.route-home .rr-home-proof-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.route-home .rr-home-proof-card::before {
+  inset: 0;
+  border: 1px solid rgba(104, 225, 182, 0.26);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(86, 228, 173, 0.12), transparent 68%),
+    linear-gradient(180deg, rgba(81, 220, 168, 0.08), rgba(81, 220, 168, 0));
+  box-shadow:
+    inset 0 0 0 1px rgba(123, 255, 211, 0.06),
+    0 0 20px rgba(82, 219, 169, 0.1);
+}
+
+.route-home .rr-home-proof-card::after {
+  inset: -8px;
+  border: 1px solid rgba(112, 233, 191, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(73, 214, 158, 0.05),
+    0 0 28px rgba(73, 214, 158, 0.18);
+  animation: proofAlarmPulse 2.7s ease-out infinite;
+}
+
+.route-home .rr-home-proof-card:nth-child(2)::after,
+.route-home .rr-home-proof-card:nth-child(5)::after {
+  animation-delay: -0.8s;
+}
+
+.route-home .rr-home-proof-card:nth-child(3)::after,
+.route-home .rr-home-proof-card:nth-child(6)::after {
+  animation-delay: -1.6s;
+}
+
+.route-home .rr-home-proof-card:nth-child(4)::after,
+.route-home .rr-home-proof-card:nth-child(7)::after {
+  animation-delay: -2.2s;
 }
 
 .route-home .rr-home-proof-card strong {
+  position: relative;
+  z-index: 1;
   font-size: 1.02rem;
   line-height: 1.42;
 }
 
 .route-home .rr-home-impact-card {
+  display: grid;
+  gap: 18px;
   background:
     linear-gradient(180deg, rgba(15, 10, 15, 0.92), rgba(10, 8, 12, 0.98)),
     radial-gradient(circle at top left, rgba(255, 82, 104, 0.12), transparent 42%);
   border-color: rgba(255, 105, 120, 0.24);
 }
 
-.route-home .rr-home-impact-card span {
-  color: #ff9ba6;
+.route-home .rr-home-impact-lockup {
+  position: relative;
+  display: inline-grid;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 18px 22px 16px;
+  isolation: isolate;
+}
+
+.route-home .rr-home-impact-lockup::before,
+.route-home .rr-home-impact-lockup::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.route-home .rr-home-impact-lockup::before {
+  inset: 0;
+  border: 1px solid rgba(255, 96, 96, 0.3);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 88, 88, 0.16), transparent 68%),
+    linear-gradient(180deg, rgba(255, 87, 87, 0.1), rgba(255, 87, 87, 0));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 122, 122, 0.08),
+    0 0 24px rgba(255, 62, 62, 0.14);
+}
+
+.route-home .rr-home-impact-lockup::after {
+  inset: -8px;
+  border: 1px solid rgba(255, 100, 100, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 70, 70, 0.06),
+    0 0 28px rgba(255, 58, 58, 0.18);
+  animation: proofAlarmPulse 2.3s ease-out infinite;
+}
+
+.route-home .rr-home-impact-lockup span,
+.route-home .rr-home-impact-lockup strong,
+.route-home .rr-home-impact-emphasis {
+  position: relative;
+  z-index: 1;
+}
+
+.route-home .rr-home-impact-lockup span {
+  margin-bottom: 0;
+  color: rgba(255, 204, 204, 0.72);
+}
+
+.route-home .rr-home-impact-lockup strong {
+  display: block;
+  margin-bottom: 0;
+  color: #ff646f;
+  text-shadow:
+    0 0 14px rgba(255, 70, 70, 0.22),
+    0 0 26px rgba(255, 70, 70, 0.14);
+}
+
+.route-home .rr-home-impact-emphasis {
+  margin: 0;
+  max-width: 18ch;
+  color: #ffe1e1;
+  font-weight: 700;
+  line-height: 1.12;
 }
 
 .route-home .rr-home-diff-card-primary {
@@ -6012,8 +6162,8 @@ main li a:not(.button):hover,
   width: 7px;
   height: 7px;
   border-radius: 999px;
-  background: #ff6b7a;
-  box-shadow: 0 0 12px rgba(255, 106, 121, 0.48);
+  background: #5fd3b3;
+  box-shadow: 0 0 12px rgba(95, 211, 179, 0.42);
 }
 
 .route-home .rr-homepage .card-kicker {
@@ -6088,6 +6238,14 @@ main li a:not(.button):hover,
 
   .route-home .rr-home-mini-stats {
     grid-template-columns: 1fr;
+  }
+
+  .route-home .rr-home-about-card {
+    grid-template-columns: 1fr;
+  }
+
+  .route-home .rr-home-about-visual {
+    max-width: 180px;
   }
 }
 
