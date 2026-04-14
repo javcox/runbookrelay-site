@@ -6303,6 +6303,7 @@ main li a:not(.button):hover,
 .route-home .rr-home-offer-price {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 14px;
   padding: 22px;
   position: relative;
@@ -6320,6 +6321,7 @@ main li a:not(.button):hover,
 
 .route-home .rr-home-offer-metric {
   display: grid;
+  grid-template-rows: minmax(2.7rem, auto) auto;
   gap: 8px;
   align-content: start;
   position: relative;
@@ -6327,6 +6329,10 @@ main li a:not(.button):hover,
 }
 
 .route-home .rr-home-offer-metric span {
+  display: flex;
+  align-items: flex-end;
+  min-height: 2.7rem;
+  line-height: 1.14;
   color: #98dfe8;
 }
 
@@ -6496,17 +6502,17 @@ main li a:not(.button):hover,
 .route-home .rr-home-cta-step-marker {
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   width: 40px;
   height: 40px;
+  padding: 1px 0 0;
   border-radius: 999px;
   border: 1px solid rgba(102, 225, 182, 0.28);
   background:
-    radial-gradient(circle at 50% 40%, rgba(99, 240, 178, 0.22), rgba(7, 20, 22, 0.96) 70%);
+    radial-gradient(circle at 50% 50%, rgba(99, 240, 178, 0.22), rgba(7, 20, 22, 0.96) 70%);
   color: #dffaf0;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1;
   font-weight: 900;
   text-align: center;
@@ -6768,6 +6774,14 @@ main li a:not(.button):hover,
 
   .route-home .rr-home-offer-price {
     grid-template-columns: 1fr;
+  }
+
+  .route-home .rr-home-offer-metric {
+    grid-template-rows: auto auto;
+  }
+
+  .route-home .rr-home-offer-metric span {
+    min-height: 0;
   }
 
   .route-home .rr-home-cta-path,
