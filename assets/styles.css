@@ -5887,6 +5887,10 @@ main li a:not(.button):hover,
   animation-delay: 1.52s;
 }
 
+.route-home .rr-home-stat-card:nth-child(4) .proof-stat-lockup::after {
+  animation-delay: 0s;
+}
+
 .route-home .rr-home-stat-card .proof-stat,
 .route-home .rr-home-stat-card .proof-emphasis {
   position: relative;
@@ -5981,7 +5985,7 @@ main li a:not(.button):hover,
     0 0 0 1px rgba(73, 214, 158, 0.1),
     0 0 18px rgba(73, 214, 158, 0.16),
     0 0 42px rgba(73, 214, 158, 0.28);
-  animation: proofAlarmPulse 2.8s ease-out infinite;
+  animation: proofAlarmPulse 2.3s ease-out infinite;
 }
 
 .route-home .rr-home-stat-card.is-success:nth-child(5) .proof-stat-lockup::after {
