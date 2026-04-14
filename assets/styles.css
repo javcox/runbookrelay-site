@@ -5678,7 +5678,7 @@ main li a:not(.button):hover,
 .route-home .rr-home-authority-grid,
 .route-home .rr-home-cta-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
   gap: clamp(28px, 4vw, 48px);
   align-items: start;
 }
@@ -5727,7 +5727,7 @@ main li a:not(.button):hover,
 
 .route-home .rr-home-panel-title {
   margin: 0;
-  max-width: 13ch;
+  max-width: 14ch;
   color: #f7fbff;
   font-size: clamp(1.8rem, 3vw, 2.7rem);
   line-height: 1.02;
@@ -5739,6 +5739,12 @@ main li a:not(.button):hover,
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+.route-home .rr-home-hero-proof-wrap {
+  display: grid;
+  gap: 20px;
+  margin-top: clamp(24px, 3.4vw, 36px);
 }
 
 .route-home .rr-home-hero-actions .button-primary,
@@ -5776,21 +5782,30 @@ main li a:not(.button):hover,
 .route-home .rr-home-translation-grid,
 .route-home .rr-home-offer-grid {
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
 .route-home .rr-home-hero-metrics {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+@media (min-width: 1041px) {
+  .route-home .rr-home-hero-metrics .rr-home-stat-card {
+    min-height: 368px;
+  }
 }
 
 .route-home .rr-home-card,
 .route-home .rr-home-stat-card {
-  padding: 24px;
+  padding: 22px;
 }
 
 .route-home .rr-home-stat-card {
   display: grid;
   gap: 14px;
+  align-content: start;
+  min-height: 100%;
   border: 1px solid rgba(168, 198, 221, 0.14);
   border-radius: 24px;
   background:
@@ -5832,7 +5847,7 @@ main li a:not(.button):hover,
   gap: 8px;
   width: fit-content;
   max-width: 100%;
-  padding: 18px 22px 16px;
+  padding: 16px 20px 14px;
   isolation: isolate;
 }
 
@@ -5895,6 +5910,19 @@ main li a:not(.button):hover,
   line-height: 1.66;
 }
 
+.route-home .rr-home-stat-card .proof-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(170, 199, 221, 0.12);
+  font-size: 0.79rem;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+}
+
 .route-home .rr-home-stat-card .proof-source {
   display: inline-flex;
   align-items: center;
@@ -5918,6 +5946,70 @@ main li a:not(.button):hover,
 
 .route-home .rr-home-stat-card .proof-source:hover {
   color: #ffd8dc;
+}
+
+.route-home .rr-home-stat-card.is-success {
+  border-color: rgba(103, 216, 178, 0.22);
+  background:
+    linear-gradient(180deg, rgba(8, 17, 26, 0.94), rgba(6, 11, 19, 0.98)),
+    linear-gradient(135deg, rgba(92, 212, 170, 0.1), transparent 54%);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 0 1px rgba(86, 228, 173, 0.06);
+}
+
+.route-home .rr-home-stat-card.is-success .proof-label {
+  color: rgba(201, 244, 227, 0.76);
+}
+
+.route-home .rr-home-stat-card.is-success .proof-stat-lockup::before {
+  inset: 0;
+  border: 1px solid rgba(104, 225, 182, 0.26);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(86, 228, 173, 0.18), transparent 68%),
+    linear-gradient(180deg, rgba(81, 220, 168, 0.12), rgba(81, 220, 168, 0));
+  box-shadow:
+    inset 0 0 0 1px rgba(123, 255, 211, 0.08),
+    0 0 24px rgba(82, 219, 169, 0.14);
+}
+
+.route-home .rr-home-stat-card.is-success .proof-stat-lockup::after {
+  inset: -8px;
+  border: 1px solid rgba(112, 233, 191, 0.24);
+  box-shadow:
+    0 0 0 1px rgba(73, 214, 158, 0.1),
+    0 0 18px rgba(73, 214, 158, 0.16),
+    0 0 42px rgba(73, 214, 158, 0.28);
+  animation: proofAlarmPulse 2.8s ease-out infinite;
+}
+
+.route-home .rr-home-stat-card.is-success:nth-child(5) .proof-stat-lockup::after {
+  animation-delay: 0.76s;
+}
+
+.route-home .rr-home-stat-card.is-success:nth-child(6) .proof-stat-lockup::after {
+  animation-delay: 1.52s;
+}
+
+.route-home .rr-home-stat-card.is-success .proof-stat {
+  color: #63f0b2;
+  text-shadow:
+    0 0 14px rgba(73, 214, 158, 0.22),
+    0 0 26px rgba(73, 214, 158, 0.14);
+}
+
+.route-home .rr-home-stat-card.is-success .proof-emphasis {
+  color: #dbfff0;
+}
+
+.route-home .rr-home-stat-card.is-success .proof-copy {
+  color: rgba(225, 241, 233, 0.84);
+}
+
+.route-home .rr-home-stat-card.is-success .proof-note {
+  color: #aef0cb;
+  border-top-color: rgba(112, 233, 191, 0.18);
 }
 
 .route-home .rr-home-hero-list,
