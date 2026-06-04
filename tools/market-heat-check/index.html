@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Market Heat Check | Runbook Relay</title>
+    <meta
+      name="description"
+      content="Private market-regime dashboard for valuation, sentiment, trend, liquidity, earnings, sell pressure, and dry powder decisions."
+    />
+    <meta name="theme-color" content="#071019" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260411b" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260411b" />
+    <link rel="shortcut icon" href="/favicon-32x32.png?v=20260411b" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260411b" />
+    <link
+      rel="preload"
+      href="../../assets/fonts/manrope-latin.woff2?v=20260409i"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../../assets/fonts/space-grotesk-latin.woff2?v=20260409i"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../assets/styles.css?v=20260604a" />
+    <script>
+      window.RUNBOOK_RELAY_CONFIG = {
+        siteUrl: "https://runbookrelay.com",
+        businessName: "Runbook Relay",
+        calendlyUrl: "https://calendly.com/javencin/20minopsaudit",
+        thankYouPath: "/thank-you/",
+        leadStorageKey: "rr_audit_lead",
+        analytics: { debug: false }
+      };
+    </script>
+    <script src="../../assets/app.js?v=20260411i" defer></script>
+    <script src="../../assets/market-heat.js?v=20260604a" defer></script>
+  </head>
+  <body class="route-market-heat">
+    <header class="site-header is-scrolled" data-site-header>
+      <div class="shell site-header-inner">
+        <a class="brand" href="../../" aria-label="Runbook Relay home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            <strong>Runbook Relay</strong>
+            <span>Private tools</span>
+          </span>
+        </a>
+        <div class="nav-shell">
+          <nav class="site-nav" aria-label="Primary" data-nav-menu>
+            <div class="nav-links">
+              <a href="../../">Home</a>
+              <a href="../../home-services/">Home Services</a>
+              <a href="../../about/">About</a>
+            </div>
+          </nav>
+          <div class="header-actions">
+            <a class="button button-small button-primary" href="../../#audit-form">Start Audit</a>
+          </div>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation" data-nav-toggle>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="mh-dashboard" data-market-heat-dashboard>
+      <section class="mh-hero">
+        <div class="shell mh-hero-grid">
+          <div class="mh-hero-copy" data-reveal>
+            <p class="eyebrow">Private Capital Allocation Tool</p>
+            <h1>Market Heat Check</h1>
+            <p>
+              Valuation, sentiment, trend, liquidity, earnings, and sell-pressure dashboard for deciding whether to invest, build cash, or deploy dry powder.
+            </p>
+            <div class="mh-hero-actions">
+              <a class="button button-primary" href="#manual-inputs">Update manual inputs</a>
+              <a class="button button-secondary" href="#score-breakdown">View score logic</a>
+            </div>
+            <p class="mh-disclaimer">
+              Educational framework only. Not financial advice. Existing holdings are treated differently from new contributions.
+            </p>
+          </div>
+          <aside class="mh-status-panel" data-reveal>
+            <div class="mh-status-row">
+              <span>Last refreshed</span>
+              <strong id="last-refreshed">-</strong>
+            </div>
+            <div class="mh-status-row">
+              <span>Primary use</span>
+              <strong>New-money defense</strong>
+            </div>
+            <div class="mh-status-row">
+              <span>Sell guardrail</span>
+              <strong>Valuation alone is not a sell signal</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="mh-section">
+        <div class="shell">
+          <div class="mh-notice" data-seed-notice>
+            <strong>Sample/default data is loaded.</strong>
+            Replace the metrics below, save, and the dashboard will persist your manual inputs in this browser.
+          </div>
+
+          <div class="mh-top-grid">
+            <article class="mh-score-card mh-score-card-primary">
+              <div>
+                <p class="mh-card-kicker">Market Heat Score</p>
+                <div class="mh-score-line">
+                  <strong id="market-heat-score" data-score-color="blue">-</strong>
+                  <span>/ 100</span>
+                </div>
+              </div>
+              <div class="mh-card-copy">
+                <span id="market-regime" class="mh-badge">-</span>
+                <p>Controls new contributions. Higher score means more expensive or riskier market conditions.</p>
+              </div>
+            </article>
+
+            <article class="mh-score-card">
+              <p class="mh-card-kicker">New Money</p>
+              <h2 id="new-money-split">-</h2>
+              <p id="new-money-action">-</p>
+              <strong id="new-money-dollars" class="mh-money-line">-</strong>
+            </article>
+
+            <article class="mh-score-card mh-score-card-warn">
+              <p class="mh-card-kicker">Sell Pressure Score</p>
+              <div class="mh-score-line">
+                <strong id="sell-pressure-score" data-score-color="yellow">-</strong>
+                <span>/ 100</span>
+              </div>
+              <h2 id="sell-signal">-</h2>
+              <p id="sell-action">-</p>
+            </article>
+
+            <article class="mh-score-card">
+              <p class="mh-card-kicker">Bubble Phase</p>
+              <h2 id="bubble-phase">-</h2>
+              <p id="bubble-meaning">-</p>
+            </article>
+
+            <article class="mh-score-card">
+              <p class="mh-card-kicker">Dry Powder Deployment</p>
+              <div class="mh-score-line mh-score-line-small">
+                <strong id="dry-powder-deploy" data-score-color="emerald">-</strong>
+              </div>
+              <p id="dry-powder-dollars">-</p>
+              <p>Deploys cash only when drawdown and heat score improve enough.</p>
+            </article>
+          </div>
+
+          <div class="mh-alert" data-hard-sell-warning hidden>
+            <strong>Hard sell warning:</strong>
+            Valuation, euphoria, liquidity tightness, and trend deterioration are all extreme. Consider selling or hedging 25-50% of risk assets. Avoid 100% liquidation unless using a separate active trading plan.
+          </div>
+        </div>
+      </section>
+
+      <section id="score-breakdown" class="mh-section">
+        <div class="shell mh-split">
+          <div class="mh-panel">
+            <div class="mh-panel-head">
+              <p class="eyebrow">Score Breakdown</p>
+              <h2>Five modules drive new-money allocation.</h2>
+            </div>
+            <div class="mh-breakdown-grid">
+              <article>
+                <span>Valuation</span>
+                <strong id="valuation-score">-</strong>
+                <p>40% of Market Heat</p>
+              </article>
+              <article>
+                <span>Sentiment</span>
+                <strong id="sentiment-score">-</strong>
+                <p>20% of Market Heat</p>
+              </article>
+              <article>
+                <span>Trend</span>
+                <strong id="trend-score">-</strong>
+                <p>15% of Market Heat</p>
+              </article>
+              <article>
+                <span>Liquidity</span>
+                <strong id="liquidity-score">-</strong>
+                <p>15% of Market Heat</p>
+              </article>
+              <article>
+                <span>Earnings</span>
+                <strong id="earnings-score">-</strong>
+                <p>10% of Market Heat</p>
+              </article>
+              <article>
+                <span>Trend Breakdown</span>
+                <strong id="trend-breakdown-score">-</strong>
+                <p>Sell-pressure input</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="mh-panel">
+            <div class="mh-panel-head">
+              <p class="eyebrow">Guardrail</p>
+              <h2>Valuation changes buying pace before it changes sell behavior.</h2>
+            </div>
+            <div class="mh-rules">
+              <p>Market Heat controls new contributions: invest normally, build cash, or deploy dry powder.</p>
+              <p>Sell Pressure controls existing holdings and requires valuation, sentiment, trend breakdown, and liquidity to line up.</p>
+              <p>Extreme markets can keep rising during bubble acceleration, so the model avoids full-liquidation calls.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mh-section">
+        <div class="shell">
+          <div class="mh-panel mh-table-panel">
+            <div class="mh-panel-head">
+              <p class="eyebrow">Metric Table</p>
+              <h2>Manual/default metric inputs and generated sub-scores.</h2>
+            </div>
+            <div class="mh-table-wrap">
+              <table class="mh-table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody data-market-metrics></tbody>
+              </table>
+            </div>
+            <div class="mh-missing">
+              <strong>Missing Data</strong>
+              <p data-missing-metrics>-</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="manual-inputs" class="mh-section">
+        <div class="shell">
+          <details class="mh-panel mh-form-panel" open>
+            <summary>
+              <span>
+                <span class="eyebrow">Manual Inputs</span>
+                <strong>Save, refresh, and persist this browser's market snapshot.</strong>
+              </span>
+              <span class="mh-summary-action">Open / close</span>
+            </summary>
+
+            <form data-market-form class="mh-form">
+              <div class="mh-form-section">
+                <h3>Settings</h3>
+                <div class="mh-input-grid">
+                  <label class="mh-field">
+                    <span>Monthly contribution</span>
+                    <input type="number" step="1" data-market-setting="monthly_contribution" />
+                  </label>
+                  <label class="mh-field">
+                    <span>Current dry powder</span>
+                    <input type="number" step="1" data-market-setting="current_dry_powder" />
+                  </label>
+                  <label class="mh-field">
+                    <span>Risk profile</span>
+                    <select data-market-setting="risk_profile">
+                      <option value="aggressive_long_term">Aggressive long-term</option>
+                      <option value="balanced_long_term">Balanced long-term</option>
+                      <option value="capital_preservation">Capital preservation</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <div class="mh-form-section">
+                <h3>Numeric metrics</h3>
+                <div class="mh-input-grid" data-numeric-inputs></div>
+              </div>
+
+              <div class="mh-form-section">
+                <h3>Boolean flags</h3>
+                <div class="mh-check-grid" data-flag-inputs></div>
+              </div>
+
+              <div class="mh-form-actions">
+                <button class="button button-primary" type="submit">Save / Recalculate</button>
+                <button class="button button-secondary" type="button" data-market-reset>Reset sample data</button>
+                <p data-market-status aria-live="polite"></p>
+              </div>
+            </form>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-shell">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="../../" aria-label="Runbook Relay home">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">
+                <strong>Runbook Relay</strong>
+                <span>Private tools</span>
+              </span>
+            </a>
+            <p class="footer-copy">
+              Private market-regime framework for disciplined contribution, dry-powder, and risk-management decisions.
+            </p>
+          </div>
+          <a class="button button-primary" href="#manual-inputs">Update inputs</a>
+        </div>
+        <div class="footer-links">
+          <a href="../../">Home</a>
+          <a href="../../home-services/">Home Services</a>
+          <a href="../../about/">About</a>
+          <a href="../../privacy/">Privacy</a>
+          <a href="../../terms/">Terms</a>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy">&copy; <span id="footer-year"></span> Runbook Relay. Private tools.</span>
+          <a href="mailto:javen@runbookrelay.com">javen@runbookrelay.com</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
